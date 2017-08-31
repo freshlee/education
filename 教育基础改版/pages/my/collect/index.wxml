@@ -1,0 +1,78 @@
+<!--index.wxml-->
+<!--index.wxml-->
+
+
+
+<view class="nav">
+    <view class="base {{myindex==0?'bechosen borderright':''}}" bindtap="base">所有订单</view>
+    <view class="address {{myindex==1?'bechosen borderboth':''}}" bindtap="address">未支付订单</view>
+    <view class="address {{myindex==2?'bechosen borderboth':''}}" bindtap="teacher">已支付订单</view>
+</view>
+<swiper current="{{index}}" style="height:{{myheight-40}}px" bindchange="onchange">
+    <block>
+        <!--已完成订单-->
+        <swiper-item>
+            <scroll-view scroll-y style="height:{{myheight-40}}px">
+                <view class="case" wx:for="{{all}}">
+                    <view class="top">订单号：{{item.ordersn}} <text>{{item.status==0?'待支付':'已完成'}}</text> </view>
+                    <view class="middle">
+                        <view class="picture">
+                            <image src="{{item.goods.thumb}}"></image>
+                        </view>
+                        <view class="coursename">课程名:{{item.goods.title}}</view>
+                        <view class="price">￥{{item.price}}</view>
+                    </view>
+                    <view class="bottom">
+                        <button class="cancel" wx:if="{{item.status==0}}" bindtap="cancel" data-orderid="{{item.id}}">取消订单</button>
+                        <button class="pay" wx:if="{{item.status==0}}" data-index="{{item.goods.id}}" data-ordernum="{{item.ordersn}}" data-orderid="{{item.id}}" data-title="{{item.goods.title}}" bindtap="pay">支付订单</button>
+                        <button class="comment" data-thumb="{{item.goods.thumb}}" data-name="{{item.good.title}}" wx:if="{{item.status!=0&&item.iscomment=='0'}}" bindtap="comment" data-index="{{item.goods.id}}" data-order="{{item.id}}">评论</button>
+                    </view>
+                </view>
+
+            </scroll-view>
+        </swiper-item>
+        <!--未支付订单-->
+        <swiper-item>
+            <scroll-view scroll-y style="height:{{myheight-40}}px">
+                <view class="case" wx:for="{{waitinglist}}">
+                    <view class="top">订单号：{{item.ordersn}} <text>待支付</text> </view>
+                    <view class="middle">
+                        <view class="picture">
+                            <image src="{{item.goods.thumb}}"></image>
+                        </view>
+                        <view class="coursename">课程名:{{item.goods.title}}</view>
+                        <view class="price">￥{{item.price}}</view>
+                    </view>
+                    <view class="bottom">
+                        <button class="cancel" bindtap="cancel" data-orderid="{{item.id}}">取消订单</button>
+                        <button class="pay" wx:if="{{item.status==0}}" data-index="{{item.goods.id}}" data-ordernum="{{item.ordersn}}" data-orderid="{{item.id}}" data-title="{{item.goods.title}}" bindtap="pay">支付订单</button>
+                    </view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <!--已支付订单-->
+        <swiper-item>
+            <scroll-view scroll-y style="height:{{myheight-40}}px">
+                <view class="case" wx:for="{{finishlist}}">
+                    <view class="top">订单号：{{item.ordersn}} <text>已完成</text> </view>
+                    <view class="middle">
+                        <view class="picture">
+                            <image src="{{item.goods.thumb}}"></image>
+                        </view>
+                        <view class="coursename">课程名:{{item.goods.title}}</view>
+                        <view class="price">￥{{item.price}}</view>
+                    </view>
+                    <view class="bottom">
+                        <button class="comment" wx:if="{{item.iscomment=='0'}}" bindtap="comment" data-index="{{item.goods.id}}" data-order="{{item.id}}">评论</button>
+                    </view>
+                </view>
+
+            </scroll-view>
+        </swiper-item>
+    </block>
+</swiper>
+
+
+<loading hidden="{{hidden}}"></loading>
+
+<view id="copyright">{{versioninfo}}</view>

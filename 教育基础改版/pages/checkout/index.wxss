@@ -1,0 +1,110 @@
+.body{
+  box-sizing: border-box;
+  background: #f4f4f4;
+  padding-bottom: 80rpx;
+}
+.case{
+  padding: 0 20rpx;
+  background: white;
+}
+.case>view{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+
+.num{
+  float: right;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.total .num text{
+  font-size: 40rpx;
+}
+.vochour{
+  font-size:30rpx;
+}
+
+.vochour .num text{
+  font-size: 30rpx;
+}
+.final .num text{
+  font-size: 30rpx;
+  color:orange;
+}
+.final{
+  font-size:30rpx;
+}
+.panel{
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  width:100%;
+  font-size: 40rpx;
+  color:blanchedalmond;
+  background: #0767C8;
+}
+.message textarea{
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 25rpx;
+}
+.userinfo .list{
+  font-size:30rpx;
+  line-height: 100rpx;
+  height: 100rpx;
+}
+.userinfo .list .title{
+  width:160rpx;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 30rpx;
+}
+.userinfo .list input{
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  vertical-align: top;
+  width:400rpx;
+  font-size: 30rpx;
+}
+#getcordinate{
+  float: right;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+#getcordinate image{
+  margin-right: 10rpx;
+  width:50rpx;
+  height: 50rpx;
+  position: relative;
+  top:15rpx;
+}
+.title{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 35rpx
+}
+.coursename, .coursetype , .userinfotitle, .vochour, .realname{
+  border-bottom: 2rpx solid #f4f4f4;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
+#warm{
+    color: red;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+.coursename,.userinfotitle,.orderinfo{
+    font-size: 35rpx;
+    padding: 15rpx 20rpx;
+}
+#bug{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: auto;
+}

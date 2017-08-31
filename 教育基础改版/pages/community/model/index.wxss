@@ -1,0 +1,167 @@
+/* index.wxss */
+@import "../../../wxParse/wxParse.wxss";
+.case{
+  padding:0 30rpx;
+  border-bottom: 2rpx solid #f4f4f4;
+  background-color:white;
+}
+.case .content{
+  padding-left: 80rpx;
+  box-sizing: border-box;
+}
+.header{
+  border-bottom:2rpx solid #f4f4f4;
+}
+.header>view{
+    padding:20rpx 0;
+}
+.header .title{
+  font-size:30rpx;
+  border-bottom: 2rpx solid gainsboro;
+}
+.header .describe{
+    font-size: 28rpx;
+}
+/* 帖子列表 */
+.comment{
+    margin-top: 20rpx;
+    padding: 0 30rpx;
+    background: white;
+}
+.comment .head>view{
+   display: inline-block;
+   vertical-align: top;
+   width: 50%;
+   font-size: 28rpx;
+   height: 78rpx;
+   line-height: 78rpx;
+   border-bottom: 3rpx solid #f4f4f4;
+}
+.comment .head>view:first-of-type{
+    text-align: left;
+}
+.comment .head>view:last-of-type{
+    text-align: right;
+   font-size: 25rpx;
+   color: #adadad;
+}
+.comment .list{
+    padding: 25rpx 0  20rpx;
+    border-bottom:3rpx solid #f4f4f4; 
+}
+.comment .list>view{
+   display: inline-block;
+   vertical-align: top;
+}
+.comment .list .left image{
+    width: 65rpx;
+    height: 65rpx;
+    border-radius: 50%;
+}
+.comment .list .right{
+    width: 600rpx;
+    margin-left: 20rpx;
+}
+.comment .list .right .top{
+    font-size: 27rpx;
+    color: #adadad;
+}
+.comment .list .right .middle{
+    margin-top: 10rpx;
+    font-size: 27rpx;
+    line-height: 45rpx;
+}
+.comment .list .right .bottom{
+    margin-top: 10rpx;
+}
+.comment .list .right .bottom>view{
+   display: inline-block;
+   vertical-align: top;
+   font-size: 25rpx;
+   color: #adadad;
+   width: 50%;
+}
+.comment .list .right .bottom .contain{
+    display: inline-block;
+}
+.comment .list .right .bottom>view:first-child{
+    text-align: left
+}
+.comment .list .right .bottom>view:last-child{
+    text-align: right
+}
+.comment .list .right .bottom image{
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 20rpx;
+    margin-right: 10rpx;
+}
+.reply{
+    background: #f4f4f4;
+}
+.reply .replylist{
+    padding: 10rpx 20rpx;
+    border-bottom:2rpx solid #e1e1e1;
+}
+.reply .replylist .top{
+    margin: 0 0 10rpx;
+}
+.reply .replylist:last-child{
+        border-bottom:none;
+}
+.reply .down{
+    font-size: 25rpx;
+    line-height: 40rpx;
+}
+.writeboard {
+    border-top: 3rpx solid #f4f4f4;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: white;
+    padding: 20rpx;
+    box-sizing: border-box;
+    transition-property: height;
+    transition-duration: 0.5s;
+}
+.writeboard .ball{
+    width: 50rpx;
+    height: 50rpx;
+    display: inline-block;
+    border-radius: 50%;
+    background: #118cf4;
+    box-shadow: 0 0 20rpx #118cf4;
+    vertical-align: top;
+    margin-top: 10rpx;
+    color: white;
+    text-align: center;
+    line-height: 50rpx;
+}
+
+
+.writeboard .input {
+    background: #f4f4f4;
+    border-radius: 30rpx;
+}
+
+.writeboard .input input {
+    display: inline-block;
+    width: 550rpx;
+}
+
+.writeboard image {
+    margin: 10rpx 20rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
+#copyright {
+    text-align: center;
+    margin: 10rpx 0;
+    font-size: 25rpx;
+}
+

@@ -1,0 +1,72 @@
+/* index.wxss */
+page{
+  background: #f4f4f4;
+}
+.form{
+  background:white;
+}
+.case{
+  padding:25rpx  20rpx 25rpx 0;
+  margin-left: 20rpx;
+  border-bottom:1rpx solid #f4f4f4;
+  background: white;
+}
+.case>view{
+  display: inline-block;
+  font-size: 30rpx;
+  vertical-align: middle;
+}
+.case .vertify{
+  float: right;
+  color: white;
+  background:#0767C8;
+  padding: 5rpx;
+  border-radius: 5rpx;
+}
+.case .gainaddress{
+  float: right;
+  margin-right: 20rpx;
+}
+.case .gainaddress image{
+  width: 50rpx;
+  height:50rpx;
+}
+.case .input{
+  margin-left:20rpx;
+}
+.case .title{
+  width: 120rpx;
+}
+.case .input{
+  width:400rpx;
+}
+.input input{
+  font-size:30rpx;
+}
+.message{
+  padding: 20rpx;
+  margin: 20rpx 0;
+  background: white;
+}
+.message textarea{
+  border-radius: 10rpx;
+}
+.submit button{
+  color: white;
+  background:#0767C8; 
+}
+.panel{
+  margin-top:100rpx;
+  border-radius: 5rpx;
+  text-align: center;
+  height: 100rpx;
+  width: 61.8%;
+  line-height: 100rpx;
+  font-size: 40rpx;
+  color:blanchedalmond;
+  background: #0767C8;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

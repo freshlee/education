@@ -1,0 +1,130 @@
+/* index.wxss */
+page{
+  background: #f4f4f4;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.case{
+  padding: 0 30rpx 20rpx;
+  background: white;
+  border-radius: 15rpx;
+  margin-bottom:20rpx ;
+}
+.top .title{
+  font-size: 30rpx;
+}
+
+.top .time{
+  float: right;
+  color: dimgray;
+}
+.middle{
+  margin-top:10rpx;
+  line-height: 35rpx;
+  height: 70rpx;
+  color: dimgray;
+  font-size: 30rpx;
+  border-bottom:2rpx solid gainsboro;
+}
+.bottom{
+  text-align: right;
+}
+
+
+
+
+
+.response{
+  padding: 0 30rpx 20rpx;
+  background: white;
+  border-radius: 15rpx;
+  margin-bottom:20rpx ;
+}
+.response .top .title{
+  width: 100%;
+  margin: 20rpx 0;
+  font-size: 30rpx;
+  line-height: 35rpx;
+  height: 70rpx;
+
+  text-overflow:ellipsis;
+  white-space: pre-wrap;
+ display: -webkit-box;
+    word-break: break-all;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+}
+
+.response .top .time{
+  float: right;
+  color: dimgray;
+}
+.response .middle{
+  margin-top:10rpx;
+  line-height: 30rpx;
+  height: 30rpx;
+  color: dimgray;
+  padding: 15rpx 0;
+}
+.response .bottom{
+  text-align: right;
+}
+.separate{
+  position: relative;
+  width: 170rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+  padding: auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  background: #f4f4f4;
+  color: grey;
+  
+}
+.line{
+    border-top:1rpx solid gainsboro; 
+    margin-top:-40rpx;
+    height: 60rpx;
+    z-index: -1;
+    color: grey;
+}
+.more{
+  color: #0767C8;
+  text-align: center;
+  font-size: 35rpx;
+  margin-bottom: 30rpx;
+}
+.model image{
+  width: 153rpx;
+  height: 153rpx;
+  margin-right: 30rpx;
+}
+.model .box:last-of-type image{
+  margin-right: 0 !important;
+}
+.box{
+  display: inline-block;
+}
+.boardname{
+  text-align: left;
+  width: 153rpx;
+  line-height: 35rpx;
+  height: 35rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#del{
+  float: right;
+  color: #0767C8;
+  font-size: 30rpx;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

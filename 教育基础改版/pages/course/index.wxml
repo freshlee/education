@@ -1,0 +1,110 @@
+<!--pages/video/index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<scroll-view scroll-y style="height:{{myheight}}px" catchscroll="move">
+    <view class="body">
+
+        <swiper style="height:190px" indicator-dots="true">
+            <block wx:for="{{thumburl}}">
+                <swiper-item style="height:100%">
+                    <image src="{{item}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <!-- <view class="video" style="height:190px">
+            <image src="{{goods.thumb}}"></image>
+        </view> -->
+        <view class="courseinfo {{teacher.length>1?(box[0]==1?'tacherextended':'teachercompressed'):''}}">
+            <view class="left">
+                <view class="coursename">{{goods.title}}</view>
+                <view class="detail" wx:if="{{reputation}}"> <text>评分</text>
+                    <image src="../../images/star.png" wx:for="{{reputation}}" /> </view>
+            </view>
+            <view class="priceattr">
+                <view style="font-size:40rpx">{{priceattr=='1'?'免费':'￥'+goods.marketprice}}</view>
+                <view class="concern" bindtap="{{favor==1?'concern':'disconcern'}}">{{favor==1?'关注':'取消关注'}}</view>
+            </view>
+            <!--教师信息-->
+            <view class="teacher" wx:for="{{teacher}}">
+                <view class="teacherprotrait">
+                    <image src="{{item.thumb+item.icon}}" /> </view>
+                <view class="box">
+                    <view class="boxtop">
+                        <view class="name">{{item.videoname}}</view>
+                        <view class="amount" style="float:right;font-size:25rpx">课程数: {{item.courselist.length}}</view>
+                    </view>
+                    <view class="bottom"> <template is="wxParse" data="{{wxParseData:content[index].nodes}}" /> </view>
+                </view>
+            </view>
+            <view class="teacher_arrow {{box[0]==0?'arrowon':''}}" bindtap="expension" data-case="0" style="display:{{teacher.length>1?(box[0]==1?'block':'none'):'none'}}">
+                <image src="../../images/arrow-down.png" style="display:{{box[0]==1?'inline-block':'none'}}"></image>
+            </view>
+        </view>
+
+        <!--课程介绍-->
+        <view class="intro" wx:if="{{goods.content}}">
+            <view><text class="line">—</text> 课程简介 <text class="line">—</text></view>
+            <view class="content {{goods.content.length>=90?(box[1]==1?'extended':'compressed'):''}}">
+                <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+            </view>
+            <view class="extend {{box[1]==0?'arrowon':''}}" bindtap="expension" data-case="1" style="display:{{goods.content.length>=90?(box[1]==1?'inline-block':'none'):'none'}}">
+                <image src="../../images/arrow-down.png" style="display:{{content.length>=90?(box[1]==1?'inline-block':'none'):''}}"></image>
+            </view>
+        </view>
+
+
+        <view class="organise" wx:if="{{organise}}">
+
+
+            <view> <text class="line">—</text> 机构简介 <text class="line">—</text></view>
+            <view bindtap="jumptoorganise" class="content {{content.length>=90?(box[2]==1?'extended':'compressed'):''}}">{{organise}} </view>
+            <view class="extend {{box[2]==0?'arrowon':''}}" bindtap="expension" data-case="2" style="display:{{content.length>=90?(box[2]==1?'inline-block':'none'):'none'}}">
+                <image src="../../images/arrow-down.png" style="display:{{box[2]==1?'inline-block':'none'}}"></image>
+            </view>
+        </view>
+
+        <view class="organise" wx:if="{{ralativecourse.length}}">
+            <view> <text class="line">—</text> 相关课程 <text class="line">—</text></view>
+            <view class="scrollbox">
+                <scroll-view scroll-x style="width:100%;white-space: nowrap">
+                    <view class="coursebox" wx:for="{{ralativecourse}}" data-doctype="{{item.type}}" data-id="{{item.id}}" bindtap="jumptocourse">
+                        <image src="{{item.thumb}}"></image>
+                        <view>{{item.title}}</view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+
+        <view class="comment" wx:if="{{commentlist.length}}">
+            <view class="commentheader">
+                <view class="maintitle">最新评论</view>
+                <view class="more" bindtap="{{commentnum?'more':''}}">{{commentnum?commentnum+'个评论>':'暂无评论'}}</view>
+            </view>
+
+            <view class="list" wx:for="{{commentlist}}">
+                <view class="protrait">
+                    <image src="{{item.headimgurl}}"></image>
+                </view>
+                <view class="box">
+                    <view class="top">
+                        <view class="name">{{item.nickname}}</view>
+                        <view class="right">
+                            <!--<view class="praise"> <image src="../../images/praiseoff.png"/> {{item.praise}}</view>-->
+                        </view>
+                    </view>
+                    <view class="middle">{{item.time}}</view>
+                    <view class="bottom">{{item.content}}</view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+</scroll-view>
+
+
+<view class="purchase" wx:if="{{permission===0&&priceattr!='1'}}" bindtap="purchase">立即报名</view>
+
+<loading hidden="{{hidden}}">加载中...</loading>
+
+<view id="copyright">{{versioninfo}}</view>

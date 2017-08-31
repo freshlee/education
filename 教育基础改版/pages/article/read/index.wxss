@@ -1,0 +1,35 @@
+/* index.wxss */
+@import "../../../wxParse/wxParse.wxss";
+.title{
+    position: absolute;
+  right: 0;
+  z-index: 99;
+}
+.panel{
+  text-align: right;
+  padding:0 10rpx;
+}
+.panel view{
+  display: inline-block;
+  margin:10rpx 10rpx;
+  padding: 20rpx 30rpx;
+  font-size:35rpx;
+  border-radius: 10%;
+  border:1px solid grey;  
+}
+.content{
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 20rpx;
+}
+.content image{
+    width: 100% !important;
+}
+.content view{
+    padding: 20rpx 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+    box-sizing: border-box;
+    text-indent: 0 !important;
+}
+/* 富文本修正补丁 */

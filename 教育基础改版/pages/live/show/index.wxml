@@ -1,0 +1,53 @@
+<!--pages/video/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/> 
+<video src="http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8" style="width:100%;height:400rpx"></video>
+
+<view class="info">
+<view class="picture"> <image src="../../../images/protrait.jpg"></image> </view>
+<view class="detail">
+<view class="top">PHP入门，变量以及语句结构</view>
+<view class="bottom">
+<view class="left">
+<view class="name">大漠</view>
+<view class="browser"> <image src="../../../images/browser_logo.jpg"></image> 2506</view>
+</view>
+<view class="right"><view class="panel">关注</view></view>
+</view>
+</view>
+</view>
+
+<view class="toolbar">
+<view class="list" bindtap="section" style="border-bottom:{{border_section}}">互动</view>
+<view class="list" bindtap="detail" style="border-bottom:{{border_detail}}">排行榜</view>
+<view class="list" bindtap="comment" style="border-bottom:{{border_comment}}">主播</view>
+</view>
+
+
+
+<scroll-view class="contain" bindscroll="onMove" bindtouchend="onStop" scroll-into-view="{{toView}}" style="width:100%;white-space:nowrap;" scroll-with-animation scroll-x>
+<view class="list window" id="section"  >
+
+<view class="case">
+<view class="rank">VIP</view>
+<view class="name">羊驼:</view>
+<view class="message">主播长得好帅</view>
+</view>
+
+</view>
+<!--详情-->
+<view class="list window" id="detail" >
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+
+</view>
+<!--评论-->
+<view class="list window" id="comment">
+
+<view class="header">
+<view class="picture"><image src="../../../images/protrait.jpg"></image></view>
+<view class="classname"></view>
+</view>
+
+</view>
+
+</scroll-view>
+

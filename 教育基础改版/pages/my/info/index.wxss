@@ -1,0 +1,84 @@
+/* index.wxss */
+page{
+  background: #f4f4f4;
+  width: 100%;
+  box-sizing: border-box;
+}
+.box{
+  background: white;
+}
+.case{
+  border-bottom:1rpx solid #f4f4f4;
+  color:#565656;
+}
+.case:last-of-type{
+  border-bottom:none;
+}
+.case>view{
+  display: inline-block;
+  font-size:30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  vertical-align: top;
+}
+.case .title{
+  width:100rpx;
+  padding-left: 25rpx;
+}
+.content{
+  width:400rpx;
+}
+.content input{
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 460rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pickdata{
+  width: 300rpx;
+}
+.picker{
+  color: dimgray;
+}
+.boxname{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 35rpx;
+  padding-left:20rpx;
+  color: #565656;
+}
+.address{
+  float: right;
+}
+.address image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 40rpx;
+  position: relative;
+  top: 12rpx;
+}
+.sure{
+  margin-top:80rpx;
+}
+.sure button{
+  color: white;
+  background: #0767C8;
+}
+.panel{
+  border-radius: 0;
+  font-weight: bold;
+  position: fixed;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  width:100%;
+  font-size: 40rpx;
+  background: #0767C8;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

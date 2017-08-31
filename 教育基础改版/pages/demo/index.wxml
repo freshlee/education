@@ -1,0 +1,104 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="body">
+    <view class="header">
+        <view class="banner" style="height:300rpx">
+            <swiper indicator-dots="true" interval="3000" autoplay style="height:300rpx">
+                <block wx:for="{{bannerUrls}}">
+                    <swiper-item>
+                        <navigator url="{{item.url}}">
+                            <image src="{{item.thumb}}" style="height:300rpx" />
+                        </navigator>
+                    </swiper-item>
+
+                </block>
+            </swiper>
+        </view>
+        <view class="navigator">
+            <navigator url="{{item.url}}" wx:for="{{title}}" open-type="{{item.url=='../my/home/index'||item.url=='../community/home/index'||item.url=='../shedule/index'?'switchTab':'navigate'}}">
+                <view class="list" style="background:url({{item.thumb}});background-size:100% 100%;background-repeat:no-repeat"><text>{{item.name}}</text></view>
+            </navigator>
+        </view>
+
+        <view class="adventure"></view>
+        <view class="container"></view>
+        <scroll-view class="ontop"></scroll-view>
+        <view class="footer"></view>
+    </view>
+
+
+    <view class="firstCase" wx:if="{{video.length}}">
+        <view class="caseHead"> <text class="title">精选付费课程</text>
+            <navigator url="../filter/index?type=1"><text class="more"> 更多好课></text></navigator>
+        </view>
+        <navigator url="{{video[0].url}}">
+            <view class="mainvideo">
+                <view style="width:100%;height:100%;background:url({{video[0].thumb}});background-size:100% 100%"></view>
+            </view>
+        </navigator>
+        <view class="subvideo" wx:if="{{video[1]}}">
+            <navigator url="{{video[1].url}}">
+                <view class="video" style="height:150rpx;background:url({{video[1].thumb}});background-size:100% 100% "></view>
+            </navigator> <text>{{video[1].title}}</text></view>
+
+        <view class="subvideo" wx:if="{{video[2]}}">
+            <navigator url="{{video[2].url}}">
+                <view class="video" style="height:150rpx;background:url({{video[2].thumb}});background-size:100% 100%"></view>
+            </navigator> <text>{{video[2].title}}</text></view>
+    </view>
+
+    <view class="secondCase" wx:if="{{mainorganise}}">
+        <view class="caseHead"> <text class="title">品牌机构</text>
+            <navigator url="../organise/index"><text class="more"> 更多机构></text></navigator>
+        </view>
+        <!--主要机构-->
+        <navigator url="{{mainorganise.url}}">
+            <view class="advertise image">
+            <image src="{{mainorganise.sytj}}" style="width:100%;height:100%"></image>
+            </view>
+        </navigator>
+        <!--次要机构-->
+        <view class="logoContainer">
+            <view class="LOGO" wx:for="{{organise}}" style="background:url({{item.sytj}});background-size:100% 100%">
+                <navigator url="{{item.url}}" style="height:100%">
+                    <view style="width:100%;height:100%"></view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+
+    <view class="thirdCase" wx:if="{{courseData.length}}">
+        <view class="caseHead"> <text class="title">品牌课程</text>
+            <navigator url="../filter/index?type=2"><text class="more"> 更多课程></text></navigator>
+        </view>
+        <view style="clear:both"></view>
+        <scroll-view style="width:100%;white-space: nowrap" scroll-x>
+            <view class="course" wx:for="{{courseData}}">
+                <navigator url="{{item.url}}">
+                    <image src="{{item.thumb}}"></image>
+                </navigator>
+                <text class="courseName">{{item.name}}</text>
+                <text clase="coursePrice">￥{{item.price}}</text>
+            </view>
+        </scroll-view>
+    </view>
+
+    <view class="forthCase" wx:if="{{articleData.length}}">
+        <view class="caseHead"> <text class="title">文章</text> <text class="more" bindtap="moveToMore">阅览更多></text></view>
+        <view style="clear:both"></view>
+
+        <view class="article" wx:for="{{articleData}}" data-id="{{item.id}}" bindtap="moveToArticle">
+            <view class="section_right">
+                <view>
+                    <image src="{{item.thumb}}"></image>
+                </view>
+            </view>
+            <view class="section_left">
+                <view class="article_title">{{item.title}}</view>
+                <view class="article_content">{{item.saletimes}}</view>
+                <view class="article_subscript">时间:{{item.time}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view id="copyright">{{versioninfo}}</view>

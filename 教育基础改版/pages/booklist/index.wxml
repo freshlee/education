@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="case">
+<view class="goodsname">课程名：{{coursename}}</view>
+<view class="ordernum">订单号：{{ordernum}}</view>
+</view>
+<view class="bottom"></view>
+<button bindtap="topay">去支付</button>
+ <view id="copyright">{{versioninfo}}</view> 
+ <loading hidden="{{hidden}}"></loading> 

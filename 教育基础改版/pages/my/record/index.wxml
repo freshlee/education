@@ -1,0 +1,27 @@
+<!--pages/my/hpme/index.wxml-->
+<!-- <view class="container">
+<view class="case" wx:for="{{record}}">
+<view class="ball">{{item.createtime}}</view>
+<view class="picture"> <image src="{{item.thumb}}"></image> </view>
+<view class="box">
+<view class="top">观看了:{{item.title}}</view>
+</view>
+</view>
+
+</view>
+
+ <view id="copyright">{{versioninfo}}</view>  -->
+ <view class="today">{{day}}</view>
+<view class="timecase" wx:for="{{record}}">
+    <view class="left">
+        <view class="time">{{item.time}}</view>
+        <view class="littleball"></view>
+    </view>
+    <view class="middle">
+      <view class="stage"> <image src="../../../images/{{item.stage}}.png"></image> </view>
+    </view>
+    <view class="right">浏览了课程 {{item.title}}</view>
+</view>
+<view id="background">
+    <image src="../../../images/timg.jpg" style="width:100%;height:{{myheight}}px;position:fixed;top:0;left:0;z-index:-1"></image>
+</view>

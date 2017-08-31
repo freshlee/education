@@ -1,0 +1,87 @@
+<!--index.wxml-->
+<view class="body">
+
+<view class="toolbar">
+<view class="{{index==0?'chosen':''}} favor" bindtap="move" data-index="0">热门</view>
+<view class="{{index==1?'chosen':''}} cate" bindtap="move" data-index="1">筛选</view>
+</view>
+<view class="frame"></view>
+
+<!--<view class="meter">
+<view class="signal">类别: <text class="typeon">{{trans_mycate}}</text></view>
+<view class="signal">收费: <text class="typeon">{{trans_mypay}}</text> </view>
+<view class="signal">类型: <text class="typeon">{{trans_mytype}}</text> </view>
+</view>-->
+<view class="{{status=='on'?'curtain':'noncurtain'}}"  bindtap="statusChange"></view>
+<view class="{{status=='on'?'filteron':'filteroff'}} case filter" >
+
+<!--筛选功能栏-->
+<view class="container">
+<!--搜索框-->
+<view class="searchbox {{inputstatus==1?'inputon':''}}" > <image src="../../images/search.png"></image> <input placeholder="搜索"  bindfocus="input" bindblur="input" bindconfirm="dosearch" value="{{search}}" class="{{inputstatus==1?'doinput':''}}"/> </view>
+<!--搜索框-->
+
+<!--筛选类别-->
+
+<view class="list">
+<view class="typename">类别</view>
+<view class="{{cates==item.id?'typeon':'type'}}" wx:if="{{goodstype}}" wx:if="{{item.type==types}}" wx:for="{{goodstype}}" bindtap="chosecate" data-cate="{{item.id}}"
+ data-trans="{{item.name}}">{{item.name}}</view>
+<view style="white-space:nowrap" class="{{cates==0?'typeon':'type'}}"  bindtap="chosecate" data-cate="0" data-trans="全部"
+>全部</view>
+</view>
+
+<!--筛选收费类型-->
+<view class="list">
+<view class="typename" >收费</view>
+<view class="{{pays==1?'typeon':'type'}}" bindtap="chosepay"  data-pay="1" data-trans="免费">免费</view>
+<view class="{{pays==2?'typeon':'type'}}" bindtap="chosepay"  data-pay="2" data-trans="VIP">VIP</view>
+<view class="{{pays==3?'typeon':'type'}}" bindtap="chosepay"  data-pay="3" data-trans="收费限时">收费限时</view>
+<view class="{{pays==0?'typeon':'type'}}" bindtap="chosepay"  data-pay="0" data-trans="全部">全部</view>
+</view>  
+<!--筛选类型-->
+<view class="list">
+<view class="typename">类型</view>
+<view class="{{types==1?'typeon':'type'}}" bindtap="chosetype" data-type="1" data-trans="视频">视频</view>
+<view class="{{types==2?'typeon':'type'}}" bindtap="chosetype" data-type="2" data-trans="线下">线下</view>
+<view class="{{types==3?'typeon':'type'}}" bindtap="chosetype" data-type="3" data-trans="文章">文章</view>
+</view>
+<view class="panel" bindtap="sure">
+开始筛选
+</view>
+</view>
+</view>
+<!--商品展示区-->
+<view class="goods">
+<view class="good" wx:for="{{cases}}" data-id="{{item.id}}" data-nav="{{item.type}}" bindtap="jump">
+
+<view class="picture li"> <image src="{{item.thumb}}"></image> </view>
+
+<view class="info li">
+<view class="name list">{{item.title}}</view>
+<view class="property">
+<view class="classname"> <template is="{{item.priceattr}}"></template> </view>
+</view>
+</view>
+
+</view>
+</view>
+
+</view>
+<template name="0">
+<view class="limit">付费</view>
+</template>
+<template name="1">
+<view class="free">免费</view>
+</template>
+<template name="2">
+<view class="VIP">VIP</view>
+</template>
+<template name="3">
+<view class="limit">限时收费</view>
+</template>
+
+<loading hidden="{{hidden}}">加载中...</loading>
+
+ <view id="copyright">{{versioninfo}}</view> 
+

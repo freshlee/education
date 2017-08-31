@@ -1,0 +1,72 @@
+{
+    "pages": [
+        "pages/demo/index",
+        "pages/course/index",
+        "pages/video/index",
+        "pages/my/record/index",
+        "pages/my/mycollection/index",
+        "pages/shedule/index",
+        "pages/my/join/index",
+        "pages/my/mytip/index",
+        "pages/my/info/index",
+        "pages/my/vip/index",
+        "pages/advertise/index",
+        "pages/my/collect/index",
+        "pages/checkout/index",
+        "pages/goodscomment/add/index",
+        "pages/goodscomment/list/index",
+        "pages/community/model/index",
+        "pages/article/index",
+        "pages/comment/index",
+        "pages/booklist/index",
+        "pages/community/home/index",
+        "pages/community/square/index",
+        "pages/organise/index",
+        "pages/my/home/index",
+        "pages/filter/index",
+        "pages/article/read/index",
+        "pages/live/index",
+        "pages/live/show/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "测试",
+        "navigationBarBackgroundColor": "#0767C8",
+        "backgroundColor": "#F2f2f2",
+        "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "color": "#9e9e9e",
+        "selectedColor": "#1296db",
+        "borderStyle": "white",
+        "backgroundColor": "#F5F5F5",
+        "list": [
+            {
+                "pagePath": "pages/demo/index",
+                "iconPath": "images/home.png",
+                "selectedIconPath": "images/chosehome.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/shedule/index",
+                "iconPath": "images/schedule.png",
+                "selectedIconPath": "images/choseschedule.png",
+                "text": "课表"
+            },
+            {
+                "pagePath": "pages/community/home/index",
+                "iconPath": "images/community.png",
+                "selectedIconPath": "images/chosecommunity.png",
+                "text": "社区"
+            },
+            {
+                "pagePath": "pages/my/home/index",
+                "iconPath": "images/my.png",
+                "selectedIconPath": "images/chosemy.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "debug": true
+}

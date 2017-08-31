@@ -1,0 +1,40 @@
+<view class="body">
+<view class="banner" style="height:350rpx">
+<swiper indicator-dots="true" interval="6000" autoplay="true" style="height:350rpx">
+  <block wx:for="{{bannerUrls}}" >
+  <swiper-item>
+      <navigator url="{{item.url}}">
+          <image src="{{item.thumb}}" style="height:350rpx"/>
+      </navigator>
+    </swiper-item>
+    
+  </block>
+</swiper>
+</view>
+<view class="nav">
+
+<view class="list" wx:for="{{nav}}" bindtap="jump" data-des="{{item.id}}">
+<view>
+<view class="header">
+<image src="{{item.thumb}}"></image></view>
+</view>
+<view class="name">{{item.name}}</view>
+</view>
+
+</view>
+
+
+<view class="content">
+<view class="catename">热门内容</view>
+<view class="discribe">最新热门的帖子</view>
+<view class="case" wx:for="{{tiplist}}">
+<navigator url="{{'../model/index?id='+item.id}}"><view class="title">{{item.title}}</view></navigator>
+<view class="sum">{{item.desc}}</view>
+</view>
+</view>
+
+
+
+</view>
+
+ <view id="copyright">{{versioninfo}}</view> 

@@ -1,0 +1,122 @@
+<!--index.wxml-->
+<scroll-view style="height:{{eqheight}}px" scroll-y bindscroll="scroll">
+<view class="header">
+<swiper indicator-dots="true" interval="5000" autoplay="true" duration="500">
+  <block wx:for="{{bannerUrls}}">
+  <swiper-item>
+      <navigator url="{{item.url}}">
+          <image src="{{item.thumb}}" style="height:300rpx"/>
+      </navigator>
+    </swiper-item> 
+  </block>
+</swiper>
+<view class="nav {{status==0?'navoff':'navon'}}">
+<view class="concert">关注</view>
+<view class="search">搜索</view>
+<view class="cate">分类</view>
+</view>
+</view>
+<view class="content">
+
+<view class="title">当前2751个直播</view>
+
+<view class="case">
+<view class="box">
+<view class="picture"> <image src="../../images/live_exhibit.jpg"></image> </view>
+<view class="name">毕业季直播</view>
+<view class="info">
+<view class="username">走光</view>
+<view class="browser">245</view>
+</view>
+</view>
+</view>
+
+<view class="case">
+<view class="box">
+<view class="picture"> <image src="../../images/live_exhibit.jpg"></image> </view>
+<view class="name">毕业季直播</view>
+<view class="info">
+<view class="username">走光</view>
+<view class="browser">245</view>
+</view>
+</view>
+</view>
+
+<view class="case">
+<view class="box">
+<view class="picture"> <image src="../../images/live_exhibit.jpg"></image> </view>
+<view class="name">毕业季直播</view>
+<view class="info">
+<view class="username">走光</view>
+<view class="browser">245</view>
+</view>
+</view>
+</view>
+
+<view class="case">
+<view class="box">
+<view class="picture"> <image src="../../images/live_exhibit.jpg"></image> </view>
+<view class="name">毕业季直播</view>
+<view class="info">
+<view class="username">走光</view>
+<view class="browser">245</view>
+</view>
+</view>
+</view>
+
+</view>
+
+
+<view class="content">
+
+<view class="title">当前2751个直播</view>
+
+<view class="case">
+<view class="box">
+<view class="picture"> <image src="../../images/live_exhibit.jpg"></image> </view>
+<view class="name">毕业季直播</view>
+<view class="info">
+<view class="username">走光</view>
+<view class="browser">245</view>
+</view>
+</view>
+</view>
+
+<view class="case">
+<view class="box">
+<view class="picture"> <image src="../../images/live_exhibit.jpg"></image> </view>
+<view class="name">毕业季直播</view>
+<view class="info">
+<view class="username">走光</view>
+<view class="browser">245</view>
+</view>
+</view>
+</view>
+
+<view class="case">
+<view class="box">
+<view class="picture"> <image src="../../images/live_exhibit.jpg"></image> </view>
+<view class="name">毕业季直播</view>
+<view class="info">
+<view class="username">走光</view>
+<view class="browser">245</view>
+</view>
+</view>
+</view>
+
+<view class="case">
+<view class="box">
+<view class="picture"> <image src="../../images/live_exhibit.jpg"></image> </view>
+<view class="name">毕业季直播</view>
+<view class="info">
+<view class="username">走光</view>
+<view class="browser">245</view>
+</view>
+</view>
+</view>
+
+</view>
+
+</scroll-view>
+
+ <view id="copyright">{{versioninfo}}</view> 

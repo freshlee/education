@@ -1,0 +1,68 @@
+<!--index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="banner">
+    <view class="protrait">
+        <image src="{{base.jg.logo?base.jg.logo:base.logo}}"></image>
+        <view class="organisename">{{base.jg.merchname?base.jg.merchname:base.zz.merchname}}</view>
+    </view>
+    <image src="{{base.jg.logo?base.jg.logo:base.logo}}" id="cover"></image>
+</view>
+
+
+
+<view class="nav {{teacher.length?'':'hidden'}}">
+    <view class="base {{myindex==0?'bechosen':''}}" bindtap="base">简介</view>
+    <view class="address {{myindex==1?'bechosen':''}}" bindtap="address">课程</view>
+    <view class="address {{myindex==2?'bechosen':''}}" bindtap="teacher" wx:if="{{teacher.length}}">讲师</view>
+</view>
+<swiper current="{{index}}" style="height:670rpx" bindchange="onchange">
+    <block>
+        <swiper-item>
+
+            <scroll-view scroll-y style="height:670rpx">
+                <view class="describe">
+                    {{base.jg.desc?base.jg.desc:base.zz.description}}
+                </view>
+
+                <!--<view id="mapbox"><map id="map" longitude="{{base.lng}}" latitude="{{base.lat}}" scale="16" controls="{{controls}}"  markers="{{markers}}"  polyline="{{polyline}}"  show-location style="width: 100%; height: 400rpx;"/></view>-->
+            </scroll-view>
+
+        </swiper-item>
+
+        <swiper-item>
+            <scroll-view scroll-y style="height:670rpx">
+
+                <view class="course">
+                    <view class="list" wx:for="{{shop}}" data-doctype="{{item.type}}" data-id="{{item.id}}" bindtap="jumptocourse">
+                        <image src="{{item.thumb}}"></image>
+                        <view class="title">{{item.title}}</view>
+                        <view class="price">￥{{item.marketprice}}</view>
+                    </view>
+
+
+                </view>
+
+            </scroll-view>
+        </swiper-item>
+
+        <swiper-item>
+            <scroll-view scroll-y style="height:670rpx" wx:if="{{teacher.length}}">
+                <view class="teacher" wx:for="{{teacher}}">
+                    <view class="teacherprotrait">
+                        <image src="{{item.icon}}" /> </view>
+                    <view class="box">
+                        <view class="boxtop">
+                            <view class="name">{{item.videoname}}</view>
+                        </view>
+                        <view class="bottom {{box[0]==1?'extended':'compressed'}}"> <template is="wxParse" data="{{wxParseData:content[index].nodes}}" /></view>
+                    </view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </block>
+</swiper>
+
+<view class="footer">
+    <view class="address" bindtap="getloacation" wx:if="{{base.jg.merchname}}">查看位置</view>
+    <view class="dail" bindtap="call">拨打电话</view>
+</view>

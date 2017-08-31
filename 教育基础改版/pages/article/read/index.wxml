@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/> 
+<view class="body" style="background-color:{{back}};height:{{eqheight}}px">
+<view class="title">
+<view class="panel">
+<!-- <view class="night" bindtap="night" style="color:{{fontcolor}}">夜</view> -->
+<!-- <view class="sm" bindtap="lg" style="color:{{fontcolor}}">A+</view>
+<view class="lg" bindtap="sm" style="color:{{fontcolor}}">A-</view> -->
+</view>
+</view>
+
+<scroll-view scroll-y style="height:{{eqheight}}px;position:absolute;top:0">
+<view class="content" style="color:{{fontcolor}};font-size:{{fontsize}}rpx">
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+</scroll-view>
+</view>

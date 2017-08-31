@@ -1,0 +1,180 @@
+page{
+ background: #f4f4f4;
+}
+.board{
+  padding: 20rpx 60rpx;
+  background: white;
+  border-bottom:1rpx solid #f4f4f4;
+  position: relative;
+  z-index: 99;
+}
+.board>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.board .board_left>view{
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.board .board_right{
+  margin: 15rpx 0;
+  float: right;
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+  color: white;
+  background: #0174e5;
+  border-radius: 10rpx;
+  position: absolute;
+  top: 25rpx;
+  right: 50rpx;
+}
+/*展开面板*/
+.expend{
+  position: relative;
+  transition-property: margin-top;
+  transition-duration: 0.5s
+}
+.expendon{
+  margin-top:0;
+}
+.panel{
+  padding: 20rpx 40rpx;
+}
+.panel .menu>view{
+  display: inline-block;
+  font-size: 30rpx;
+  vertical-align: top;
+  margin-right: 30rpx;
+  background: white;
+  color: #996B1F;
+  border-radius: 10rpx;
+  border: 2rpx solid gainsboro;
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow: hidden;
+  margin-top: 15rpx;
+}
+.panel .left{
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  vertical-align: top;
+  padding: 0 40rpx;
+  font-size: 30rpx;
+  
+}
+.panel .right{
+  display: inline-block;
+  padding: 10rpx 5rpx;
+  vertical-align: top;
+  white-space: pre-wrap;
+  word-break: break-all;
+  width: 40rpx;
+  background:gainsboro; 
+  color: #565656;
+  text-align: center;
+  line-height: 40rpx;
+  height: 100rpx;
+  box-sizing: border-box;
+}
+.chosen{
+  border:2rpx solid #0174e5 !important ;
+}
+.chosen .right{
+  background: #0174e5;
+  color: white;
+}
+.bottom{
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.bottom>view{
+  display:inline-block;
+  font-size: 35rpx; 
+}
+.bottom .cal{
+  line-height: 100rpx;
+  width: 60%;
+  vertical-align: top;
+  text-align: left;
+  background: gainsboro;
+  height: 100rpx;
+  padding-left: 50rpx;
+  box-sizing: border-box;
+}
+.bottom .pay{
+  width: 40%;
+  line-height: 100rpx;
+  height: 100rpx;
+  vertical-align: top;
+  text-align: center;
+  background: #0174e5;
+  color: white;
+  font-size: 35rpx;
+  }
+.cal text{
+  font-size: 35rpx;
+}
+  .expend{
+    background: white;
+  }
+
+  .show{
+    background: white;
+    margin-top:10rpx;
+  }
+  .show .title{
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 35rpx;
+    padding: 0 30rpx;
+  }
+  .show .case image{
+    height: 200rpx;
+    width:100%;
+  }
+  /*课程列表*/
+  .case{
+  padding:0 30rpx;
+  margin:5rpx 0;
+}
+
+  .title{
+  font-size: 40rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.title_case{
+  padding:20rpx 0;
+}
+.title_case .list{
+  display: inline-block;
+  width:50%;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+.title_case .info{
+  height: 150rpx;
+  line-height: 37.5rpx;
+  padding-left:20rpx;
+}
+.info>view{
+  font-size: 30rpx;
+  line-height: 70rpx;
+}
+.title_case image{
+  height: 150rpx;
+  width: 100%;
+}
+.title_case .priceattr{
+  line-height: 75rpx;
+  height: 75rpx;
+  font-size:35rpx;
+  color:green;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

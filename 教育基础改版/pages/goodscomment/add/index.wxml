@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<form bindsubmit="submit">
+
+<view class="top case">
+<view class="pic"><image src="{{thumb}}"></image></view>
+<view class="name">课程名称{{name}}</view>
+</view>
+
+<view class="bottom case">
+<view class="reputation">
+<image src="{{index<=indexnow?'../../../images/star.png':'../../../images/staroff.png'}}" wx:for="{{5}}" data-index="{{index}}" bindtap="chosestar"></image>
+</view>
+</view>
+
+
+<view class="middle case ">
+<textarea placeholder="输入您的评价" name="content" />
+</view>
+
+<!-- <view class="showbox case ">
+<image src="{{item}}" wx:for="{{pic}}"></image>
+<image src="../../../images/add_pic.png" bindtap="chosepic"></image>
+</view> -->
+
+<button style="width:60%;background:#0767C8;color:white;margin-top:80rpx;" form-type="submit">发表评价</button>
+
+
+</form>
+<loading hidden="{{hidden}}"></loading>
+
+ <view id="copyright">{{versioninfo}}</view> 

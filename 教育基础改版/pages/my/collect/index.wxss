@@ -1,0 +1,88 @@
+/* index.wxss */
+page{
+
+  background: #f4f4f4;
+  box-sizing: border-box;
+}
+.case{
+ background: white;
+  border-bottom:2rpx solid gainsboro; 
+  border-top:2rpx solid gainsboro; 
+}
+.case>view{
+  padding: 10rpx;
+  border-bottom:2rpx solid gainsboro; 
+}
+.case .bottom{
+  border: none;
+}
+.top text{
+  float: right;
+}
+.middle .picture image{
+  width: 216rpx;
+  height: 120rpx;
+  border-radius: 15rpx;
+}
+.middle>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.middle .coursename{
+  margin-left: 20rpx;
+}
+.middle .price{
+  float: right;
+  color: dimgray;
+}
+.bottom{
+  height: 75rpx;
+}
+.bottom button{
+  display: inline-block;
+  width: 27%;
+ font-size: 30rpx;
+ float: right;
+  margin-left: 20rpx;
+}
+.pay{
+  background: orangered;
+  color:white;
+}
+
+
+
+.nav{
+  background: white;
+  border: 2rpx solid #f4f4f4;
+}
+.nav>view{
+  display: inline-block;
+  width: 33.3%;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  color: #454545;
+}
+.bechosen{
+ border-bottom: 6rpx solid rgb(7,103,200);
+ color: #0767C8 !important;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+

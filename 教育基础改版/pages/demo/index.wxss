@@ -1,0 +1,235 @@
+@import "../../wxParse/wxParse.wxss";
+.body{
+  background-color: #f4f4f4;
+}
+.navigator:after{
+  content:"";
+  display: block;
+  clear: both;
+}
+.header{
+  background-color: white;
+}
+.list{
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  background: yellow;
+  float: left;
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
+  margin-left:70rpx; 
+}
+.list text{
+  text-align: center;
+  transform: translateY(100rpx);
+  display: block;
+  margin-top: 5rpx;
+  font-size: 30rpx;
+  width: 150rpx;
+  margin-left: -30rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.firstCase{
+  text-align: center;
+  padding: 30rpx 5% 10rpx;
+  margin:10rpx 0 0; 
+  background-color: white;
+}
+.firstCase::after{
+  content: "";
+  clear: both;
+  display: block;
+}
+.mainvideo{
+  display: inline-block;
+   width: 100%;
+   height: 290rpx;
+}
+.mainvideo .video{
+  width:100%;
+  height: 100%;
+}
+.subvideo{
+  width: 49%;
+  margin-top:10rpx;
+  display: inline-block;
+  float: left;
+  text-align: left;
+}
+.subvideo .video{
+  height: 100rpx;
+}
+.subvideo > view{
+    font-size:70%;
+    text-align: left;
+}
+.subvideo  text{
+   text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  display: inline-block;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.subvideo:first-of-type{
+  float:left; 
+}
+.subvideo:last-of-type{
+  float:right; 
+}
+.subvideo > video{
+  width:100%;
+  height: 100%;
+}
+.caseHead{
+  padding-left: 10rpx;
+  box-sizing: border-box;
+  margin: 0 0 30rpx;
+  height:40rpx;
+  line-height:40rpx;
+  border-left: 6rpx solid #0767C8;
+}
+.title{
+  float: left;
+  font-size:35rpx;  
+  color: #454545;
+  font-weight: bold;
+}
+.more{
+  float: right;
+  color: grey;
+}
+.littleBall{
+  display: inline-block;
+  border-radius: 50%;
+  width: 25rpx;
+  height: 25rpx;
+  background: gainsboro;
+  vertical-align: baseline;
+  position: relative;
+  top:7rpx;
+}
+.secondCase{
+  text-align: center;
+  padding: 30rpx 5% 10rpx;
+  background-color: white;
+  margin-top: 10rpx;
+}
+.advertise{
+  clear: both;
+  height: 290rpx;
+}
+.logoContainer{
+  margin: 0 -1%;
+  text-align: left;
+}
+.LOGO{
+  display: inline-block;
+  width: 23%;
+  height: 150rpx;
+  margin:5rpx 1%; 
+}
+.thirdCase{
+  text-align: center;
+  padding: 30rpx 5% 10rpx;
+  margin:10rpx 0; 
+  background-color:white;
+}
+
+.course{
+  clear:both;
+  display: inline-block;
+  height: 100rpx;
+  width:60%;
+  text-align: center;  
+}
+.course text{
+  display: block;
+  text-align: left;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.course image{
+  height: 230rpx;
+}
+.course text:last-of-type{
+  color:dodgerblue;
+  font-weight: 600;
+}
+.forthCase{
+  text-align: center;
+  padding: 30rpx 5% 10rpx;
+  margin:10rpx 0; 
+  background-color: white;
+}
+.article:after{
+  content:"";
+  clear: both;
+  display: block;
+}
+.article{
+  margin-bottom:10rpx; 
+}
+.article > .section_left{
+  float:right;
+  width: 68%;
+}
+.article > .section_left  view{
+  text-align: left;
+  word-wrap: break-word;
+  display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden;
+}
+.article_title{
+  display: block !important;
+  font-weight: bold;
+  color: #454545;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.article_content{
+  color: grey;
+  line-height: 35rpx;
+  height: 70rpx;
+  overflow: hidden;
+}
+.article_subscript{
+  color:grey;
+  margin-top:15rpx;
+}
+
+.article > .section_right{
+  float:left;
+  width: 25%;
+}
+.section_right > view{
+  height: 152rpx;
+  width: 190rpx;
+}
+navigator image{
+  height: 240rpx;
+}
+.image{
+  background-size:100% 100%; 
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
+
+
+

@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view id="body" bindtap="back">
+
+    <view class="case" wx:for="{{praiselist}}" wx:key="index">
+        <view class="main">
+            <view class="left">
+                <image src="{{item.avatar}}"></image>
+            </view>
+            <view class="right">
+                <view class="name">{{item.nickname}}</view>
+                <view class="content">{{item.parent?item.parent.nickname:''}}{{item.content}}</view>
+            </view>
+        </view>
+        <view class="bottom">
+            <view class="date">{{item.createtime}}</view>
+            <view class="praise" data-num="{{index}}" data-index="{{item.id}}" bindtap="praise">
+                <image src="../../images/{{item.isgood==1?'praiseon':'praiseoff'}}.png"></image> <text>{{item.goodcount}}</text></view>
+            <view class="reply" bindtap="reply" data-id="{{item.id}}">回复</view>
+            <view class="reply" bindtap="del" data-id="{{item.id}}" wx:if="{{openid==item.openid}}">删除</view>
+        </view>
+    </view>
+
+
+
+</view>
+
+
+<view class="writeboard">
+
+
+    <image src="{{item}}" wx:for="{{logo}}" data-index="{{index}}" bindtap="del" />
+    <view class="input">
+        <image src="../../../images/write.png"></image>
+        <input  bindinput="contentinput" placeholder="说点什么吧" name="content" bindfocus="write" fixed="true" auto-height="true" bindconfirm="submit" />
+        <view class="ball" bindtap="handlesubmit"></view>
+    </view>
+    <!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>  -->
+
+</view>
+
+
+
+
+<loading hidden="{{hidden}}"></loading>
+<loading hidden="{{submiting}}">上传中...</loading>

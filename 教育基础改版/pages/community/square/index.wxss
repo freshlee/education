@@ -1,0 +1,74 @@
+/* index.wxss */
+page{
+
+}
+.part{
+  display: inline-block;
+  vertical-align: top;
+}
+.left{
+  width: 28%;
+  box-sizing: border-box;
+  background: #f4f4f4;
+}
+.right{
+  width: 72%;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.left>.list{
+ color: dimgray;
+ line-height: 70rpx;
+ font-size: 30rpx;
+ text-align: center;
+}
+.right .list{
+ padding-bottom:15rpx; 
+ border-bottom: 1rpx solid #f4f4f4;
+  background-color: white;
+  overflow: hidden;
+  margin-bottom:15rpx;
+}
+.right .list>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.right .list .info{
+  padding-top:10rpx; 
+  margin-left: 20rpx;
+}
+.right .picture image{
+  width:120rpx;
+  height: 120rpx;
+  display: block;
+  border-radius: 15rpx;
+}
+.right .info .name{
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+.right .info .model,.right .info .concert{
+ line-height:40rpx;
+ font-size: 27rpx;
+}
+.right .info .concert{
+  margin-left: 50rpx;
+}
+.arrow{
+  line-height: 120rpx;
+  float: right;
+  margin-right:20rpx; 
+}
+.arrow image{
+  width: 20rpx;
+  height: 10rpx;
+  transform: rotate(-90deg);
+}
+.chosen{
+
+  background:linear-gradient(90deg, RGBA(7,103,200,0.7) ,RGBA(7,103,200,0) 100% );
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

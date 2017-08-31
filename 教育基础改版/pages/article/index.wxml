@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="body">
+
+    <view class="header case">
+        <view class="picture list">
+            <image src="{{goods.thumb}}" style="height:180rpx;width:220rpx"></image>
+        </view>
+        <view class="info list">
+            <view class="name">{{goods.title}}</view>
+            <view class="li">作者：{{teacher[0].videoname?teacher[0].videoname:'无'}}</view>
+            <view class="li price">{{goods.marketprice}}</view>
+            <!-- <view class="li">类型:商业</view>
+<view class="li">字数:约1.5万字</view> -->
+        </view>
+        <view class="panel">
+            <view class="purchase" bindtap="concern" bindtap="{{favor==1?'concern':'disconcern'}}">{{favor==1?'关注':'取消关注'}}</view>
+            <view class="try" bindtap="{{permission===1||priceattr=='1'?'toread':'purchase'}}"> {{permission===1||priceattr=='1'?'阅读':'购买'}} </view>
+        </view>
+        <!--<view class="operate">
+<view class="menu"> <view class="classname"> <image src="../../images/demoimage/order_logo.png"></image> </view> 目录</view>
+<view class="collect"> <view class="classname"> <image src="../../images/demoimage/purchaser.png"></image> </view> 收藏</view>
+</view>-->
+
+    </view>
+
+
+
+     <view class="content case" wx:if="{{goods.saletimes}}">
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/></view> 
+    <!-- 模板 -->
+    <template name="type0"><text style="font-size:35rpx;color:red">付费</text></template>
+    <template name="type1"><text style="font-size:35rpx;color:green">免费</text></template>
+    <template name="type2"><text style="font-size:35rpx;color:purple">VIP免费</text></template>
+    <template name="type3"><text style="font-size:35rpx;color:orange">限时付费</text></template>
+
+    <!--推荐-->
+    <view class="recomandBox case" wx:if="{{ralativecourse.length}}">
+        <view class="title">推荐课程</view>
+        <view class="recomand">
+            <view class="title_case" wx:for="{{ralativecourse}}" data-doctype="{{item.type}}" data-id="{{item.id}}" bindtap="jumptocourse">
+                <view class="picture list">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view class="info list">
+                    <view class="classname" style="font-size:30rpx;">{{item.title}}</view>
+                    <view class="priceattr"> <template is="type{{item.priceattr}}"></template> </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!--评论板块-->
+    <view class="comment">
+        <view class="commentheader">
+            <view class="maintitle">最新评论</view>
+            <view class="more" bindtap="{{commentnum?'more':''}}">{{commentnum?commentnum+'个评论>':'暂无评论'}}</view>
+        </view>
+
+        <view class="list" wx:for="{{commentlist}}">
+            <view class="protrait">
+                <image src="{{item.headimgurl}}"></image>
+            </view>
+            <view class="box">
+                <view class="top">
+                    <view class="name">{{item.nickname}}</view>
+                    <view class="right">
+                    </view>
+                </view>
+                <view class="middle">{{item.time}}</view>
+                <view class="bottom">{{item.content}}</view>
+            </view>
+        </view>
+    </view>
+
+</view>
+
+
+<loading hidden="{{hidden}}"></loading>
+<view id="copyright">{{versioninfo}}</view>

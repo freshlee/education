@@ -1,0 +1,187 @@
+page{
+
+}
+
+#body1{
+  padding: 0 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.nav{
+  background: white;
+  border-bottom: 6rpx solid #f4f4f4;
+}
+.nav>view{
+  display: inline-block;
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  color: #454545;
+}
+.bechosen{
+ border-bottom: 4rpx solid rgb(7,103,200) !important;
+ color: rgb(7,103,200) !important;
+}
+
+
+.case{
+  display: inline-block;
+  padding:0 10rpx;
+  margin:20rpx 0 0;
+  background: white;
+  box-sizing: border-box;
+  width: 50%;
+}
+view{
+  word-break: break-all;
+  word-wrap: break-word;
+  
+}
+
+ .title{
+  font-size: 40rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.title_case{
+  box-sizing: border-box;
+}
+
+.title_case .info{
+  line-height: 37.5rpx;
+}
+.info .coursename{
+  font-size: 30rpx;
+  text-align: left;
+  height: 45rpx;
+  line-height: 45rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.title_case image{
+  height: 190rpx;
+}
+.title_case .priceattr{
+  line-height: 50rpx;
+  height: 50rpx;
+  font-size:35rpx;
+  color:green;
+}
+.coursebody{
+
+}
+.coursecase{
+  padding:0 40rpx 20rpx;
+  background: white;
+  border-radius: 5rpx;
+  overflow: hidden;
+  border-bottom:1rpx solid #f4f4f4; 
+}
+.header{
+  z-index: 99;
+  position: relative;
+  background: white;
+}
+.header>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.protrait{
+  margin-right: 30rpx;
+  padding: 30rpx 0 0;
+}
+.protrait image{
+  width: 280rpx;
+  height: 180rpx;
+}
+.header .info{
+  margin-top:30rpx;
+}
+.coursecase .info>view{
+  line-height: 60rpx;
+  font-size: 30rpx;
+  position: relative;
+  top: -10rpx;
+}
+
+.bottom>view{
+  white-space: pre-wrap;
+}
+.bottom .detail{
+  font-size: 27rpx;
+  line-height: 45rpx;
+}
+.compress{
+  position:relative;
+  height: 380rpx;
+  border-radius: 20rpx;
+  transition-property:margin-top; 
+  transition-duration: 1s;
+  will-change: transition;
+}
+
+/*线上文章样式*/
+.article:after{
+  content:"";
+  clear: both;
+  display: block;
+}
+.article{
+  margin-bottom:10rpx; 
+}
+.article > .section_left{
+  float:right;
+  width: 68%;
+}
+.article > .section_left  view{
+  text-align: left;
+  word-wrap: break-word;
+}
+.article_title{
+  font-weight: bold;
+}
+.article_content{
+  color: grey;
+  line-height: 35rpx;
+  height: 70rpx;
+  overflow: hidden;
+}
+.article_subscript{
+  color:grey;
+  margin-top:15rpx;
+}
+
+.article > .section_right{
+  float:left;
+  width: 25%;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
+
+/* 进度条补丁 */
+.picture{
+    position: relative;
+    height: 190rpx;
+}
+.picture .cover{
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.procedure{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+}
+

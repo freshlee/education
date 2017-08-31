@@ -1,0 +1,64 @@
+<!--index.wxml-->
+<view class="toolbar">
+    <view class="{{index==0?'chosen':''}} favor" bindtap="move" data-index="0">所有机构</view>
+    <view class="{{index==1?'chosen':''}} cate" bindtap="move" data-index="1">附近的机构</view>
+</view>
+
+<swiper scroll-y style="height:{{myheight-110}}px" current="{{index}}" bindchange="onchange">
+    <block>
+        <swiper-item>
+            <scroll-view scroll-y style="height:{{myheight-110}}px">
+                <view class="body">
+                    <view class="classname"></view>
+                    <view class="case" wx:for="{{list_all}}" data-index="{{item.id}}" bindtap="jump">
+                        <view class="protrait">
+                            <image src="{{item.logo}}"></image>
+                        </view>
+                        <view class="box">
+                            <view class="top">{{item.merchname}}</view>
+                            <view class="middle">{{item.desc}}</view>
+                            <view class="bottom">
+                                <view class="subscript">{{item.salecate}}</view>
+                            </view>
+                        </view>
+                        <view class="arrow">
+
+                        </view>
+                        <view id="address" wx:if="{{item.address}}">
+                            <image src="../../images/address.png"></image> {{item.address}}</view>
+
+                    </view>
+                </view>
+
+
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y style="height:{{myheight-110}}px">
+                <view class="body">
+                    <view class="classname"></view>
+                    <view class="case" wx:for="{{list_near}}" data-index="{{item.id}}" bindtap="jump">
+                        <view class="protrait">
+                            <image src="{{item.logo}}"></image>
+                        </view>
+                        <view class="box">
+                            <view class="top">{{item.merchname}}</view>
+                            <view class="middle">{{item.desc}}</view>
+                            <view class="bottom">
+                                <view class="subscript">{{item.salecate}}</view>
+                            </view>
+                        </view>
+                        <view class="arrow">
+
+                        </view>
+                        <view id="address" wx:if="{{item.address}}">
+                            <image src="../../images/address.png"></image> {{item.address}}</view>
+
+                    </view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </block>
+</swiper>
+
+<view id="copyright">{{versioninfo}}</view>

@@ -1,0 +1,41 @@
+/* index.wxss */
+page{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.case{
+  margin: 30rpx 0; 
+}
+.top>view{
+  display: inline-block;
+  vertical-align: top;
+
+}
+.top .name{
+  font-size: 30rpx;
+}
+.top .pic image{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 30rpx;
+}
+.middle textarea{
+  border: 2rpx solid #f4f4f4;
+  border-radius: 15rpx;
+  text-indent: 1em;
+  font-size: 28rpx;
+  width: 100%;
+ }
+.bottom image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.showbox image{
+  width:120rpx;
+  height: 120rpx;
+  margin-left: 20rpx;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

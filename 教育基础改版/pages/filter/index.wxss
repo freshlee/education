@@ -1,0 +1,321 @@
+page {
+    width: 100%;
+}
+
+.meter>view {
+    display: inline-block;
+    font-size: 35rpx;
+    padding: 10rpx 30rpx;
+}
+
+.meter .typeon {
+    font-size: 25rpx;
+    line-height: 40rpx;
+    text-align: center;
+    padding: 8rpx 15rpx;
+    border-radius: 20rpx;
+    background: gainsboro;
+    color: rgb(7, 103, 200);
+    font-weight: 500;
+}
+
+.hidden {
+    display: block !important;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    top: -60rpx;
+    box-sizing: border-box;
+    background: white;
+    z-index: 199;
+    transition-property: top;
+    transition-duration: 0.5s;
+    will-change: top;
+}
+
+.show {
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    transition-property: top;
+    transition-duration: 0.5s;
+}
+
+.show image {
+    width: 30rpx;
+    height: 30rpx;
+    transform: rotate(180deg);
+}
+
+.hidden image {
+    width: 30rpx;
+    height: 30rpx;
+    transform: rotate(0deg);
+}
+
+.case {
+    padding: 0 60rpx;
+    margin: 5rpx 0;
+    background: white;
+    position: relative;
+}
+
+.case .li {
+    display: inline-block;
+}
+
+.container {
+    width: 500rpx;
+}
+
+.searchbox {
+    margin: 10rpx 0;
+    line-height: 50rpx;
+    height: 80rpx;
+    width: 200rpx;
+    margin-left: 30rpx;
+    background: gainsboro;
+    border-radius: 15rpx;
+    text-indent: 1em;
+    transition-property: width;
+    transition-duration: 0.5s;
+}
+
+.searchbox image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-bottom: 20rpx;
+    position: relative;
+}
+
+.searchbox input {
+    width: 120rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    display: inline-block;
+}
+
+.filteroff {
+    width: 0;
+    overflow: hidden;
+    padding: 0 0rpx 50rpx;
+    transition-property: width;
+    transition-duration: 0.5s;
+    will-change: width;
+}
+
+.filteron {
+    width: 550rpx;
+    transition-property: width;
+    transition-duration: 0.5s;
+    padding: 0 20rpx 50rpx;
+    top: 70rpx;
+    overflow: hidden;
+    will-change: width;
+}
+
+.filter {
+    height: 1250rpx;
+    position: fixed;
+    z-index: 99;
+    background: white;
+    box-sizing: border-box;
+    opacity: 0.95;
+    right: 0;
+    top: 0rpx;
+}
+
+.filter .list {
+    margin: 0 0 20rpx;
+}
+
+.filter .typename {
+    padding-top: 10rpx;
+    margin-left: 20rpx;
+    font-size: 30rpx;
+    border-top: 1px solid grey;
+}
+
+.filter .type {
+    font-size: 27rpx;
+    vertical-align: top;
+    display: inline-block;
+    margin: 10rpx 10rpx;
+    padding: 20rpx 0rpx;
+    overflow: hidden;
+    text-align: center;
+    width: 27%;
+    border-radius: 10rpx;
+    background: gainsboro;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.filter .typeon {
+    font-size: 27rpx;
+    vertical-align: top;
+    display: inline-block;
+    margin: 10rpx 10rpx;
+    padding: 20rpx 0rpx;
+    overflow: hidden;
+    text-align: center;
+    width: 27%;
+    border-radius: 10rpx;
+    background: rgb(7, 103, 200);
+    color: white;
+}
+
+.panel {
+    font-size: 35rpx;
+    width: 60%;
+    margin: 200rpx 20% 0;
+    box-sizing: border-box;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    border-radius: 17rpx;
+    background: rgb(7, 103, 200);
+    color: white;
+}
+
+.goods {
+    padding: 20rpx;
+    background: white;
+    border-top: 1rpx solid gainsboro;
+}
+
+.good {
+    position: relative;
+    margin: 5rpx 7rpx;
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.picture {
+}
+
+.picture image {
+    width: 100%;
+    height: 200rpx;
+}
+
+.info {
+    position: relative;
+    width: 100%;
+}
+
+.info .name {
+    font-size: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.info .attr {
+    font-size: 35rpx;
+    margin-left: 210rpx 0;
+}
+
+.property>view {
+    width: 50%;
+    font-size: 35rpx;
+    color: green;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+/*模板样式*/
+
+.free {
+    font-size: 35rpx;
+}
+
+.VIP, .limit {
+    font-size: 35rpx;
+    color: red;
+}
+
+.toolbar {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+
+.frame {
+    height: 66rpx;
+    display: block;
+}
+
+.toolbar>view {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    line-height: 80rpx;
+    height: 80rpx;
+    background: white;
+    margin-bottom: 20rpx;
+    font-size: 30rpx;
+    box-sizing: border-box;
+}
+
+.chosen {
+    border-bottom: 5rpx solid #0767c8;
+    color: #0767c8 !important;
+}
+
+.cate {
+    position: fixed;
+}
+
+.meter {
+    position: fixed;
+    top: 80rpx;
+    background: white;
+    z-index: 77;
+    width: 100%;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid gainsboro;
+}
+
+.noncurtain {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+.curtain {
+    width: 800rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: black;
+    height: 1250rpx;
+    z-index: 88;
+    opacity: 0.3;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+.inputon {
+    width: 350rpx;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.doinput {
+    width: 280rpx !important;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+#copyright {
+    text-align: center;
+    margin: 10rpx 0;
+}

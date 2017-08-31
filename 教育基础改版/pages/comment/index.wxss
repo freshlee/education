@@ -1,0 +1,156 @@
+/* index.wxss */
+
+#body {
+    padding-bottom: 100rpx;
+}
+
+.left {
+    padding: 30rpx 30rpx 0;
+}
+
+.left image {
+    height: 120rpx;
+    width: 120rpx;
+    border-radius: 50%;
+}
+
+.main {
+}
+
+.main>view {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.main .right {
+    padding-top: 30rpx;
+    line-height: 50rpx;
+    width: 500rpx;
+    white-space: pre-wrap;
+}
+
+.right .name {
+    font-weight: bold;
+    font-size: 35rpx;
+}
+
+.right .content {
+    font-size: 30rpx;
+}
+
+.bottom {
+    margin-left: 180rpx;
+    margin-right: 30rpx;
+    padding-bottom: 30rpx;
+    line-height: 40rpx;
+    border-bottom: 1rpx solid gainsboro;
+}
+
+.bottom>view {
+    display: inline-block;
+    height: 40rpx;
+    line-height: 60rpx;
+    vertical-align: top;
+    font-size: 30rpx;
+    color: dimgrey;
+}
+
+.bottom image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.bottom .praise {
+    float: right;
+    margin-left: 30rpx;
+}
+
+.praise text {
+    font-size: 30rpx;
+    line-height: 60rpx;
+    position: relative;
+    top: -2rpx;
+    color: dimgray;
+}
+
+.suspend {
+    position: fixed;
+    right: 80rpx;
+    bottom: 150rpx;
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    background-color: darkorange;
+}
+
+.suspend image {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    transform: scale(0.6);
+}
+
+.writeboard {
+    border-top: 3rpx solid #f4f4f4;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: white;
+    padding: 20rpx;
+    box-sizing: border-box;
+    transition-property: height;
+    transition-duration: 0.5s;
+}
+.writeboard .ball{
+    width: 50rpx;
+    height: 50rpx;
+    display: inline-block;
+    border-radius: 50%;
+    background: #118cf4;
+    box-shadow: 0 0 20rpx #118cf4;
+}
+
+
+.writeboard .input {
+    background: #f4f4f4;
+    border-radius: 30rpx;
+}
+
+.writeboard .input input {
+    display: inline-block;
+    width: 550rpx;
+}
+
+.writeboard image {
+    margin: 10rpx 20rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+#addpic {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+#title {
+    padding-left: 20rpx;
+    border-radius: 20rpx;
+    background: #f4f4f4;
+    box-sizing: border-box;
+    height: 70rpx;
+    transition-property: height;
+    transition-duration: 0.5s;
+    line-height: 70rpx;
+}
+
+.reply {
+    color: #0767c8 !important;
+    margin-left: 20rpx;
+    float: right;
+}
+
+#copyright {
+    text-align: center;
+    margin: 10rpx 0;
+}

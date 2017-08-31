@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="left part" style="height:{{myheight}}px">
+<view class="list {{0==indexnow?'chosen':''}}" bindtap="all" data-index="0">全部话题</view>
+
+<view class="list {{item.id==indexnow?'chosen':''}}" wx:for="{{catelist}}" bindtap="change" data-index="{{item.id}}">{{item.name}}</view>
+</view>
+<view class="right part">
+
+<view class="list" wx:for="{{board}}">
+
+<view class="picture"> <image src="{{item.logo}}"></image> </view>
+
+<view class="info" data-case="{{item.id}}" bindtap="jump">
+<view class="name">{{item.title}}</view>
+<text class="model">话题数{{item.postcount}}</text>
+<text class="concert">关注数{{item.followcount}}</text>
+</view>
+
+<view class="arrow">
+<image src="../../../images/arrow_down.png"></image>
+</view>
+
+</view>
+
+</view>
+
+<loading hidden="{{hidden1==1&&hidden2==1?true:false}}">加载中...</loading>
+
+ <view id="copyright">{{versioninfo}}</view> 

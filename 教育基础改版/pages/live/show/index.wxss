@@ -1,0 +1,189 @@
+/* pages/video/index.wxss */
+@import "../../../wxParse/wxParse.wxss";
+.toolbar{
+  box-shadow: 0rpx 2rpx 5rpx #888888;
+}
+.toolbar view{
+  display: inline-block;
+}
+view{
+  white-space: nowrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  
+}
+.contain  .window{
+  display: inline-block;
+  width:100%;
+  vertical-align: top;
+  padding: 80rpx;
+  box-sizing: border-box;
+  
+}
+.toolbar .list{
+  width:33.3%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 40rpx;
+}
+.window .ul{
+  font-size: 40rpx;
+}
+.window .li{
+  text-align: left;
+  font-size:30rpx;
+  text-indent: 2em;
+}
+#section{
+  padding: 10rpx 30rpx;
+}
+#section .case>view{
+  display: inline-block;
+}
+#section .case .rank{
+  padding: 5rpx 10rpx;
+  border-radius: 5rpx;
+  border:1rpx solid rgb(7,103,200);
+  color: rgb(7,103,200);
+  margin-right: 10rpx;
+}
+#section .case .name{
+  color: grey;
+}
+#section .case .message{
+  font-size:28rpx;
+}
+
+#detail view{
+  white-space: pre-wrap;
+}
+#comment .case{
+  padding:50rpx 0;
+  border-bottom:1rpx solid lightgrey; 
+}
+#comment .title{
+  font-size: 40rpx;
+}
+#comment .intContent{
+  font-size: 35rpx;
+  text-indent: 2em;
+}
+#comment .teacher image{
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+#comment .teacher > view{
+   display: inline-block;
+}
+#teacher .remark .header>view{
+  display: inline-block;
+  }
+.header:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.header{
+  margin-bottom: 30rpx;
+}
+.header .num{
+  float: left;
+  font-size: 30rpx
+} 
+.header .num text{
+  font-size: 40rpx
+} 
+.header .more{
+  float: right;
+}
+
+.user_info view{
+  display: inline-block;
+}
+.user_info image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.user .content{
+  padding-left:70rpx;
+}
+#interact .title{
+  font-size: 40rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.title_case{
+  padding:20rpx 0;
+  border-bottom:1rpx solid gainsboro;
+}
+.title_case .list{
+  display: inline-block;
+  width:50%;
+  vertical-align: middle;
+}
+.title_case .info{
+  height: 150rpx;
+  line-height: 37.5rpx;
+  padding-left:20rpx;
+}
+.title_case image{
+  height: 150rpx;
+}
+.title_case .priceattr{
+  line-height: 75rpx;
+  height: 75rpx;
+  font-size:35rpx;
+  color:green;
+}
+.info{
+  padding: 20rpx 30rpx;
+  border: 1rpx solid gainsboro;
+}
+.info>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.info .picture>image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.info .picture{
+  width: 25%;
+}
+.info .detail{
+  width: 75%;
+}
+.detail .top{
+  font-size: 35rpx;
+}
+.detail .bottom>view{
+  display: inline-block;
+}
+.detail .bottom .left>view{
+   line-height: 40rpx;
+   height: 40rpx;
+   font-size: 30rpx;
+   color: grey;
+}
+.left image{
+  width:60rpx;
+  height: 40rpx;
+  vertical-align: top;
+}
+.detail .bottom .right{
+  float: right;
+  margin-right:30rpx;
+  margin-top: 15rpx;
+  padding: 15rpx 30rpx;
+  border-radius: 5rpx;
+  color: white;
+  background: rgb(7,103,200);
+}
+.right .panel{
+  font-size: 30rpx;
+}

@@ -1,0 +1,114 @@
+/* pages/my/hpme/index.wxss */
+/* page{
+  padding: 0 20rpx;
+  background: #f4f4f4;
+  box-sizing: border-box;
+}
+.bottom image{
+  width:20rpx;
+  height:20rpx;
+}
+.case>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.picture image{
+  width: 100rpx;
+  height:100rpx;
+  margin-right: 20rpx;
+}
+.case{
+  margin: 20rpx 0 70rpx;
+  padding: 10rpx 10rpx;
+  width: 450rpx;
+  border-radius: 15rpx;
+  background: white;
+
+}
+.case .box .top{
+  font-size: 30rpx;
+  margin-bottom:20rpx;
+}
+.case .box .bottom{
+
+}
+.container{
+  padding-left:50rpx; 
+  margin-left: 150rpx;
+  border-left:5rpx solid #0174e5;
+}
+.ball{
+  background: #0174e5;
+  width:25rpx;
+  height:25rpx;
+  border-radius: 50%;
+  position: relative;
+  left: -71rpx;
+  top: 30rpx;
+  text-indent: -3.8rem;
+  color:slategrey;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+} */
+/* 新版时间轴 */
+page{
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+.today{
+    height: 150rpx;
+    line-height: 150rpx;
+    font-size: 35rpx;
+    color: white;
+    text-align: center;
+}
+.timecase{
+    color: white;
+    margin-bottom: 100rpx;
+}
+.timecase>view{
+    display: inline-block;
+    vertical-align: middle;
+}
+.timecase .left{
+    width:30%;
+}
+.timecase .littleball{
+    display: inline-block;
+    vertical-align: middle;
+    width: 20rpx;
+    height: 20rpx;
+    background: white;
+    border-radius: 50%;
+    margin-left: 10rpx;
+}
+.timecase .time{
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+    text-align: center;
+}
+.timecase .middle{
+    width:20%;
+}
+.timecase .middle .stage{
+    height: 70rpx;
+    width: 70rpx;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+.timecase .middle .stage image{
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+}
+.timecase .right{
+    width:50%;
+    font-size: 30rpx;
+    text-align: left;
+}
+#background image{
+    filter: blur(5rpx)
+}

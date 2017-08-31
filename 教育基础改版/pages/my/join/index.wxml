@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<form bindsubmit="submit">
+
+<view class="form">
+<view class="case">
+<view class="title">姓名</view>
+<view class="input"> <input placeholder="请输入姓名" name="realname"/></view>
+</view>
+
+<view class="case">
+<view class="title">机构名</view>
+<view class="input"> <input placeholder="请输入申请机构名称" name="merchname" /></view>
+</view>
+
+<view class="case">
+<view class="title">手机</view>
+<view class="input" > <input placeholder="请输入手机" name="mobile"/> </view>
+</view>
+
+<view class="case">
+<view class="title">主营业务</view>
+<view class="input"> <input placeholder="请输入主营业务" name="salecate"/></view>
+</view>
+
+
+<!-- <view class="case">
+<view class="title">地址</view>
+<view class="input"> <input placeholder="请输入地址" value="{{address}}" name="address"/> </view>
+<view class="gainaddress" bindtap="address"> <image src="../../../images/getaddress.png"></image> </view>
+</view> -->
+
+</view>
+
+<view class="message">
+<textarea  placeholder="请输入留言内容" name="desc"/>
+</view>
+
+<view class="submit">
+<button class="panel" form-type="submit">确认</button>
+</view>
+
+
+</form>
+<loading hidden="{{hidden}}">上传中</loading>
+ <view id="copyright">{{versioninfo}}</view> 

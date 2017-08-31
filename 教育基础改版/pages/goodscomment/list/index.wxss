@@ -1,0 +1,94 @@
+/* index.wxss */
+#body{
+padding-bottom: 100rpx;
+}
+.left{
+  padding: 30rpx 30rpx 0;
+}
+.left image{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius:50%; 
+}
+.main{
+}
+.main>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.main .right{
+  padding-top:30rpx;
+  line-height: 50rpx;
+}
+.right .name{
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.right .content{
+  font-size: 30rpx;
+}
+.bottom{
+  margin-left: 180rpx;
+  margin-right: 30rpx;
+  padding-bottom:30rpx;
+  line-height: 40rpx;
+  border-bottom:1rpx solid gainsboro;
+}
+.bottom>view{
+    height: 40rpx;
+    line-height: 60rpx;
+    vertical-align: top;
+    font-size: 30rpx;
+    color: dimgrey;
+  
+}
+.bottom image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.bottom .praise{
+  margin-top: 20rpx;
+}
+.praise text{
+  font-size: 30rpx;
+  line-height: 60rpx;
+  position: relative;
+  top:-2rpx;
+  color: dimgray;
+}
+#addpic{
+  width: 50rpx;
+  height: 50rpx;
+}
+#title{
+  padding-left: 20rpx;
+  border-radius: 20rpx;
+  background: #f4f4f4;
+  box-sizing: border-box;
+  height:70rpx; 
+  transition-property: height;
+  transition-duration: 0.5s;
+  line-height: 70rpx;
+}
+.suspend{
+  position: fixed;
+  padding: 10rpx 20rpx;
+  line-height: 70rpx;
+  border-radius:15rpx; 
+  background: #0767C8;
+  color: white;
+  bottom:100rpx; 
+  left: 50%;
+  font-size: 35rpx;
+  margin-left: -70rpx;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
+
+
+
+
+
+

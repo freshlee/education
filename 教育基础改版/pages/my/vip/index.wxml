@@ -1,0 +1,59 @@
+
+<template name="time0">怎么还不睡~~</template>
+<template name="time1">hello~早</template>
+<template name="time2">中午了~~吃饭没</template>
+<template name="time3">下午好</template>
+<template name="time4">晚上好</template>
+<view class="board">
+<view class="board_left">
+<view class="morning">  <template is="{{'time'+timestatus}}"></template>  </view>
+<view class="deadline">{{deadline>=0?'您是VIP,到期时间:'+deadlinetime:'您还不是VIP'}}</view>
+</view>
+<!-- <view class="board_right" bindtap="show" style="display:{{status==1?'none':'block'}}" wx:if="{{!deadline}}">续费</view> -->
+</view>
+
+
+<view class="expend {{status==1?'expendon':''}}">
+
+<view class="panel">
+
+
+<view class="menu">
+
+
+<view class="list {{time==1?'chosen':''}}" bindtap="charge" data-type="1" data-id="{{viplist[0].id}}" data-money="{{viplist[0].ordermoney}}"> <view class="left" >{{viplist[0].ordermoney}} </view> <view class="right">一周</view> </view>
+<view class="list {{time==2?'chosen':''}}" bindtap="charge" data-type="2" data-id="{{viplist[1].id}}" data-money="{{viplist[1].ordermoney}}" > <view class="left">{{viplist[1].ordermoney}}  </view> <view class="right">一月</view> </view>
+<view class="list {{time==3?'chosen':''}}" bindtap="charge" data-type="3" data-id="{{viplist[2].id}}" data-money="{{viplist[2].ordermoney}}"> <view class="left" >{{viplist[2].ordermoney}}  </view> <view class="right">半年</view> </view>
+</view>
+
+
+
+
+
+
+
+</view>
+
+</view>
+
+<view class="show">
+<view class="title">VIP专享免费课程</view>
+<view class="case" wx:for="{{list}}">
+<view class="title_case">
+<view class="picture list"> <image src="{{item.thumb}}"></image> </view>
+<view class="info list">
+<view class="classname">{{item.title}}</view>
+</view>
+</view>
+</view>
+
+</view>
+
+<view class="bottom" wx:if="{{deadline<=0}}"> 
+<view class="cal">总计 <text>{{money}}</text>  元</view> 
+<view class="pay" bindtap="purchase" >确认支付</view>
+</view>
+
+ <view id="copyright">{{versioninfo}}</view> 
+
+<loading hidden="{{hidden}}"></loading>

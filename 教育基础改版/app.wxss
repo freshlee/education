@@ -1,0 +1,197 @@
+/**app.wxss**/
+@import "./style/layout.wxss";
+
+page {
+    background: #fff;
+}
+
+text {
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix:after {
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+view, text {
+    font-family: "苹方";
+    font-size: 24rpx;
+ 
+}
+
+image {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.well {
+    width: 750rpx;
+    margin: auto;
+}
+
+.wells {
+    width: 710rpx;
+    margin: auto;
+}
+
+.mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    background: #000;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+}
+
+.mask.on {
+    display: block !important;
+}
+
+.border-top {
+    border-top: 1rpx solid #e7e7e7;
+}
+
+.border-bottom {
+    border-bottom: 1rpx solid #e7e7e7;
+}
+
+.out {
+    display: none;
+}
+
+.on {
+    display: block !important;
+}
+
+.null-comtent {
+    width: 100%;
+    height: 450rpx;
+    text-align: center;
+}
+
+.null-comtent image {
+    width: 160rpx;
+    height: 160rpx;
+    margin-top: 150rpx;
+}
+
+.null-comtent view {
+    width: 100%;
+    margin-top: 15rpx;
+    text-align: center;
+}
+
+.null-comtent view text {
+    font-size: 26rpx;
+    color: #9b9b9b;
+}
+
+.well.coprity {
+    text-align: center;
+}
+
+.well.coprity view {
+    width: 100%;
+    margin-top: 30rpx;
+    font-size: 24rpx;
+    color: #c5c5c5;
+    padding-bottom: 20rpx;
+}
+
+::-moz-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+::-sm-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.wells2 {
+    width: 702rpx;
+    margin: auto;
+}
+
+.wells3 {
+    width: 720rpx;
+    margin: auto;
+}
+
+.barbg {
+    width: 750rpx;
+    height: 1rpx;
+    margin: auto;
+    background: #c5c5c5;
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.wellsss {
+    width: 718rpx;
+    margin: auto;
+}
+
+.null-comtent .v2 text {
+    display: inline-block;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0 25rpx;
+    border: 1rpx solid #ff5c5c;
+}
+
+.server {
+    width: 54px;
+    height: 30px;
+    background: #50e3c2;
+    border: 1rpx solid #ded7d6;
+    border-right: none !important;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    position: fixed;
+    bottom: 90rpx;
+    right: 0;
+    line-height: 62rpx;
+    z-index: 10；;
+}
+
+.server contact-button {
+    position: absolute;
+    color: #fff;
+    z-index: 3;
+    display: block;
+    margin-left: 12px;
+    margin-top: 5px;
+    font-size: 10px;
+}
+
+.server text {
+    position: absolute;
+    top: 0rpx;
+    left: 32px;
+    color: #fff;
+    font-size: 10px;
+    z-index: 2;
+}

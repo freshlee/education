@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view class="nav">
+    <view class="{{myindex==0?'bechosen':''}}" bindtap="video">已关注</view>
+    <view class="{{myindex==1?'bechosen':''}}" bindtap="course">已购买</view>
+    <!--<view class="{{myindex==2?'bechosen':''}}" bindtap="article">线上文章</view>-->
+
+</view>
+<!--收藏视频-->
+<swiper style="height:{{myheight-155}}px" current="{{myindex}}" bindtap="move">
+    <block>
+        <swiper-item>
+            <view id="body1">
+                <view class="case" wx:for="{{collection}}" data-index="{{item.goodsid}}" bindtap="jump">
+                    <view class="title_case">
+                        <view class="picture list">
+                            <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="info list">
+                            <view class="coursename">{{item.title}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!--已支付课程-->
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y style="height:{{myheight-155}}px">
+
+                <view class="case" wx:for="{{finishlist}}" data-index="{{item.goods.id}}" bindtap="jump">
+                    <view class="title_case">
+                        <view class="picture list">
+                            <image src="{{item.goods.thumb}}"></image>
+                        </view>
+                        <view class="info list">
+                            <view class="coursename">{{item.goods.title}}</view>
+                        </view>
+                    </view>
+                </view>
+
+
+            </scroll-view>
+        </swiper-item>
+        <!--线上文章-->
+        <!--<swiper-item>
+<scroll-view scroll-y style="height:{{myheight-155}}px">
+
+<view class="article"  wx:for="{{2}}" data-id="item.id" bindtap="moveToArticle">
+<view class="section_right">
+<view><image src="{{item.thumb}}"></image></view>
+</view>
+<view class="section_left">
+<view class="article_title">{{item.title}}</view>
+<view class="article_content">{{item.content}}</view>
+<view class="article_subscript">阅读363</view>
+</view>
+</view>
+
+</scroll-view>
+</swiper-item>-->
+
+
+    </block>
+</swiper>
+
+<view id="copyright">{{versioninfo}}</view>

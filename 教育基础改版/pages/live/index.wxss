@@ -1,0 +1,73 @@
+/* index.wxss */
+.header{
+  height: 194px;
+}
+.nav>view{
+  display: inline-block;
+  width: 33.3%;
+  text-align: center;
+  padding:15px 0;
+  color: rgb(7,103,200);
+  background: #F5FFFA;
+    border-bottom:7rpx solid cornflowerblue;
+    border-top:7rpx solid cornflowerblue;
+    box-sizing:content-box;
+}
+.nav>view:nth-of-type(2){
+    border-bottom:7rpx solid lightskyblue;
+    border-top:7rpx solid lightskyblue;
+}
+.nav>view:last-of-type{
+  border-bottom:7rpx solid lightsteelblue;
+  border-top:7rpx solid lightsteelblue;
+}
+.picture image{
+  height: 120px;
+}
+.content{
+  padding: 0 30rpx;
+  background: gainsboro;
+}
+.content .title{
+  display: block;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+}
+.content>view{
+  display: inline-block;
+  width: 50%;
+  padding: 5rpx 10rpx 30rpx;
+  box-sizing: border-box;
+}
+.content .box{
+   box-shadow: 0rpx 2rpx 5rpx #888888;
+}
+.content .case>view{
+    background: white;
+}
+.info>view{
+  display: inline
+}
+.info .name{
+  padding: 25rpx 0;
+  font-size: 30rpx;
+}
+.info .username{
+  color: grey;
+}
+.info .browser{
+  float: right;
+  color: gray;
+}
+/*NAV状态切换*/
+.navon{
+  position: fixed;
+  top:0;
+  background: white;
+  width: 100%;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

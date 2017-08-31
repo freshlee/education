@@ -1,0 +1,85 @@
+.banner{
+  height: 350rpx;
+}
+
+.header image{
+  height:100rpx;
+  width:100rpx;
+  margin: auto;
+  padding: auto;
+  border-radius: 50%;
+}
+.header{
+  left: 50%;
+  position: absolute;
+  margin-left:-50rpx; 
+}
+.nav{
+  padding:20rpx 20rpx;
+  margin: 0 0 10rpx;
+  background: white;
+}
+.clear{
+  display: block;
+  content: "";
+  clear: both;
+}
+.nav .list{
+ display: inline-block;
+ width: 25%;
+ position: relative;
+}
+.list{
+  width: 50%;
+}
+.list>view:first-of-type{
+  height: 120rpx;
+}
+.list .name{
+  text-align: center;
+  line-height: 30rpx;
+  height: 30rpx;
+  font-size: 25rpx;
+}
+.content{
+  background: white;
+  margin-top: 15rpx;
+}
+.content .case{
+  margin: 25rpx 40rpx;
+  border-bottom:1rpx solid #f4f4f4;
+}
+.content .case:last-of-type{
+  margin: 25rpx 40rpx;
+  border-bottom:none;
+}
+.case .title{
+  padding:10rpx 0;
+  font-size:30rpx;
+  font-weight:bold; 
+}
+.case .sum{
+  padding: 20rpx 0; 
+}
+.content .catename{
+  height: 30rpx;
+  padding:15rpx 40rpx;
+  font-size:35rpx;
+  font-weight:bold; 
+}
+.content .discribe{
+  margin:25rpx 40rpx;
+  font-size:25rpx;
+  color: grey;
+  border-bottom:1rpx solid #f4f4f4;
+}
+.body{
+  background: #f4f4f4;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
+
+
+

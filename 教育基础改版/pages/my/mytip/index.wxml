@@ -1,0 +1,30 @@
+<!--index.wxml-->
+
+<view class="separate">关注的板块</view>
+<view class="line"> </view>
+
+<view class="model">
+<view class="box" wx:for="{{boards}}" data-index="{{item.id}}" bindtap="jumptomodel"><image src="{{item.logo}}"></image>
+<view class="boardname">{{item.title}}</view>
+</view>
+</view>
+
+
+
+<view class="separate">我的回复</view>
+<view class="line"></view>
+
+<view class="response" wx:for="{{replys}}">
+<view class="middle">话题：{{item.parenttitle?item.parenttitle:item.title}} <text id="del" bindtap="del" data-id="{{item.id}}" data-index="{{index}}">删除</text> </view>
+<view class="top" data-pid="{{item.pid}}" data-bid="{{item.bid}}" bindtap="jumptoreply">
+<view class="title">{{item.content}}</view>
+</view>
+</view>
+<view class="more" bindtap="more">{{warm==1?'已经到最后':'查看更多'}}</view>
+
+<loading hidden="{{hidden}}">加载中</loading>
+ <view id="copyright">{{versioninfo}}</view> 
+
+
+
+
