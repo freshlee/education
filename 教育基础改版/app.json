@@ -1,8 +1,9 @@
 {
     "pages": [
         "pages/demo/index",
-        "pages/neccesary/index",
-        "pages/articlelist/index",
+        "pages/appointment/index",
+        "pages/my/assignment/index",
+        "pages/advertise/index",
         "pages/course/index",
         "pages/video/index",
         "pages/my/record/index",
@@ -12,7 +13,6 @@
         "pages/my/mytip/index",
         "pages/my/info/index",
         "pages/my/vip/index",
-        "pages/advertise/index",
         "pages/my/collect/index",
         "pages/checkout/index",
         "pages/goodscomment/add/index",
@@ -34,7 +34,7 @@
     "window": {
         "backgroundTextStyle": "dark",
         "navigationBarTextStyle": "white",
-        "navigationBarTitleText": "测试",
+        "navigationBarTitleText": "教育",
         "navigationBarBackgroundColor": "#0767C8",
         "backgroundColor": "#F2f2f2",
         "enablePullDownRefresh": false
