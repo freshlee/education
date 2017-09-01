@@ -180,7 +180,7 @@ Page({
         })
     },
     handlesubmit: function (e) {
-        var value = this.data.contentinput
+        var value = this.data.contentinput||'';
         var content = { detail: { value: value } }
         this.submit(content);
     },

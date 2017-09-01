@@ -2,10 +2,10 @@
 <import src="../../wxParse/wxParse.wxml" />
 <view class="banner">
     <view class="protrait">
-        <image src="{{base.jg.logo?base.jg.logo:base.zz.logo}}"></image>
+        <image src="{{base.jg.logo?base.jg.logo:base.logo}}"></image>
         <view class="organisename">{{base.jg.merchname?base.jg.merchname:base.zz.merchname}}</view>
     </view>
-    <image src="{{base.jg.logo?base.jg.logo:base.zz.logo}}" id="cover"></image>
+    <image src="{{base.jg.logo?base.jg.logo:base.logo}}" id="cover"></image>
 </view>
 
 
@@ -63,6 +63,6 @@
 </swiper>
 
 <view class="footer">
-    <view class="address" bindtap="getloacation">查看位置</view>
+    <view class="address" bindtap="getloacation" wx:if="{{base.jg.merchname}}">查看位置</view>
     <view class="dail" bindtap="call">拨打电话</view>
 </view>

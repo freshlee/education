@@ -203,15 +203,21 @@ Page({
                 //获取机构信息
                 wx.request({
                     url: getApp().globalData.server,
-                    data:{
-                        a:"merch",
-                        io:"id",
-                        openid:getApp().globalData.openid,
-                        uid:merchid,
+                    data: {
+                        a: "merch",
+                        op: "id",
+                        openid: getApp().globalData.openid,
+                        uid: merchid,
                     },
                     success: function (res) {
+                        try{
+                            var desc = res.data.dat.zz.description;
+                        }catch(err){
+                            var desc = res.data.dat.jg.desc;   
+                        }
+                        console.log(res);
                         THIS.setData({
-                            organise: res.data.dat.zz.description,
+                            organise: desc,
                             organiseinfo: res.data.dat,
                         })
                     }

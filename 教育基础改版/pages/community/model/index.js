@@ -1,58 +1,28 @@
 // index.js
 var WxParse = require('../../../wxParse/wxParse.js');
-var openid = getApp().globalData.openid;
-var praises = [];
-var postid;
-var logo = [];
-var pic = [];
 var bid;
 var permission;
 var page;
-var max;
-var rest;
-var sublogo = [];
+var maxpage;
+var overcount;
 Page({
 
-    /**
-     * 页面的初始数据
-     */
-    onShareAppMessage: function(res) {
-        if (res.from === 'button') {
-            // 来自页面内转发按钮
-            console.log(res.target)
-        }
-        return {
-            title: getApp().globalData.merchname,
-            path: '/pages/community/model/index',
-            success: function(res) {
-                // 转发成功
-            },
-            fail: function(res) {
-                // 转发失败
-            }
-        }
-    },
+
     data: {
-        statu: 0,
-        praise: [],
-        status: 0,
-        hidden: true,
-        submiting: true,
+
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    //关注
-    concern: function() {
-        this.setData({
-            isconcern: !this.data.isconcern,
-        })
+    stop: function (res) {
+        return false;
     },
-    //删除评论
-    delcomment: function(e) {
-        var pid = e.currentTarget.dataset.pid;
+    deleted: function(e){
+        wx.showLoading({
+            title: '删除中',
+        })
+        var THIS=this;
         var index = e.currentTarget.dataset.index;
+        var pid = e.currentTarget.dataset.pid;
+        var id = e.currentTarget.dataset.id;
         wx.request({
             url: getApp().globalData.server,
             data: {
@@ -62,7 +32,8 @@ Page({
                 bid: bid,
                 pid: pid,
             },
-            success: function(res) {
+            success: function (res) {
+                wx.hideLoading();
                 var newlist = THIS.data.list;
                 newlist.splice(index, 1);
                 THIS.setData({
@@ -71,73 +42,178 @@ Page({
             }
         })
     },
-    //删除图片
-    del: function(e) {
-        var index = e.currentTarget.dataset.index;
-        logo.splice(index, 1);
-        sublogo.splice(index, 1);
-        this.setData({
-            logo: logo,
-        })
-    },
-    back: function() {
-        this.setData({
-            status: 0,
-        })
-    },
-    tocomment: function(e) {
-        var des = e.currentTarget.dataset.des;
-        wx.navigateTo({
-            url: '../../comment/index?pid=' + des + '&bid=' + postid,
-        })
-
-    },
-    changestatu: function(event) {
-        var indexnow = event.currentTarget.dataset.index;
-        var status = []
-        status[indexnow] = this.data.statu[indexnow] == 1 ? 0 : 1;
-        this.setData({
-            statu: status,
-        })
-    },
-    dochange: function(bid, pid) {
+    del: function (e) {
         var THIS = this;
+        var pid = e.currentTarget.dataset.pid;
+        var id = e.currentTarget.dataset.id;
+        wx.request({
+            url: getApp().globalData.server,
+            data: {
+                a: "Usersq",
+                op: "deletereply",
+                openid: getApp().globalData.openid,
+                bid: id,
+            },
+            success: function () {
+                THIS.setData({
+                    bid: id
+                })
+                THIS.showreply(pid);
+            },
+        })
+    },
+    onLoad: function (options) {
+        var THIS=this;
+        this.setData({
+            versioninfo: getApp().globalData.version,
+        })
+        bid = options.id;
+        overcount=0;
+        permission = 0;
+        page = 1;
+        bid = 12;
+        maxpage = 1;
+        this.setData({
+            list: [],
+            writestatus: 0,
+            openid:getApp().globalData.openid,
+        })
+        //判断是不是版主
+        wx.request({
+            url: getApp().globalData.server,
+            data: {
+                openid: getApp().globalData.openid,
+                bid: bid,
+                a: "Usersq",
+                op: "banzhu",
+            },
+            success: function (res) {
+                permission = res.data.dat;
+                THIS.setData({
+                    permission: permission,
+                })
+            }
+        })
+        //版面数据
+        wx.request({
+            url: getApp().globalData.server,
+            data: {
+                a: "Board",
+                op: "main",
+                id: bid,
+            },
+            success: function (res) {
+                THIS.setData({
+                    base: res.data.dat.board,
+                })
+            }
+        })
+        //评论数据
+        this.more();
+    },
+    back: function () {
+        this.setData({
+            pidchosen: null,
+            replystatus: 0,
+        })
+        console.log("back");
+    },
+    hide: function (event){
+        var THIS=this;
+        var pid = event.currentTarget.dataset.pid;
+        var list = THIS.data.list;
+        for (var key in list) {
+            if (list[key].id == pid) {
+                list[key].replylist = [];
+                break;
+            }
+        }
+        THIS.setData({
+            list: list,
+        })
+    },
+    showreply: function (event) {
+        var THIS = this;
+        if (event instanceof Object && !(event instanceof Array)) {
+            var pid = event.currentTarget.dataset.pid;
+            console.log(11111);
+        }
+        else {
+            var pid = event;
+        }
+        this.setData({
+            writestatus: true,
+            pidchosen: pid,
+            replystatus: 1,
+        })
         wx.request({
             url: getApp().globalData.server,
             data: {
                 a: "Post",
-                op: "like",
-                openid: getApp().globalData.openid,
+                op: "getlist",
+                pid: pid,
                 bid: bid,
-                pid: pid
             },
-            success: function(res) {
+            success: function (res) {
+                var list = THIS.data.list;
+                for (var key in list) {
+                    if (list[key].id == pid) {
+                        list[key].replylist = res.data.dat.list;
+                        break;
+                    }
+                }
                 THIS.setData({
-                    shit: res.data.dat.good,
+                    list: list,
                 })
             }
         })
-        console.log(this.data.shit);
-        return this.data.shit;
     },
-
-    //提交申请
-    contentinput:function(e){
-        this.setData({
-            contentinput:e.detail.value,
-        })
-    },
-    handlesubmit:function(e){
-        var value = this.data.contentinput
-        var content = {detail:{value:value}}
-        this.submit(content);
-    },
-    submit: function(e) {
+    praise: function (event) {
+        var THIS = this;
         if (getApp().globalData.openid) {
-            var THIS = this;
-            var data = e.detail.value;
-            this.setData({
-                content: data,
+            wx.showLoading({
+                title: '加载中',
+            })
+            var pid = event.currentTarget.dataset.pid;
+            wx.request({
+                url: getApp().globalData.server,
+                data: {
+                    a: "Post",
+                    op: "like",
+                    bid: bid,
+                    pid: pid,
+                    openid: getApp().globalData.openid,
+                },
+                success: function (res) {
+                    wx.hideLoading();
+                    var goods = res.data.dat.good;
+                    var list = THIS.data.list;
+                    for (var key in list) {
+                        if (list[key].id == pid) {
+                            list[key].goodcount = goods;
+                            break;
+                        }
+                    }
+                    THIS.setData({
+                        list: list,
+                    })
+                }
+            })
+        }
+        else {
+            wx.showModal({
+                title: '请登录',
+                content: '未登录不能使用社区功能',
+            })
+        }
+
+    },
+    submit: function (e) {
+        var THIS = this;
+        var data = e.detail.value;
+        if (getApp().globalData.openid) {
+            wx.showLoading({
+                title: '提交中',
             })
             if (data >= 200 || data <= 5) {
                 wx.showToast({
@@ -145,430 +221,191 @@ Page({
                 })
                 return false;
             }
-            this.setData({
-                submiting: false,
-            })
-            wx.request({
-                url: getApp().globalData.server,
-                data: {
-                    a: "Post",
-                    op: "submit",
-                    openid: getApp().globalData.openid,
-                    images: logo[0],
-                    bid: bid,
-                    content: THIS.data.content,
-                },
-                success: function(res) {
-                    THIS.setData({
-                        status: 0,
-                        submiting: true,
-                    })
-                    wx.showToast({
-                        title: '上传成功',
-                    })
-                    THIS.renewaddedcomment();
-                },
-                fail: function() {
-                    THIS.setData({
-                        submiting: true,
-                    })
-                    wx.showToast({
-                        title: '上传失败',
-                    })
-                }
-            })
-            wx.request({
-                url: getApp().globalData.server,
-                data: {
-                    images: sublogo,
-                    a:"Post",
-                    op:"upload",
-                    openid:getApp().globalData.openid,
-                    bid:bid,
-                },
-                success: function(res) {
-
-                }
-            })
-        } else {
-            wx.showModal({
-                title: '请登录',
-                content: '未登录不能使用社区功能',
-            })
-        }
-    },
-    agree: function(event) {
-        if (getApp().globalData.openid) {
-            this.setData({
-                hidden: false,
-            })
-            var indexnow = event.currentTarget.dataset.index;
-            var position = event.currentTarget.dataset.position + 1;
-            var modifypage = Math.ceil(position / 10);
-            console.log(11111111);
-            console.log(modifypage);
-            var modifyorg = (modifypage - 1) * 10;
-            console.log(22222222);
-            console.log(modifyorg);
-            var THIS = this;
-            this.dochange(postid, indexnow);
-            wx.request({
-                url: getApp().globalData.server,
-                data:{
-                  a:"Board",
-                  op:"getlist",
-                  page:modifypage,
-                  openid:getApp().globalData.openid,
-                  mid:"25769",
-                  bid:postid,
-
-                },
-                success: function(res) {
-                    var newlist = THIS.data.list;
-                    var addlist = THIS.data.list;
-                    var data = res.data.dat;
-                    addlist = addlist.splice(modifyorg + 10)
-                    newlist.splice(modifyorg);
-                    console.log(addlist);
-                    THIS.setData({
-                        list: newlist.concat(data.list).concat(addlist),
-                        hidden: true,
-                    })
-                }
-            })
-        } else {
-            wx.showModal({
-                title: '请登录',
-                content: '未登录不能使用社区功能',
-            })
-        }
-
-    },
-    toTip: function() {
-        wx.navigateTo({
-            url: '../tip/index'
-        })
-    },
-    write: function() {
-        this.setData({
-            status: 1,
-        })
-    },
-    //评论数据
-    renewaddedcomment: function() {
-        var THIS = this;
-        wx.request({
-            url: getApp().globalData.server,
-            data:{
-              a:"Board",
-              op:"getlist",
-              page:1,
-              openid:getApp().globalData.openid,
-              mid:25769,
-              bid:bid,
-            },
-            success: function(res) {
-                var firstpage = THIS.data.list;
-                firstpage.splice(0, 9);
-                var data = res.data.dat;
-                THIS.setData({
-                    list: data.list.concat(firstpage),
-                    hidden: true,
-                })
-                for (var key in THIS.data.list) {
-                    var newcontent = THIS.data.list[key].content;
-                    WxParse.wxParse('content[' + key + ']', 'html', newcontent, THIS, 5);
-                }
-            },
-            fail: function() {
-                this.setData({
-                    hidden: true,
-                })
-                wx.showToast({
-                    title: '加载失败',
-                })
-            }
-        })
-    },
-    getcomment: function() {
-        var THIS = this;
-        if (page = 1) {
-            wx.request({
-                url: getApp().globalData.server,
-                data:{
-                  a:"Board",
-                  op:"getlist",
-                  page:1,
-                  openid:getApp().globalData.openid,
-                  mid:25769,
-                  bid:bid,
-
-                },
-                success: function(res) {
-                    max = Math.ceil(res.data.dat.total / res.data.dat.pagesize);
-                    rest = res.data.dat.tatal % res.data.dat.pagesize;
-                    var data = res.data.dat;
-                    THIS.setData({
-                        list: data.list,
-                        hidden: true,
-                        listnum: res.data.dat.total,
-                    })
-                    for (var key in THIS.data.list) {
-                        var newcontent = THIS.data.list[key].content;
-                        WxParse.wxParse('content[' + key + ']', 'html', newcontent, THIS, 5);
+            if (THIS.data.replystatus == 1) {
+                var pid = THIS.data.pidchosen;
+                wx.request({
+                    url: getApp().globalData.server,
+                    data: {
+                        a: "Post",
+                        op: "reply",
+                        openid: getApp().globalData.openid,
+                        bid: bid,
+                        pid: pid,
+                        content: data,
+                    },
+                    success: function (res) {
+                        wx.hideLoading();
+                        wx.showToast({
+                            title: '上传成功',
+                        });
+                        THIS.showreply(pid);
+                    },
+                    fail: function () {
+                        wx.hideLoading();
+                        THIS.setData({
+                            submiting: true,
+                        })
+                        wx.showToast({
+                            title: '上传失败',
+                        })
                     }
-                },
-                fail: function() {
-                    this.setData({
-                        hidden: true,
-                    })
-                    wx.showToast({
-                        title: '加载失败',
-                    })
-                }
-            })
-        } else {
-            wx.request({
-                url: getApp().globalData.server,
-                data:{
-                  a:"Board",
-                  op:"getlist",
-                  page:page,
-                  openid: getApp().globalData.openid,
-                  mid:25769,
-                  bid:bid,
+                })
 
-                },
-                success: function(res) {
-                    var data = res.data.dat;
-                    THIS.setData({
-                        list: THIS.data.list.concat(data.list),
-                        hidden: true,
-                    })
-                    console.log(THIS.data.list);
-                },
-                fail: function() {
-                    this.setData({
-                        hidden: true,
-                    })
-                    wx.showToast({
-                        title: '加载失败',
-                    })
-                }
+            }
+            else {
+                wx.request({
+                    url: getApp().globalData.server,
+                    data: {
+                        content: data,
+                        openid: getApp().globalData.openid,
+                        bid: bid,
+                        a: "Post",
+                        op: "submit"
+                    },
+                    success: function (res) {
+                        overcount++;
+                        // page += Math.ceil(overcount / 10);
+                        wx.hideLoading();
+                        THIS.renew();
+                        wx.showToast({
+                            title: '上传成功',
+                        });
+                    },
+                    fail: function () {
+                        wx.hideLoading();
+                        THIS.setData({
+                            submiting: true,
+                        })
+                        wx.showToast({
+                            title: '上传失败',
+                        })
+                    }
+                })
+            }
+        }
+        else {
+            wx.showModal({
+                title: '请登录',
+                content: '未登录不能使用社区功能',
             })
         }
-        page += 1;
     },
-    onLoad: function(options) {
-        this.setData({
-            versioninfo: getApp().globalData.version,
-        })
-        page = 1;
+    more: function () {
         var THIS = this;
-        postid = options.id;
-        bid = options.id;
-        console.log(options);
-        //判断是不是版主
-        wx.request({
-            url: getApp().globalData.server,
-            data:{
-              a:"Usersq",
-              op:"banzhu",
-              openid:getApp().globalData.openid,
-              mid:25769,
-              bid:bid,
-            },
-            success: function(res) {
-                permission = res.data.dat;
-                THIS.setData({
-                    permission: permission,
-                })
-            }
-        })
-        this.setData({
-            hidden: false,
-        })
-        //评论数据
-        this.getcomment();
-        //头部数据
-        wx.request({
-            url: getApp().globalData.server,
-            data:{
-              a:"Board",
-              op:"main",
-              openid:getApp().globalData.openid,
-              mid:25769,
-              id:bid,
-            },
-            success: function(res) {
-                console.log(res)
-                var data = res.data.dat;
-                THIS.setData({
-                    board: data.board,
-                    hidden: true,
-                })
-            },
-            fail: function() {
-                this.setData({
-                    hidden: true,
-                })
-                wx.showToast({
-                    title: '加载失败',
-                })
-            }
-        })
-        //获取关注状态
-        wx.request({
-            url: getApp().globalData.server,
-            data:{
-              a:Board,
-              op:sfgz,
-              openid:getApp().globalData.openid,
-              mid:25769,
-              bid:bid,
-            },
-            success: function(res) {
-                THIS.setData({
-                    concern: res.data.dat,
-                    isconcern: res.data.dat,
-                })
-                console.log(THIS.data.isconcern)
-            }
-        })
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    insertpic: function() {
-        var THIS = this;
-        wx.chooseImage({
-            success: function(res) {
-                var des = /tmp_.*/
-                var final = res.tempFilePaths[0].match(des)[0];
-                logo.push(res.tempFilePaths[0]);
-                sublogo.push(final)
-                pic.push(res);
-                THIS.setData({
-                    logo: logo,
-                    pic: pic,
-                })
-                for (var key in logo) {
-                    console.log(logo[key]);
-                    wx.uploadFile({
-                        url: getApp().globalData.server + '&a=Post&op=upload&openid=' + getApp().globalData.openid + '&bid=' + bid,
-                        filePath: logo[key],
-                        name: 'images',
-                        success: function(res) {
-                            console.log(res);
-                        }
+        if (maxpage >= page) {
+            wx.showLoading({
+                title: '使劲加载中',
+            })
+            wx.request({
+                url: getApp().globalData.server,
+                data: {
+                    a: "Board",
+                    op: "getlist",
+                    openid: getApp().globalData.openid,
+                    bid: bid,
+                    page: page,
+                },
+                success: function (res) {
+                    wx.hideLoading();
+                    maxpage = Math.ceil(res.data.dat.total / res.data.dat.pagesize);
+                    THIS.setData({
+                        total: res.data.dat.total,
                     })
-                }
-            },
-        })
+                    //首次加载
+                    if (page == 1) {
+                        THIS.setData({
+                            list: res.data.dat.list,
+                        })
+                    }
+                    else {
+                        var oldlist = [];
+                        var newlist = res.data.dat.list;
+                        newlist.splice(0,overcount);
+                        oldlist = THIS.data.list;
+                        THIS.setData({
+                            list: oldlist.concat(newlist),
+                        })
+                        overcount-=10;
+                        overcount = overcount > 0 ? overcount:0;
+                    }
+                    page++;
+                },
+            })
+        }
     },
-    onReady: function() {
+    renew: function () {
         var THIS = this;
-        wx.getSystemInfo({
-            success: function(res) {
-                THIS.setData({
-                    myheight: res.screenHeight,
-                })
-            },
-        })
+            wx.showLoading({
+                title: '使劲加载中',
+            })
+            wx.request({
+                url: getApp().globalData.server,
+                data: {
+                    a: "Board",
+                    op: "getlist",
+                    openid: getApp().globalData.openid,
+                    bid: bid,
+                    page: 1,
+                },
+                success: function (res) {
+                    maxpage = Math.ceil(res.data.dat.total / res.data.dat.pagesize);
+                    THIS.setData({
+                        total: res.data.dat.total,
+                    })
+                    wx.hideLoading();
+                    var oldlist = [];
+                    oldlist = THIS.data.list;
+                    console.log(res.data.dat.list[0]);
+                    oldlist.unshift(res.data.dat.list[0]);
+                    THIS.setData({
+                        list: oldlist,
+                    })
+                },
+            })
+    },
+    onReady: function () {
+
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
-        var THIS = this;
-        var old = this.data.concern;
-        var latest = this.data.isconcern;
-        if (old != latest) {
-            wx.request({
-                url: getApp().globalData.server,
-                data:{
-                  a:"Board",
-                  op:"follow",
-                  openid:getApp().globalData.openid,
-                  bid:bid,
-                },
-                success: function() {
+    onUnload: function () {
 
-                }
-            })
-        }
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function () {
+
+    },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
-        if (page <= max) {
-            //刷新评论数据
-            this.setData({
-                hidden: false,
-            })
-            var THIS = this;
-            wx.request({
-                url: getApp().globalData.server,
-                data:{
-                  a:"Board",
-                  op:"getlist",
-                  page:page,
-                  openid:getApp().globalData.openid,
-                  mid:25796,
-                  bid:bid,
-
-                },
-                success: function(res) {
-                    var data = res.data.dat;
-                    THIS.setData({
-                        list: THIS.data.list.concat(data.list),
-                        hidden: true,
-                    })
-                    for (var key in THIS.data.list) {
-                        var newcontent = THIS.data.list[key].content;
-                        WxParse.wxParse('content[' + key + ']', 'html', newcontent, THIS, 5);
-                    }
-                },
-                fail: function() {
-                    this.setData({
-                        hidden: true,
-                    })
-                    wx.showToast({
-                        title: '加载失败',
-                    })
-                }
-            })
-            page += 1;
-        }
+    onReachBottom: function () {
+        this.more();
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

@@ -1,4 +1,4 @@
-// pages/community/tip/index.js
+// pages/neccesary/index.js
 Page({
 
   /**
