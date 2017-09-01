@@ -13,7 +13,11 @@ App({
                     },
                     fail: function () {
                         wx.request({
+<<<<<<< HEAD
                             url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=getopenid',
+=======
+                            url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=login&op=getopenid',
+>>>>>>> parent of 31af05f... mianPage titlebar CHANGE
                             data: {
                                 code: res.code,
                                 uniacid: getApp().globalData.acid,
@@ -28,7 +32,11 @@ App({
                                     success: function (res) {
                                         var info = res.userInfo;
                                         wx.request({
+<<<<<<< HEAD
                                             url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=register',
+=======
+                                            url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=login&op=register',
+>>>>>>> parent of 31af05f... mianPage titlebar CHANGE
                                             data: {
                                                 'openid': openid,
                                                 'avatarUrl': info.avatarUrl,
@@ -56,14 +64,22 @@ App({
                     }
                 })
                 wx.request({
+<<<<<<< HEAD
                     url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=bb',
+=======
+                    url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=videoshop&op=bb',
+>>>>>>> parent of 31af05f... mianPage titlebar CHANGE
                     success: function (res) {
                         THIS.globalData.version = res.data.dat;
                     }
                 })
                 //主机构名字
                 wx.request({
+<<<<<<< HEAD
                     url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=id',
+=======
+                    url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=merch&op=id',
+>>>>>>> parent of 31af05f... mianPage titlebar CHANGE
                     data:{
                         uid:0,
                         uniacid: getApp().globalData.acid,
