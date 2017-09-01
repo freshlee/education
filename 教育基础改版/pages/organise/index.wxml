@@ -10,24 +10,6 @@
             <scroll-view scroll-y style="height:{{myheight-110}}px">
                 <view class="body">
                     <view class="classname"></view>
-                    <view class="case"  data-index="{{shop.id}}" bindtap="jump">
-                        <view class="protrait">
-                            <image src="{{shop.logo}}"></image>
-                        </view>
-                        <view class="box">
-                            <view class="top">{{shop.name}}</view>
-                            <view class="middle">{{shop.description}}</view>
-                            <view class="bottom">
-                                <view class="subscript">总平台</view>
-                            </view>
-                        </view>
-                        <view class="arrow">
-
-                        </view>
-                        <view id="address" wx:if="{{shop.address}}">
-                            <image src="../../images/address.png"></image> {{shop.address}}</view>
-
-                    </view>
                     <view class="case" wx:for="{{list_all}}" data-index="{{item.id}}" bindtap="jump">
                         <view class="protrait">
                             <image src="{{item.logo}}"></image>

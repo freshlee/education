@@ -63,6 +63,6 @@
 </swiper>
 
 <view class="footer">
-    <view class="address" bindtap="getloacation" >查看位置</view>
+    <view class="address" bindtap="getloacation" wx:if="{{base.jg.merchname}}">查看位置</view>
     <view class="dail" bindtap="call">拨打电话</view>
 </view>

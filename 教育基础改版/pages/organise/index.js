@@ -64,7 +64,6 @@ Page({
                 var data = res.data.dat;
                 THIS.setData({
                     list_all: data.user,
-                    shop:data.shop,
                 })
             }
         })
@@ -91,6 +90,15 @@ Page({
                                 list_near: data,
                             })
                         }
+                        wx.request({
+                            url: 'zsh',
+                            data{
+                                a: "merch",
+                                op: "dw",
+                                lat: lat,
+                                lng: lng,
+                            }
+                        })
                     }
                 })
             },
