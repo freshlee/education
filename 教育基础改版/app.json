@@ -1,8 +1,6 @@
 {
     "pages": [
         "pages/demo/index",
-        "pages/neccesary/index",
-        "pages/articlelist/index",
         "pages/course/index",
         "pages/video/index",
         "pages/my/record/index",
@@ -25,7 +23,6 @@
         "pages/community/square/index",
         "pages/organise/index",
         "pages/my/home/index",
-        "pages/community/tip/index",
         "pages/filter/index",
         "pages/article/read/index",
         "pages/live/index",
@@ -56,12 +53,6 @@
                 "iconPath": "images/schedule.png",
                 "selectedIconPath": "images/choseschedule.png",
                 "text": "课表"
-            },
-            {
-                "pagePath": "pages/neccesary/index",
-                "iconPath": "images/formoff.png",
-                "selectedIconPath": "images/formon.png",
-                "text": "预约"
             },
             {
                 "pagePath": "pages/community/home/index",

@@ -91,6 +91,8 @@ Page({
                         title: data.jg.merchname,
                     });
                 } else {
+                  lat = data.jw.lat;
+                  lng = data.jw.lng;
                     tel = data.zz.phone;
                     wx.setNavigationBarTitle({
                         title: data.zz.name,
