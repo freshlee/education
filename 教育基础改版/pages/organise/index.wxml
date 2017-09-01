@@ -4,10 +4,20 @@
     <view class="{{index==1?'chosen':''}} cate" bindtap="move" data-index="1">附近的机构</view>
 </view>
 
-<swiper scroll-y style="height:{{myheight-110}}px" current="{{index}}" bindchange="onchange">
+
+<swiper scroll-y style="height:1100rpx;" current="{{index}}" bindchange="onchange">
     <block>
         <swiper-item>
-            <scroll-view scroll-y style="height:{{myheight-110}}px">
+            <view class="tool">
+                <view class="city" bindtap="province"> <text>{{provincename?provincename:'选择省'}}</text>
+                    <image src="../../images/arrow.png"></image>
+                </view>
+                <view class="city" bindtap="city" style="margin-left:20rpx"> <text>{{cityname?cityname:'城市'}}</text>
+                    <image src="../../images/arrow.png"></image>
+                </view>
+                <text style="display:inline-block;margin-left:50rpx">共{{total}}个搜索结果</text>
+            </view>
+            <scroll-view scroll-y style="height:1030rpx" bindscrolltolower="more">
                 <view class="body">
                     <view class="classname"></view>
                     <view class="case" wx:for="{{list_all}}" data-index="{{item.id}}" bindtap="jump">
@@ -30,11 +40,11 @@
                     </view>
                 </view>
 
-
+                <view id="copyright">{{versioninfo}}</view>
             </scroll-view>
         </swiper-item>
         <swiper-item>
-            <scroll-view scroll-y style="height:{{myheight-110}}px">
+            <scroll-view scroll-y style="height:1100rpx">
                 <view class="body">
                     <view class="classname"></view>
                     <view class="case" wx:for="{{list_near}}" data-index="{{item.id}}" bindtap="jump">
@@ -57,8 +67,58 @@
                     </view>
                 </view>
             </scroll-view>
+            <view id="copyright">{{versioninfo}}</view>
         </swiper-item>
     </block>
 </swiper>
 
-<view id="copyright">{{versioninfo}}</view>
+<!-- 城市页面 -->
+<view class="citypage {{citystatus?'cityon':'cityoff'}}" style="height:{{myheight}}px">
+    <scroll-view scroll-with-animation scroll-y style="height:1220rpx" scroll-into-view="{{view}}">
+        <!-- 假头部 -->
+        <form bindsubmit="searchcity">
+            <view class="box">
+                <view class="back" bindtap="city">
+                    <image src="../../images/arrow.png"></image>
+                </view>
+                <view class="input">
+                    <image src="../../image/search.png"></image> <input name="title" /> </view>
+                <label for="submit"><text>搜索</text></label>
+                <button form-type="submit" id="submit" style="display:none"></button>
+            </view>
+        </form>
+        <scroll-view scroll-with-animation scroll-y style="height:1140rpx">
+            <!-- 城市列表 -->
+            <view class="citylist">
+                <view class="title">请选择城市</view>
+                <view class="citycase" bindtap="chosecity" data-name="">全部</view>
+                <view class="citycase" wx:for="{{rescity?rescity:cities}}" bindtap="chosecity" data-name="{{item.fullname}}" data-id="{{item.id}}">{{item.name}}</view>
+            </view>
+        </scroll-view>
+    </scroll-view>
+</view>
+<!-- 省页面 -->
+<view class="citypage {{provincestatus?'cityon':'cityoff'}}" style="height:{{myheight}}px">
+    <scroll-view scroll-with-animation scroll-y style="height:1220rpx">
+        <!-- 假头部 -->
+        <form bindsubmit="searchprovince">
+            <view class="box">
+                <view class="back" bindtap="province">
+                    <image src="../../images/arrow.png"></image>
+                </view>
+                <view class="input">
+                    <image src="../../image/search.png"></image> <input name="title" /> </view>
+                <label for="submitpro"><text>搜索</text></label>
+                <button form-type="submit" id="submitpro" style="display:none"></button>
+            </view>
+        </form>
+        <!-- 省列表 -->
+        <scroll-view scroll-with-animation scroll-y style="height:1140rpx">
+            <view class="citylist">
+                <view class="title">请选择省</view>
+                <view class="citycase" bindtap="choseprovince" data-second="492" data-first="0" data-name="">全部</view>
+                <view class="citycase" wx:for="{{resprovince?resprovince:province}}" bindtap="choseprovince" data-second="{{item.cidx[1]}}" data-first="{{item.cidx[0]}}" data-name="{{item.fullname}}">{{item.name}}</view>
+            </view>
+        </scroll-view>
+    </scroll-view>
+</view>

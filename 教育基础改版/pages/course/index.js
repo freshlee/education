@@ -206,15 +206,10 @@ Page({
                         openid: getApp().globalData.openid,
                         uid: merchid,
                     },
-                    success: function (res) {
-                        try{
-                            var desc = res.data.dat.zz.description;
-                        }catch(err){
-                            var desc = res.data.dat.jg.desc;   
-                        }
+                    success: function(res) {
                         console.log(res);
                         THIS.setData({
-                            organise: desc,
+                            organise: res.data.dat.zz.description,
                             organiseinfo: res.data.dat,
                         })
                     }

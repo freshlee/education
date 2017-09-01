@@ -90,3 +90,274 @@ page{
     text-align: center;
     margin:10rpx 0;
 }
+/* 工具栏 */
+
+.tool {
+    top: 100rpx;
+    left: 0;
+    padding: 0 30rpx;
+    margin: 0 0 20rpx;
+}
+
+.tool>view {
+    display: inline-block;
+    background: white;
+    vertical-align: top;
+}
+
+.tool .city {
+    width: 150rpx;
+    height: 54rpx;
+    border-radius: 5rpx;
+    line-height: 54rpx;
+    text-align: left;
+    font-size: 25rpx;
+    vertical-align: middle;
+    color: grey;
+}
+
+.tool .city text {
+    text-indent: 20rpx;
+    vertical-align: middle;
+    display: inline-block;
+    height: 54rpx;
+    width: 100rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.city image {
+    height: 40rpx;
+    width: 40rpx;
+    vertical-align: middle;
+}
+
+.tool .search {
+    height: 54rpx;
+    width: 535rpx;
+    margin-left: 30rpx;
+    border-radius: 5rpx;
+    text-align: center;
+    line-height: 54rpx;
+    font-size: 25rpx;
+    color: gainsboro;
+    text-indent: -15rpx;
+}
+
+.search image {
+    height: 30rpx;
+    width: 30rpx;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+/*状态切换*/
+
+.searchon {
+    left: 0;
+}
+
+.searchoff {
+    left: 750rpx;
+}
+
+.cityon {
+    left: 0;
+}
+
+.cityoff {
+    left: 750rpx;
+}
+
+/*城市分页*/
+
+.citypage {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #f4f4f4;
+    transition-property: left;
+    transition-duration: 0.5s;
+}
+
+.citycase {
+    padding: 40rpx 20rpx;
+    font-size: 25rpx;
+    text-align: left;
+    border-bottom: 2rpx solid #f4f4f4;
+    background: white;
+}
+
+.citynow {
+    padding-top: 75rpx;
+}
+
+.citynow .title {
+    padding: 20rpx 20rpx;
+    font-size: 25rpx;
+    text-align: left;
+    border: 2rpx solid #f4f4f4;
+    background: white;
+}
+
+.citylist {
+    margin: 20rpx 0;
+}
+.citylist {
+    margin: 0 !important;
+}
+
+.citylist .title {
+    padding: 20rpx 20rpx;
+    font-size: 25rpx;
+    color: grey;
+    text-align: left;
+    border: 2rpx solid #f4f4f4;
+    background: white;
+}
+
+/* 右侧字母导航栏 */
+
+.anchor {
+    width: 100rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 100rpx;
+    z-index: 99;
+}
+
+.anchor>view {
+    text-align: center;
+    color: green;
+    font-size: 30rpx;
+    height: 40rpx;
+}
+
+/* 假头部 */
+
+.header {
+    background: #f4f4f4;
+    padding: 10rpx;
+    position: fixed;
+    width: 100%;
+}
+
+.header>view {
+    display: inline-block;
+    height: 60rpx;
+    line-height: 60rpx;
+    vertical-align: top;
+}
+
+.header .input {
+    height: 60rpx;
+    display: inline-block;
+    vertical-align: top;
+    width: 620rpx;
+    text-align: center;
+}
+
+.header .back image {
+    height: 50rpx;
+    width: 50rpx;
+    transform: rotate(90deg) translateX(5rpx);
+}
+.citypage .box {
+    background: #f4f4f4;
+    padding: 10rpx;
+}
+
+.citypage .box>view {
+    display: inline-block;
+    height: 60rpx;
+    line-height: 60rpx;
+    vertical-align: top;
+}
+
+.citypage .box .input {
+    background: white;
+}
+
+.input input {
+    height: 60rpx;
+    display: inline-block;
+    vertical-align: top;
+    width: 500rpx;
+}
+
+.input image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    position: relative;
+    top: -3rpx;
+    margin-left: 20rpx;
+}
+
+.back image {
+    height: 50rpx;
+    width: 50rpx;
+    transform: rotate(90deg) translateX(5rpx);
+}
+
+.citypage .box text {
+    height: 60rpx;
+    line-height: 60rpx;
+    padding-left: 25rpx;
+    color: green;
+}
+/* 搜索分页 */
+
+.searchpage {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    transition-property: left;
+    transition-duration: 0.5s;
+}
+
+.searchpage .box {
+    background: #f4f4f4;
+    padding: 10rpx;
+}
+
+.searchpage .box>view {
+    display: inline-block;
+    height: 60rpx;
+    line-height: 60rpx;
+    vertical-align: top;
+}
+
+.searchpage .box .input {
+    background: white;
+}
+
+.input input {
+    height: 60rpx;
+    display: inline-block;
+    vertical-align: top;
+    width: 500rpx;
+}
+
+.input image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    position: relative;
+    top: -3rpx;
+    margin-left: 20rpx;
+}
+
+.back image {
+    height: 50rpx;
+    width: 50rpx;
+    transform: rotate(90deg) translateX(5rpx);
+}
+
+.searchpage .box text {
+    height: 60rpx;
+    line-height: 60rpx;
+    padding-left: 25rpx;
+    color: green;
+}

@@ -1,2 +1,52 @@
-<!--pages/community/tip/index.wxml-->
-<text>pages/community/tip/index.wxml</text>
+<!--index.wxml-->
+<view class="header">有哪些还有这种操作的故事</view>
+<view class="user">
+<view class="picture"> <image src="../../../images/protrait.jpg"></image> </view>
+<view class="name">轮子哥</view>
+</view>
+
+<view class="classname"></view>
+
+
+<swiper  style="width:100%;height:{{myheight-94}}px;margin-top:-114rpx" bindchange="onchange" duration="500" >
+<block>
+<swiper-item wx:for="{{contents}}">
+<scroll-view scroll-y>
+<view class="content">{{item.content}}！</view>
+
+</scroll-view>
+</swiper-item>
+
+
+
+
+</block>
+</swiper>
+
+
+
+
+<view class="panel">
+<view class="praise" bindtap="changestatu">
+<view class="control">
+<view class="up {{praise==1?'fadeup':'fadeout'}}"> <image src="../../../images/trangleoff.png"></image> </view>
+<view class="down {{praise==0?'fadeup':'fadeout'}}"> <image src="../../../images/trangleoff.png"></image> </view>
+</view>
+<view class="num">317</view>
+</view>
+<view class="collect"> <image src="../../../images/collect.png"></image>收藏 </view>
+<view class="comment"><image src="../../../images/comment.png"></image>评论  </view>
+</view>
+<view class="frame" bindtap="changestatu">
+<view class="{{statu==1?'body':'close'}}" style="height:{{myheight}}px;">
+</view>
+<view class="{{statu==1?'toast':'close'}}">
+<view class="title">为此贴投票</view>
+<view class="agree"> <image src="../../../images/agree.png"  bindtap="agree"></image> 赞同</view>
+<view class="oposite" bindtap="oposite"> <image src="../../../images/oposite.png"></image> 反对</view>
+</view>
+
+</view>
+
+
+ <view id="copyright">{{versioninfo}}</view> 
