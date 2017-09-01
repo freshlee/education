@@ -44,15 +44,6 @@
                 </view>
                 <view class="text">{{item.text}}</view>
             </view>
-            <label for="server">
-            <view class="list">
-                <view class="logo">
-                    <image src="../../../images/services.png"></image>
-                </view>
-                <view class="text">联系客服</view>
-            </view>
-            </label>
-            <button id="server" bindtap="contact" style="display:none" open-type="contact"></button>
         </view>
     </view>
 </view>

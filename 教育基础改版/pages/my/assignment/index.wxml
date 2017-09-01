@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<form bindsubmit="submit">
+    <view class="toolbar">
+        <view class="classname"> {{year}} </view>
+        <view class="classname"> {{month}}月</view>
+        <view class="assign">
+            <label for="submit"><view class="classname">签到</view></label>
+            <button style="display:none" form-type="submit" id="submit"></button>
+        </view>
+        <view class="classname">{{day}}</view>
+    </view>
+    <scroll-view scroll-y style="height:830rpx">
+        <radio-group name="date">
+            <view class="calender" wx:for="{{calender}}" wx:if="{{item.status}}"  wx:for-index="ind">
+                <view class="title"> 2017年{{ind+1}}月 </view>
+                <view class="head">
+                    <view class="classname">周日</view>
+                    <view class="classname">周一</view>
+                    <view class="classname">周二</view>
+                    <view class="classname">周三</view>
+                    <view class="classname">周四</view>
+                    <view class="classname">周五</view>
+                    <view class="classname">周六</view>
+                </view>
+                <view class="box">
+                    <view class="day" wx:for="{{item.begin}}"></view>
+                    <label>
+            <view class="day {{item.checked?'chosen':''}} {{item.day==day&&item.month==month?'today':''}}" data-month="{{ind}}" data-day="{{index}}" bindtap="checkboxchange" wx:for="{{item.daybox}}" data-status="{{item.status}}" data-date="{{item.date}}">
+                {{index+1}}  <image id="ticker" wx:if="{{item.status}}" src="../../../images/ticker.png"></image>  <radio value="{{item.date}}" checked="{{item.checked===1?true:false}}" style="display:none"/>
+            </view>
+            </label>
+                </view>
+            </view>
+        </radio-group>
+    </scroll-view>
+    <view class="panel">
+
+    </view>
+</form>

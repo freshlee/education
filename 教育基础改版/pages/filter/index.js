@@ -87,7 +87,7 @@ Page({
             var newcate = mycate == undefined || mycate == 0 ? "" : "&cates=" + mycate;
             var newtype = mytype == undefined || mytype == 0 ? "" : "&type=" + mytype;
             var newpay = mypay == undefined || mypay == 0 ? "" : "&priceattr=" + mypay;
-            var newurl =  getApp().globalData.server + "&a=videoshop&op=rm&page=1" + newcate + newtype + newpay;
+            var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=rm&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
             console.log(newurl);
             this.setData({
                 status: "off"
@@ -196,20 +196,7 @@ Page({
             versioninfo: getApp().globalData.version,
         })
         page = 2;
-        if(options.type){
-            rm = 1;
-            var op = "rm";
-            this.setData({
-                index:0,
-            })
-        }
-        else{
-            rm = 0;
-            var op = "fl";
-            this.setData({
-                index: null,
-            })
-        }
+        rm=1;
         //初始化数据
         mytype = options.type;
         mycate = options.cate;
@@ -230,11 +217,12 @@ Page({
             hidden: false,
             cates: mycate,
             goodstype: [],
+            index:0,
         })
         var newcate = mycate == undefined ? "" : "&cates=" + mycate;
         var newtype = mytype == undefined ? "" : "&type=" + mytype;
         var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
-        var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op="+op+"&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
+        var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=rm&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
         var gettype = options.type;
         var cate = options.cate;
         var pay = options.pay;
@@ -317,16 +305,18 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
+        console.log(page);
+        console.log(max);
         if (page <= max) {
             var THIS = this;
             var newcate = mycate == undefined || mycate == 0 ? "" : "&cates=" + mycate;
             var newtype = mytype == undefined || mytype == 0 ? "" : "&type=" + mytype;
             var newpay = mypay == undefined || mypay == 0 ? "" : "&priceattr=" + mypay;
             if(rm==1){
-                var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=rm&uniacid="+getApp().globalData.acid+"&page=" + page + newcate + newtype + newpay;
+                var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=rm&uniacid=2&page=" + page + newcate + newtype + newpay;
             }
             else{
-                var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid +"&page=" + page + newcate + newtype + newpay;
+                var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=2&page=" + page + newcate + newtype + newpay;
             }
         
             wx.request({

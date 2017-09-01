@@ -105,7 +105,7 @@ view {
     background: white;
 }
 
-.menu .list {
+.menu>view {
     height: 90rpx;
     line-height: 90rpx;
 }
@@ -133,7 +133,7 @@ view {
     color: dimgray;
 }
 
-.list:last-child .text {
+.list:last-of-type .text {
     border: none;
 }
 

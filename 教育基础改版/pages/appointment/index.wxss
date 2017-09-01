@@ -1,0 +1,100 @@
+@import "../../wxParse/wxParse.wxss";
+page{
+    background: #f4f4f4;
+}
+.case{
+    margin-top: 20rpx;
+    background: white;
+    padding: 0 30rpx; 
+}
+.case .list{
+  height: 110rpx;
+  line-height: 110rpx;
+   border-bottom: 2rpx solid #f4f4f4;
+   font-size: 30rpx;
+}
+.case .list:last-of-type{
+   border-bottom: none;
+}
+.case .logo{
+    width: 50rpx;
+    height: 50rpx;
+    transform: translateY(10rpx);
+}
+.rightside{
+    float: right;
+    height: 110rpx;
+    color: dimgray;
+}
+.rightside image{
+    width: 40rpx;
+    height: 30rpx;
+    transform: rotate(-90deg);
+}
+.rightside input{
+    display: inline-block;
+    height: 110rpx;
+    line-height: 110rpx;
+    vertical-align: top;
+    width: 200rpx;
+    text-align: right;
+    margin-right: 10rpx;
+}
+.rightside text{
+    vertical-align: top;
+    display: inline-block;
+    height: 110rpx;
+    line-height: 110rpx;
+}
+.go{
+    margin-top: 200rpx;
+    background: #0767C8;
+    color: white;
+    border-radius: 0;
+    width: 90%;
+}
+
+/*状态切换*/
+.searchon{
+    left: 0;
+     
+}
+.searchoff{
+    left: 750rpx;
+}
+.cityon{
+    left: 0;
+     
+}
+.cityoff{
+    left: 750rpx;
+}
+
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
+}
+.modal{
+    text-align: center;
+}
+.middle{
+    background: white;
+    position: relative;
+    top: 300rpx;
+    display: inline-block;
+    padding: 30rpx;
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.middle image{
+    width: 100% !important;
+}
+.middle view{
+    padding: 20rpx 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+    box-sizing: border-box;
+    text-indent: 0 !important;
+}

@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<form bindsubmit="submit">
+    <view class="case">
+        <view class="list" bindtap="brand">
+            课程名称：{{goodsname?goodsname:''}}
+        </view>
+        <view class="list" bindtap="brand">
+            机构名称: {{merchname}}
+        </view>
+    </view>
+    <view class="case">
+        <view class="list" bindtap="brand">
+           姓名： <input name="name" bindinput="nameinput" style="position:relative;z-index:0;width:500rpx;display:inline-block;line-height:110rpx;height:110rpx;vertical-align:top"/>
+        </view>
+        <view class="list" bindtap="brand">
+           手机： <input name="phone" bindinput="phoneinput" style="position:relative;z-index:0;width:500rpx;display:inline-block;line-height:110rpx;height:110rpx;vertical-align:top"/>
+        </view>
+        <picker mode="date" value="{{birthdate}}" start="2015-09-01" end="2017-09-01" bindchange="bindbirthDateChange">
+            <view class="list">
+                {{birthdate?birthdate:'生日'}}
+                <view class="rightside">
+                    <image src="../../images/arrow.png"></image>
+                </view>
+            </view>
+        </picker>
+            <view class="list" bindtap="location" name="address">
+                {{location?location:'家庭住址'}}
+                <view class="rightside">
+                    <image src="../../images/arrow.png"></image>
+                </view>
+            </view>
+        <picker mode="date" name="yytimes" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <view class="list">
+                {{date?date:'预约时间'}}
+                <view class="rightside">
+                    <image src="../../images/arrow.png"></image>
+                </view>
+            </view>
+        </picker>
+        <picker mode="selector" bindchange="bindrChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{tips}}">
+            <view class="list">
+                {{purpose?purpose:'性别'}}
+                <view class="rightside">
+                    <image src="../../images/arrow.png"></image>
+                </view>
+            </view>
+        </picker>
+    </view>
+
+    <button class="go" form-type="submit">提交预约</button>
+</form>
+
+<view class="modal" bindtap="statuschange" wx:if="{{status}}" style="height:{{myheight}}px;position:fixed;top:0;width:100%;background:rgba(0,0,0,0.6)">
+  <view catchtap="stop" class="middle"><template is="wxParse" data="{{wxParseData:article.nodes}}"/>  </view>
+</view>
+
+
+<view id="copyright">{{versioninfo}}</view>

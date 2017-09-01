@@ -43,20 +43,20 @@ Page({
             console.log(timetype);
             var nowstamp = Date.parse(time) / 1000;
             //   wx.request({
-            //       url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=payvip&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&times=' + timestamp,
+            //       url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=pay&op=payvip&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&times=' + timestamp,
             //   })
             //   wx.request({
-            //       url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=payvip&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&times=' + nowstamp,
+            //       url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=pay&op=payvip&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&times=' + nowstamp,
             //   })
             wx.request({
-                url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=gvip&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&levelid=' + THIS.data.id,
+                url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=pay&op=gvip&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&levelid=' + THIS.data.id,
                 success: function (res) {
                     var orderid = res.data.orderid;
                     wx.request({
-                        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=params&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
+                        url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=pay&op=params&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
                         success: function (res) {
                             wx.request({
-                                url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=vipyes&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
+                                url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=pay&op=vipyes&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
                                 success: function (res) {
                                     var data = res.data.dat.wechat;
                                     wx.requestPayment({
@@ -70,11 +70,11 @@ Page({
                                                 hidden: true,
                                             })
                                             wx.request({
-                                                url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=payvip&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&times=' + nowstamp,
+                                                url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=pay&op=payvip&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&times=' + nowstamp,
                                             })
                                             //是不是VIP
                                             wx.request({
-                                                url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=selectuser&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
+                                                url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=Usersq&op=selectuser&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
                                                 success: function (res) {
                                                     var today = new Date();
                                                     var todaystamp = Date.parse(today) / 1000;
@@ -132,7 +132,7 @@ Page({
         })
         var THIS = this;
         wx.request({
-            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=vip&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
+            url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=pay&op=vip&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
             success: function (res) {
                 //  for(var key in res.data.dat.level){
                 //    res.data.dat.level[key].ordermoney = parseInt(res.data.dat.level[key].ordermoney);
@@ -144,7 +144,7 @@ Page({
         })
         //是不是VIP
         wx.request({
-            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=selectuser&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
+            url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=Usersq&op=selectuser&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
             success: function (res) {
                 if (res.data.dat.member) {
                     var today = new Date();
@@ -168,7 +168,7 @@ Page({
         })
         //VIP课程
         wx.request({
-            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=' + getApp().globalData.acid + '&priceattr=2',
+            url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=' + getApp().globalData.acid + '&priceattr=2',
             success: function (res) {
                 THIS.setData({
                     list: res.data.dat.goods

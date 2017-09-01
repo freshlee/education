@@ -98,12 +98,7 @@ Page({
         if (getApp().globalData.openid) {
             var THIS = this;
             wx.request({
-                url: getApp().globalData.server,
-                data:{
-                    op:"jdlist",
-                    a:"Usersq",
-                    openid:getApp().globalData.openid
-                },
+                url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=jdlist&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
                 success: function (res) {
                     var data = res.data.dat.jdt;
                     var finishlist = [];

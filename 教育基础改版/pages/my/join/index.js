@@ -20,15 +20,8 @@ Page({
          content: '确定上传麽?',
          success:function(){
              wx.request({
-                 url: getApp().globalData.server+'&a=shopreg&op=reg&openid=' + getApp().globalData.openid,
+                 url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=shopreg&op=reg&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
                  data: e.detail.value,
-                 success:function(res){
-                     wx.showToast({
-                         title: res.data.dat,
-                         image:"../../../images/message.png",
-                         duration:1000,
-                     })
-                 }
              })
          }
      })

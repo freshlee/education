@@ -2,7 +2,6 @@
 var doctype;
 var openid = getApp().globalData.openid;
 var orderid;
-var merchid;
 Page({
 
     /**
@@ -18,13 +17,7 @@ Page({
     topay: function() {
         var THIS = this;
         wx.request({
-            url: getApp().globalData.server,
-            data:{
-                a:"pay",
-                op:"pay",
-                openid:getApp().globalData.openid,
-                orderid:THIS.data.orderid,
-            },
+            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=pay&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + "&orderid=" + THIS.data.orderid,
             success: function(res) {
                 var data = res.data.dat.wechat;
                 wx.requestPayment({
@@ -38,13 +31,7 @@ Page({
                             title: '您已经支付成功',
                         })
                         wx.request({
-                            url: getApp().globalData.server,
-                            data:{
-                                a:"pay",
-                                op:"payh",
-                                openid:getApp().globalData.openid,
-                                orderid:THIS.data.orderid,
-                            },
+                            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=payh&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + "&orderid=" + THIS.data.orderid,
                         })
                     }
                 })
@@ -53,7 +40,6 @@ Page({
     },
     onLoad: function(options) {
         orderid = options.orderid;
-        merchid = options.merchid;
         var THIS = this;
         this.setData({
             versioninfo: getApp().globalData.version,
@@ -68,13 +54,9 @@ Page({
         if (!options.orderid) {
             //生成订单好并获取信息
             wx.request({
-                url: getApp().globalData.server,
+                url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=submit&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&goodsid=' + options.goodsid,
                 data:{
-                    a:"order",
-                    op:"submit",
                     merchid: merchid,
-                    openid:getApp().globalData.openid,
-                    goodsid:options.goodsid,
                 },
                 success: function(res) {
                     console.log(res);
@@ -83,12 +65,7 @@ Page({
                         orderid: res.data.orderid,
                     })
                     wx.request({
-                        url: getApp().globalData.server,
-                        data:{
-                            a:"pay",
-                            op:"params",
-                            orderid:res.data.orderid
-                        },
+                        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=params&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&orderid=' + res.data.orderid,
                         success: function(res) {
                             THIS.setData({
                                 hidden: true,
@@ -115,13 +92,7 @@ Page({
             })
         } else {
             wx.request({
-                url: getApp().globalData.server,
-                data:{
-                    a:"pay",
-                    op:"params",
-                    openid:getApp().globalData.openid,
-                    orderid:THIS.data.orderid,
-                },
+                url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=params&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&orderid=' + THIS.data.orderid,
                 success: function(res) {
                     THIS.setData({
                         hidden: true,

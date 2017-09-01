@@ -10,10 +10,11 @@
 
 
 
-<view class="nav {{teacher.length?'':'hidden'}}">
+<view class="nav {{!teacher.length||!ablum.length?!teacher.length&&!ablum.length?'both':'onlyone':''}} ">
     <view class="base {{myindex==0?'bechosen':''}}" bindtap="base">简介</view>
     <view class="address {{myindex==1?'bechosen':''}}" bindtap="address">课程</view>
     <view class="address {{myindex==2?'bechosen':''}}" bindtap="teacher" wx:if="{{teacher.length}}">讲师</view>
+    <view class="address {{myindex==3?'bechosen':''}}" bindtap="ablum" wx:if="{{ablum.length}}">相册</view>
 </view>
 <swiper current="{{index}}" style="height:670rpx" bindchange="onchange">
     <block>
@@ -55,6 +56,17 @@
                             <view class="name">{{item.videoname}}</view>
                         </view>
                         <view class="bottom {{box[0]==1?'extended':'compressed'}}"> <template is="wxParse" data="{{wxParseData:content[index].nodes}}" /></view>
+                    </view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y style="height:670rpx" wx:if="{{ablum.length}}">
+                <view class="ablum">
+                    <view class="listbox" wx:for="{{ablum}}">
+                        <view class="list">
+                            <image src="{{item}}"></image>
+                        </view>
                     </view>
                 </view>
             </scroll-view>

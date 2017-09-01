@@ -13,7 +13,7 @@ var originstatus;
 var box;
 var ralativecourse = [];
 Page({
-    onShareAppMessage: function(res) {
+    onShareAppMessage: function (res) {
         if (res.from === 'button') {
             // 来自页面内转发按钮
             console.log(res.target)
@@ -21,19 +21,31 @@ Page({
         return {
             title: getApp().globalData.merchname,
             path: '/pages/course/index?id=' + myid,
-            success: function(res) {
+            success: function (res) {
                 // 转发成功
             },
-            fail: function(res) {
+            fail: function (res) {
                 // 转发失败
             }
         }
     },
+    isExitsVariable: function (variableName) {
+        try {
+            if (typeof (variableName) == "undefined") {
+                //alert("value is undefined"); 
+                return false;
+            } else {
+                //alert("value is true"); 
+                return true;
+            }
+        } catch (e) { }
+        return false;
+    },
     //选择地点
-    chosepos: function() {
+    chosepos: function () {
         var THIS = this;
         wx.chooseLocation({
-            success: function(res) {
+            success: function (res) {
                 THIS.setData({
                     position: res.address,
                 })
@@ -41,7 +53,7 @@ Page({
         })
     },
     //选择时间
-    chosedate: function(e) {
+    chosedate: function (e) {
         this.setData({
             date: e.detail.value,
         })
@@ -57,74 +69,76 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    purchase: function() {
+    purchase: function () {
         var openid = getApp().globalData.openid;
+        var THIS = this;
+        try{
+            var merchiname = THIS.data.organiseinfo.jg.merchname;
+        }catch(e){
+            var merchiname = THIS.data.organiseinfo.zz.name; 
+        }
         if (openid) {
-            wx.request({
-                url: '',
-            })
             wx.navigateTo({
-                url: '../checkout/index?id=' + myid
+                url: '../appointment/index?goodsid=' + myid + '&goodsname=' + THIS.data.goods.title + "&merchid=" + THIS.data.organiseinfo.id + "&merchname=" + merchiname,
             })
-        } else {
+        }
+        else {
             wx.showModal({
                 title: '未登录',
                 content: '未登录不能购买',
             })
         }
     },
-    jumptoorganise: function() {
+    jumptoorganise: function () {
         wx.navigateTo({
             url: '../advertise/index?merchid=' + this.data.merchid,
         })
     },
-    jumptocourse: function(e) {
+    jumptocourse: function (e) {
         var id = e.currentTarget.dataset.id;
         var doctype = e.currentTarget.dataset.doctype;
         var typename;
         switch (doctype) {
-            case "1":
-                typename = "vidoe";
-            case "2":
-                typename = "course";
-            case "3":
-                typename = "article";
+            case "1": typename = "vidoe";
+            case "2": typename = "course";
+            case "3": typename = "article";
         }
         wx.navigateTo({
             url: '../' + typename + "/index?id=" + id,
         })
     },
-    concern: function() {
+    concern: function () {
         concernstatus = 0;
         this.setData({
             favor: 0,
         })
         console.log(this.data.favor);
     },
-    disconcern: function() {
+    disconcern: function () {
         concernstatus = 1;
         this.setData({
             favor: 1,
         })
     },
-    more: function() {
+    more: function () {
         wx.navigateTo({
             url: '../goodscomment/list/index?id=' + myid,
         })
     },
-    move: function(event) {
+    move: function (event) {
         if (event.detail.scrollTop >= 190) {
             this.setData({
                 status: 1,
             })
-        } else {
+        }
+        else {
             this.setData({
                 status: 0,
             })
 
         }
     },
-    expension: function(event) {
+    expension: function (event) {
         var casename = event.currentTarget.dataset.case;
         box[casename] = box[casename] == 1 ? 0 : 1;
         this.setData({
@@ -132,7 +146,7 @@ Page({
         })
         console.log(this.data.box);
     },
-    detail: function() {
+    detail: function () {
         nowpos = 0;
         this.setData({
             myindex: 0,
@@ -140,7 +154,7 @@ Page({
         })
         console.log(this.data.toView);
     },
-    comment: function() {
+    comment: function () {
         nowpos = lengths;
         this.setData({
             myindex: 1,
@@ -148,7 +162,7 @@ Page({
         })
         console.log(this.data.toView);
     },
-    interact: function() {
+    interact: function () {
         nowpos = lengths * 2;
         this.setData({
             myindex: 2,
@@ -156,7 +170,7 @@ Page({
         })
         console.log(this.data.toView);
     },
-    onLoad: function(options) {
+    onLoad: function (options) {
         var THIS = this;
         var article;
         myid = options.id;
@@ -165,22 +179,17 @@ Page({
         this.setData({
             myid: myid,
             box: [1, 1, 1],
-            ralativecourse: []
         })
         //获取商品信息
+        var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=create&uniacid=" + getApp().globalData.acid + "&openid=" + getApp().globalData.openid + "&goodsid=" + myid;
         wx.request({
-            url: getApp().globalData.server,
+            url: newurl,
             data: {
-                a: "order",
-                op: "create",
-                openid: getApp().globalData.openid,
-                goodsid: myid,
-
             },
             header: {
                 'content-type': 'application/json'
             },
-            success: function(res) {
+            success: function (res) {
                 console.log(res.data);
                 var data = res.data.dat;
                 wx.setNavigationBarTitle({
@@ -206,16 +215,21 @@ Page({
                         openid: getApp().globalData.openid,
                         uid: merchid,
                     },
-                    success: function(res) {
+                    success: function (res) {
+                        try{
+                            var desc = res.data.dat.zz.description;
+                        }catch(err){
+                            var desc = res.data.dat.jg.desc;   
+                        }
                         console.log(res);
                         THIS.setData({
-                            organise: res.data.dat.zz.description,
+                            organise: desc,
                             organiseinfo: res.data.dat,
                         })
                     }
                 })
             },
-            fail: function() {
+            fail: function () {
                 THIS.setData({
                     hidden: true,
                 })
@@ -226,14 +240,8 @@ Page({
         })
         //获取评论接口
         wx.request({
-            url: getApp().globalData.server,
-            data: {
-                a: "comment",
-                op: "list",
-                openid: getApp().globalData.openid,
-                goodsid: myid,
-            },
-            success: function(res) {
+            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=comment&op=list&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&goodsid=' + myid,
+            success: function (res) {
                 var data = res.data.dat
                 var average = Math.round(data.level_avg)
                 THIS.setData({
@@ -246,14 +254,8 @@ Page({
 
         //获取教师信息
         wx.request({
-            url: getApp().globalData.server,
-            data:{
-                a:"merch",
-                op:"spt",
-                openid:getApp().globalData.openid,
-                goodsid: myid,
-            },
-            success: function(res) {
+            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=spt&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&goodsid=' + myid,
+            success: function (res) {
                 if (!res.data.status) {
                     return false;
                 }
@@ -264,27 +266,21 @@ Page({
                     var newcontent = teacher[key].content;
                     WxParse.wxParse('content[' + key + ']', 'html', newcontent, THIS, 5);
                     wx.request({
-                        url: getApp().globalData.server,
-                        data:{
-                            a:"merch",
-                            op:"tsp",
-                            openid:getApp().globalData.openid,
-                            tid:teacher[key].id,
-                        },
-                        success: function(res) {
-                            var data = res.data.dat.shop;
-                            var ralativecourse = THIS.data.ralativecourse;
-                            var afterfilter = [];
-                            for (var key in data) {
-                                if (data[key].type == 1) {
-                                    afterfilter.push(data[key]);
-                                }
+                        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=tsp&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&tid=' + teacher[key].id,
+                        success: function (res) {
+                            try{
+                                var data = res.data.dat.shop;
+                                teacher[key].courselist = data;
+                                THIS.setData({
+                                    teacher: teacher,
+                                    ralativecourse: ralativecourse.concat(data)
+                                })
+                            }catch(e){
+                                teacher[key].courselist = [];
+                                THIS.setData({
+                                    teacher: teacher,
+                                })
                             }
-                            teacher[key].courselist = data;
-                            THIS.setData({
-                                teacher: teacher,
-                                ralativecourse: ralativecourse.concat(afterfilter)
-                            })
                         }
                     })
                 }
@@ -292,14 +288,8 @@ Page({
         })
         //获取关注状态
         wx.request({
-            url: getApp().globalData.server,
-            data:{
-                a:"merch",
-                op:"gz",
-                openid:getApp().globalData.openid,
-                goodsid:myid,
-            },
-            success: function(res) {
+            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=gz&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&goodsid=' + myid,
+            success: function (res) {
                 console.log(res);
                 THIS.setData({
                     favor: res.data.dat.isfavorite,
@@ -309,13 +299,8 @@ Page({
         })
         //留下脚印
         wx.request({
-            url: getApp().globalData.server,
-            data:{
-                a:"merch",
-                op:"addfootstep",
-                goodsid:myid,
-            },
-            success: function(res) {
+            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=addfootstep&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&goodsid=' + myid,
+            success: function (res) {
                 console.log("已经加入浏览记录")
             }
         })
@@ -323,10 +308,10 @@ Page({
 
     },
 
-    onReady: function() {
+    onReady: function () {
         var THIS = this;
         wx.getSystemInfo({
-            success: function(res) {
+            success: function (res) {
                 lengths = res.screenWidth;
                 THIS.setData({
                     myheight: res.screenHeight,
@@ -338,7 +323,7 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
         var THIS = this;
         this.setData({
             hidden: false,
@@ -346,20 +331,14 @@ Page({
         })
         //获取权限信息
         wx.request({
-            url: getApp().globalData.server,
-            data:{
-                a:"pay",
-                op:"gm",
-                openid:getApp().globalData.openid,
-                goodsid:myid,
-            },
-            success: function(res) {
+            url: "https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=gm&uniacid=" + getApp().globalData.acid + "&openid=" + getApp().globalData.openid + "&goodsid=" + myid,
+            success: function (res) {
                 THIS.setData({
                     permission: res.data.dat,
                     hidden: true
                 })
             },
-            fail: function() {
+            fail: function () {
                 THIS.setData({
                     hidden: true
                 })
@@ -370,39 +349,26 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
         //关注
         console.log()
-        if (concernstatus === undefined) {} else {
+        if (concernstatus === undefined) { }
+        else {
             if (concernstatus == 0 && originstatus == 1) {
                 wx.request({
-                    url: getApp().globalData.server,
-                    data:{
-                        a:"merch",
-                        op:"toggle",
-                        openid:getApp().globalData.openid,
-                        goodsid:myid,
-                        isfavorite:1,
-                    },
+                    url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=toggle&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&goodsid=' + myid + "&isfavorite=1",
                 })
-            } else if (concernstatus == 1 && originstatus == 0) {
+            }
+            else if (concernstatus == 1 && originstatus == 0) {
                 wx.request({
-                    url: getApp().globalData.server,
-                    data:{
-                        a:"merch",
-                        op:"toggle",
-                        openid:getApp().globalData.openid,
-                        goodsid:myid,
-                        isfavorite:0,
-
-                    },
+                    url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=toggle&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + '&goodsid=' + myid + "&isfavorite=0",
                 })
             }
         }
@@ -411,21 +377,21 @@ Page({
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
-        this.onload();
+    onPullDownRefresh: function () {
+
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

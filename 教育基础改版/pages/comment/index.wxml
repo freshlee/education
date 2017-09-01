@@ -31,8 +31,7 @@
     <image src="{{item}}" wx:for="{{logo}}" data-index="{{index}}" bindtap="del" />
     <view class="input">
         <image src="../../../images/write.png"></image>
-        <input  bindinput="contentinput" placeholder="说点什么吧" name="content" bindfocus="write" fixed="true" auto-height="true" bindconfirm="submit" />
-        <view class="ball" bindtap="handlesubmit"></view>
+        <input placeholder="说点什么吧" name="content" bindfocus="write" fixed="true" auto-height="true" bindconfirm="submit" />
     </view>
     <!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>  -->
 

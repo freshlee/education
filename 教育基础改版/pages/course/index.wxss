@@ -82,7 +82,7 @@ view{
 }
 .courseinfo>view{
   display: inline-block;
-  vertical-align: top;
+    vertical-align: top;
 }
 .courseinfo .left{
   line-height: 60rpx;
@@ -384,46 +384,5 @@ video{
     box-sizing: border-box;
     text-indent: 0 !important;
 }
-/* 定制内容 */
-.formarea{
-    padding: 10rpx 30rpx 40rpx;
-    margin-bottom:10rpx; 
-    background: white;
-}
-.formarea .title{
-    padding: 0 20rpx;
-    box-sizing: border-box;
-    height: 70rpx;
-    line-height: 70rpx;
-    font-size: 32rpx;
-    text-align: center;
-}
-.checkbox {
-    border: 2rpx solid #adadad;
-    border-radius: 20rpx;   
-    overflow: hidden;
-}
-.checkbox>view{
-    height: 100rpx;
-    line-height: 100rpx;
-    border-left: 15rpx solid #b9b9b9;
-    border-right: 15rpx solid #b9b9b9;
-}
-.checkbox>view:last-of-type{
-}
-.checkbox>view:first-of-type{
-    border-left: 15rpx solid #0767C8;
-    border-right: 15rpx solid #0767C8;
-    border-bottom: 2rpx solid #adadad;
-}
-.checkbox>view input{
-    margin-left: 20rpx;
-    height: 100rpx;
-    font-size: 30rpx;
-}
-
-.checkbox>view {
-}
-
 
 

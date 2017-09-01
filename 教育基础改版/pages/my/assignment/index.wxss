@@ -1,0 +1,86 @@
+/* index.wxss */
+page{
+    box-sizing: border-box;
+}
+.toolbar{
+    background: #31a4e5;
+    color: white;
+    position: relative;
+}
+.toolbar>view{
+    text-align: center;
+    font-size: 40rpx;
+    padding: 10rpx 0;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+.toolbar>view:first-of-type{
+    font-size: 45rpx;
+    height: 60rpx;
+    line-height: 60rpx
+}
+.toolbar>view:last-of-type{
+    font-size: 190rpx;
+    line-height: 190rpx;
+    height: 190rpx;
+}
+.toolbar .assign{
+    position: absolute;
+    height: 300rpx;
+    right: 0;
+    top: 0;
+    font-size: 60rpx;
+    padding:100rpx 80rpx; 
+}
+.toolbar .assign view{
+    border: 2rpx solid white;
+    font-size: 60rpx;
+    line-height: 100rpx;
+    height: 100rpx;
+    padding: 0 20rpx;
+    border-radius: 10rpx;
+}
+.calender .title{
+    font-size: 32rpx;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #31a4e5;
+}
+.head>view{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 30rpx;
+    width: 14.25%;
+    text-align: center;
+    background: #f4f4f4;
+    padding: 20rpx 0;
+}
+.box .day{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 30rpx;
+    width: 14.25%;
+    text-align: center;
+    padding: 5rpx 0;
+    position: relative;
+}
+#ticker{
+    position: absolute;
+    width: 40rpx;
+    height: 40rpx;
+    left: 40rpx;
+    top: 20rpx;
+}
+/* 样式切换 */
+.chosen{
+    background: #31a4e5;
+    color: white !important;
+}
+.today{
+    border:4rpx solid red;
+    color: #454545;
+    box-sizing:border-box;
+    position: relative;
+    margin-top: -4rpx;
+}

@@ -1,33 +1,33 @@
 <view class="body">
 
-<view class="coursename">课程信息</view>
-<view class="info case">
+    <view class="coursename">课程信息</view>
+    <view class="info case">
 
-<!--形式模板-->
-<template name="type1" ><text style="font-size:35rpx">线上视频</text></template>
-<template name="type2" ><text style="font-size:35rpx">线下课程</text></template>
-<template name="type3" ><text style="font-size:35rpx">线上文章</text></template>
+        <!--形式模板-->
+        <template name="type1"><text style="font-size:35rpx">线上视频</text></template>
+        <template name="type2"><text style="font-size:35rpx">线下课程</text></template>
+        <template name="type3"><text style="font-size:35rpx">线上文章</text></template>
 
 
-<view class="coursetype" id="bug">课程名称：{{goods.title}}</view>
-<view class="classname">授课形式：<template is="{{'type'+goods.type}}"> </template>  </view>
-<view class="classname" wx:if="{{goods.priceattr==3&&goods.sftimes}}">备注：<text id="warm" >此课程为限时免费，{{goods.sftimes}}小时后取消权限</text></view>
-</view>
+        <view class="coursetype" id="bug">课程名称：{{goods.title}}</view>
+        <view class="classname">授课形式：<template is="{{'type'+goods.type}}"> </template> </view>
+        <view class="classname" wx:if="{{goods.priceattr==3&&goods.sftimes}}">备注：<text id="warm">此课程为限时免费，{{goods.sftimes}}小时后取消权限</text></view>
+    </view>
 
-<!-- <view class="userinfotitle">个人信息  </view>
+    <!-- <view class="userinfotitle">个人信息  </view>
 <view class="userinfo case">
 <view class="list realname"><view class="title">真实姓名</view> <input placeholder="请输入真实姓名" /></view>
 <view class="list"><view class="title">电话号码 </view> <input placeholder="请输入联系电话" /></view>
 <view class="list"> <view class="title">所在地址 </view> <view  id="getcordinate" bindtap="getcordinate"> <image src="../../images/getaddress.png" ></image> </view> <input  placeholder="请输入您所在地址" value="{{address}}"/></view>
 </view> -->
-<view class="orderinfo">订单信息</view>
-<view class="status case">
-<view class="total">订单总额
-<view class="num"> <text>{{goods.marketprice}}</text> </view>
+    <view class="orderinfo">订单信息</view>
+    <view class="status case">
+        <view class="total">订单总额
+            <view class="num"> <text>{{goods.marketprice}}</text> </view>
+        </view>
+    </view>
 </view>
-</view>
-</view>
-<view class="panel" bindtap="purchase" >进行支付</view>
+<view class="panel" bindtap="purchase">进行支付</view>
 <loading hidden="{{hidden}}">加载中 </loading>
 
- <view id="copyright">{{versioninfo}}</view> 
+<view id="copyright">{{versioninfo}}</view>

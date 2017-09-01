@@ -60,6 +60,8 @@ overflow: hidden;
     font-weight: lighter;
     font-size: 30rpx;
 }
+
+
 .operate>view{
   display: inline-block;
   width: 48%;
@@ -75,6 +77,9 @@ overflow: hidden;
   width: 50rpx;
   height: 50rpx;
 }
+
+
+
  .title{
   font-size: 40rpx;
   height: 60rpx;
@@ -85,17 +90,14 @@ overflow: hidden;
   border-bottom:1rpx solid gainsboro;
 }
 .title_case .list{
-  white-space: pre-wrap;
   display: inline-block;
-  width:29%;
+  width:50%;
   vertical-align: middle;
 }
 .title_case .info{
-  width:71%;
   height: 190rpx;
   line-height: 37.5rpx;
   padding-left:20rpx;
-  box-sizing: border-box;
 }
 .title_case image{
   height: 180rpx;
@@ -106,7 +108,11 @@ overflow: hidden;
   font-size:35rpx;
   color:green;
 }
-.recomand>view{
+
+
+
+
+.recomand view{
     white-space: nowrap;
   word-break: break-all;
   word-wrap: break-word;

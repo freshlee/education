@@ -1,6 +1,6 @@
 <!--pages/video/index.wxml-->
 <import src="../../wxParse/wxParse.wxml" />
-<scroll-view scroll-y style="height:{{myheight}}px" catchscroll="move">
+<scroll-view scroll-y style="height:{{myheight}}px">
     <view class="body">
 
         <swiper style="height:190px" indicator-dots="true">
@@ -40,7 +40,6 @@
                 <image src="../../images/arrow-down.png" style="display:{{box[0]==1?'inline-block':'none'}}"></image>
             </view>
         </view>
-
         <!--课程介绍-->
         <view class="intro" wx:if="{{goods.content}}">
             <view><text class="line">—</text> 课程简介 <text class="line">—</text></view>

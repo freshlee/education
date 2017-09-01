@@ -32,10 +32,10 @@ Page({
     data: {
         Logo: [{ text: '个人资料', logo: '../../../images/person.png', url: '../info/index' },
         { text: "浏览记录", logo: '../../../images/record.png', url: "../record/index" },
-        { text: "我的社区", logo: '../../../images/mytip.png', url: "../mytip/index" },
+        { text: "签到", logo: '../../../images/assign.png', url: "../assignment/index" },
         { text: "我的订单", logo: '../../../images/order.png', url: '../collect/index' },
         { text: "成为VIP", logo: '../../../images/VIP.png', url: "../vip/index" },
-        { text: "商家入驻", logo: '../../../images/join.png', url: "../join/index" }],
+        { text: "商家入驻", logo: '../../../images/join.png', url: "../join/index" },],
         login: 0,
 
     },
