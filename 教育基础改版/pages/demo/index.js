@@ -34,7 +34,7 @@ Page({
         })
     },
     moveToArticle: function(event) {
-        var newurl = '../article/index?id=' + event.currentTarget.dataset.id;
+        var newurl = '../articlelist/index?id=' + event.currentTarget.dataset.id;
         wx.navigateTo({
             url: newurl,
         })

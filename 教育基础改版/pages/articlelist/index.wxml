@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="banner" style="height:350rpx">
+    <swiper indicator-dots="true"  autoplay style="height:350rpx" >
+    <block>
+        <swiper-item wx:for="{{banner}}">
+            <image src="{{item.thumb}}" id="cover"></image>
+        </swiper-item>
+    </block>
+    </swiper>
+</view>
+<view class="nav">
+    <scroll-view scroll-x>
+        <view class="address {{myindex==index?'bechosen':''}}" data-index="{{index}}" bindtap="scroll" wx:for="{{articletype}}">{{item.name}}</view>
+    </scroll-view>
+</view>
+<swiper current="{{index}}" style="height:770rpx" bindchange="onchange">
+    <block>
+        <swiper-item wx:for="{{typebox}}">
+            <scroll-view scroll-y style="height:770rpx" bindscrolltolower="refresh">
+                <!-- 文章盒子 -->
+                <view class="news" wx:for="{{item.list}}" bindtap="jump" data-id="{{item.id}}">
+                    <view class="case">
+                        <view class="pic">
+                            <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="detail {{status?'chosedoc':''}}">
+                            <view class="up">{{item.title}}</view>
+                            <view class="middle">{{item.saletimes}}</view>
+                            <view class="bottom">
+                                <view></view>
+                                <view>{{item.publictime}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </block>
+</swiper>
