@@ -34,7 +34,7 @@ Page({
       where["uniacid"] = getApp().globalData.acid;
       where["openid"] = getApp().globalData.openid;
       wx.request({
-          url: 'https://api.cnmmsc.org/index.php',
+          url: getApp().globalData.server,
           data:where,
           success:function(){
               wx.hideLoading();
@@ -62,7 +62,7 @@ Page({
   onLoad: function (options) {
       var THIS=this;
       wx.request({
-          url: 'https://api.cnmmsc.org/index.php',
+          url: getApp().globalData.server,
           data:{
               c: "eweivideo",
               a:"diyform",

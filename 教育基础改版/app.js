@@ -1,6 +1,4 @@
 //app.js
-var fundebug = require('./fundebug.0.0.3.min.js');
-fundebug.apikey = 'c648da35f9c366ce97ca980df26b85e349ff34ee26c73dd5a2e9ca637526bf81';
 
 App({
     onLaunch: function () {
@@ -78,8 +76,8 @@ App({
         })
     },
     globalData: {
-        acid: 4301,
-        server:"https://api.cnmmsc.org/index.php?c=eweivideo&uniacid="+4301,
+        acid: 2,
+        server:"http://192.168.1.213/apivo/index.php?c=eweivideo&uniacid="+2,
     }
 })
 
