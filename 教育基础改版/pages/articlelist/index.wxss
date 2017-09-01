@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* index.wxss */
 @import "../../wxParse/wxParse.wxss";
 
@@ -147,6 +146,3 @@
 .news .case .detail .bottom>view:last-of-type {
     text-align: right;
 }
-=======
-/* pages/articlelist/index.wxss */
->>>>>>> master

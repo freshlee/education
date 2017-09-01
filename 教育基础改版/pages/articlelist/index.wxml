@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!--index.wxml-->
 <import src="../../wxParse/wxParse.wxml" />
 <view class="banner" style="height:350rpx">
@@ -38,7 +37,3 @@
         </swiper-item>
     </block>
 </swiper>
-=======
-<!--pages/articlelist/index.wxml-->
-<text>{{page}}.wxml</text>
->>>>>>> master
