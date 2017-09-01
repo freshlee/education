@@ -15,11 +15,7 @@ App({
                     },
                     fail: function () {
                         wx.request({
-<<<<<<< HEAD
-                            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=getopenid',
-=======
                             url: getApp.globalData.server+'&a=login&op=getopenid',
->>>>>>> master
                             data: {
                                 code: res.code,
                             },
@@ -33,11 +29,7 @@ App({
                                     success: function (res) {
                                         var info = res.userInfo;
                                         wx.request({
-<<<<<<< HEAD
-                                            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=register',
-=======
                                             url: getApp.globalData.server+'&a=login&op=register',
->>>>>>> master
                                             data: {
                                                 'openid': openid,
                                                 'avatarUrl': info.avatarUrl,
@@ -64,22 +56,14 @@ App({
                     }
                 })
                 wx.request({
-<<<<<<< HEAD
-                    url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=bb',
-=======
                     url: getApp.globalData.server+'&a=videoshop&op=bb',
->>>>>>> master
                     success: function (res) {
                         THIS.globalData.version = res.data.dat;
                     }
                 })
                 //主机构名字
                 wx.request({
-<<<<<<< HEAD
-                    url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=id',
-=======
                     url: getApp.globalData.server+'&a=merch&op=id',
->>>>>>> master
                     data:{
                         uid:0,
                     },
@@ -91,10 +75,11 @@ App({
         })
     },
     globalData: {
-        acid: 897,
-        server:"https://api.cnmmsc.org/index.php?c=eweivideo&uniacid="+897,
+        acid: 2,
+        server:"http://192.168.1.213/apivo/index.php?c=eweivideo&uniacid="+2,
     }
 })
+// api.cnmmsc.org / index.php
 
 
 
