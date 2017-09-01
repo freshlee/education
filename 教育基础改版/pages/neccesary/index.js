@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 // index.js
+=======
+// pages/neccesary/index.js
+>>>>>>> master
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+<<<<<<< HEAD
       num:[],
       items: [
           { name: '1', value: '服务不专业' },
@@ -17,11 +22,15 @@ Page({
           { name: '8', value: '停售改价' },
           { name: '9', value: '其他' },
       ]
+=======
+  
+>>>>>>> master
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+<<<<<<< HEAD
   submit:function(e){
       wx.showLoading({
           title: '上传中',
@@ -81,6 +90,10 @@ Page({
       })
       
 
+=======
+  onLoad: function (options) {
+  
+>>>>>>> master
   },
 
   /**

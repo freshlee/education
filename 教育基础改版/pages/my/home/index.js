@@ -49,7 +49,11 @@ Page({
         wx.login({
             success: function (res) {
                 wx.request({
+<<<<<<< HEAD
                     url: getApp().globalData.server + '&a=login&op=getopenid',
+=======
+                    url: getApp().globalData.server+'&a=login&op=getopenid',
+>>>>>>> master
                     data: {
                         code: res.code,
                     },
@@ -74,7 +78,11 @@ Page({
                             success: function (res) {
                                 var info = res.userInfo;
                                 wx.request({
+<<<<<<< HEAD
                                   url: getApp().globalData.server+ '&a=login&op=register',
+=======
+                                    url: getApp().globalData.server+'&a=login&op=register',
+>>>>>>> master
                                     data: {
                                         'openid': openid,
                                         'avatarUrl': info.avatarUrl,

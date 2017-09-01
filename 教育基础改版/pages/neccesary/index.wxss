@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* index.wxss */
 view{
     color: #454545 !important;
@@ -147,3 +148,6 @@ page{
     border-radius: 0;
     width: 90%;
 }
+=======
+/* pages/neccesary/index.wxss */
+>>>>>>> master

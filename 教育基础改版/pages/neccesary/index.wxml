@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--index.wxml-->
 <!-- <view class="case">
     <view class="list" bindtap="city">
@@ -65,3 +66,7 @@
 </template>
     <button class="go" form-type="submit">提交预约</button>
 </form>
+=======
+<!--pages/neccesary/index.wxml-->
+<text>{{page}}.wxml</text>
+>>>>>>> master
