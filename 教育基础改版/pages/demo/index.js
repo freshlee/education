@@ -33,8 +33,13 @@ Page({
             url: '../filter/index?type=3',
         })
     },
+    moveToMoreArticle: function () {
+      wx.navigateTo({
+        url: '../articlelist/index',
+      })
+    },
     moveToArticle: function(event) {
-        var newurl = '../articlelist/index?id=' + event.currentTarget.dataset.id;
+        var newurl = '../article/index?id=' + event.currentTarget.dataset.id;
         wx.navigateTo({
             url: newurl,
         })

@@ -28,8 +28,7 @@
                             <view class="up">{{item.title}}</view>
                             <view class="middle">{{item.saletimes}}</view>
                             <view class="bottom">
-                                <view></view>
-                                <view>{{item.publictime}}</view>
+                                {{item.publictime}}
                             </view>
                         </view>
                     </view>

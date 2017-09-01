@@ -1,8 +1,6 @@
 /* index.wxss */
 @import "../../wxParse/wxParse.wxss";
-page{
 
-}
 .nav{
  white-space: nowrap;
  width: 100%;
@@ -135,6 +133,7 @@ page{
     position: absolute;
     bottom: 0;
     width: 100%;
+    text-align: right;
 }
 
 .news .case .detail .bottom>view {
