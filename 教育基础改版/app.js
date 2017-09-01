@@ -14,7 +14,7 @@ App({
           fail: function () {
             wx.request({
 
-              url: getApp.globalData.server + '&a=login&op=getopenid',
+              url: getApp().globalData.server + '&a=login&op=getopenid',
               data: {
                 code: res.code,
                 uniacid: getApp().globalData.acid,
@@ -31,7 +31,7 @@ App({
                     wx.request({
 
 
-                      url: getApp.globalData.server + '&a=login&op=register',
+                      url: getApp().globalData.server + '&a=login&op=register',
 
                       data: {
                         'openid': openid,
@@ -60,7 +60,7 @@ App({
           }
         })
         wx.request({
-          url: getApp.globalData.server + '&a=videoshop&op=bb',
+          url: getApp().globalData.server + '&a=videoshop&op=bb',
           success: function (res) {
             THIS.globalData.version = res.data.dat;
           }
@@ -68,7 +68,7 @@ App({
         //主机构名字
         wx.request({
 
-          url: getApp.globalData.server + '&a=merch&op=id',
+          url: getApp().globalData.server + '&a=merch&op=id',
           data: {
             uid: 0,
             uniacid: getApp().globalData.acid,
