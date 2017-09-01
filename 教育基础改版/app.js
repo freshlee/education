@@ -16,8 +16,13 @@ App({
 <<<<<<< HEAD
                             url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=getopenid',
 =======
+<<<<<<< HEAD
                             url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=login&op=getopenid',
 >>>>>>> parent of 31af05f... mianPage titlebar CHANGE
+=======
+                            url: getApp.globalData.server+'&a=login&op=getopenid',
+>>>>>>> master
+>>>>>>> parent of 5e5321a... rt
                             data: {
                                 code: res.code,
                                 uniacid: getApp().globalData.acid,
@@ -35,8 +40,13 @@ App({
 <<<<<<< HEAD
                                             url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=register',
 =======
+<<<<<<< HEAD
                                             url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=login&op=register',
 >>>>>>> parent of 31af05f... mianPage titlebar CHANGE
+=======
+                                            url: getApp.globalData.server+'&a=login&op=register',
+>>>>>>> master
+>>>>>>> parent of 5e5321a... rt
                                             data: {
                                                 'openid': openid,
                                                 'avatarUrl': info.avatarUrl,
@@ -67,8 +77,13 @@ App({
 <<<<<<< HEAD
                     url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=bb',
 =======
+<<<<<<< HEAD
                     url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=videoshop&op=bb',
 >>>>>>> parent of 31af05f... mianPage titlebar CHANGE
+=======
+                    url: getApp.globalData.server+'&a=videoshop&op=bb',
+>>>>>>> master
+>>>>>>> parent of 5e5321a... rt
                     success: function (res) {
                         THIS.globalData.version = res.data.dat;
                     }
@@ -78,8 +93,13 @@ App({
 <<<<<<< HEAD
                     url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=id',
 =======
+<<<<<<< HEAD
                     url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=merch&op=id',
 >>>>>>> parent of 31af05f... mianPage titlebar CHANGE
+=======
+                    url: getApp.globalData.server+'&a=merch&op=id',
+>>>>>>> master
+>>>>>>> parent of 5e5321a... rt
                     data:{
                         uid:0,
                         uniacid: getApp().globalData.acid,
