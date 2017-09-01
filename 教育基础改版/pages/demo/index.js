@@ -1,7 +1,7 @@
 var openid = getApp().globalData.openid;
 var WxParse = require('../../wxParse/wxParse.js');
 Page({
-    onShareAppMessage: function (res) {
+    onShareAppMessage: function(res) {
         if (res.from === 'button') {
             // 来自页面内转发按钮
             console.log(res.target)
@@ -9,10 +9,10 @@ Page({
         return {
             title: getApp().globalData.merchname,
             path: '/pages/demo/index',
-            success: function (res) {
+            success: function(res) {
                 // 转发成功
             },
-            fail: function (res) {
+            fail: function(res) {
                 // 转发失败
             }
         }
@@ -20,25 +20,20 @@ Page({
     data: {
 
     },
-    getLocalTime: function (nS) {
+    getLocalTime: function(nS) {
         var timestamp = nS;
-        var d = new Date(timestamp * 1000);    //根据时间戳生成的时间对象
+        var d = new Date(timestamp * 1000); //根据时间戳生成的时间对象
         var date = (d.getFullYear()) + "年" +
             (d.getMonth() + 1) + "月" +
             (d.getDate()) + "日";
         return date;
     },
-    moveToMore: function () {
+    moveToMore: function() {
         wx.navigateTo({
             url: '../filter/index?type=3',
         })
     },
-    moveToArticlelist:function(){
-        wx.navigateTo({
-            url: '../articlelist/index',
-        })  
-    },
-    moveToArticle: function (event) {
+    moveToArticle: function(event) {
         var newurl = '../article/index?id=' + event.currentTarget.dataset.id;
         wx.navigateTo({
             url: newurl,
@@ -50,7 +45,7 @@ Page({
     //     des[key].thumb = des[key].thumb.replace(mark,"")
     //   }
     // },
-    onReady: function () {
+    onReady: function() {
         var hehe = getApp().globalData.userInfo;
         console.log(hehe);
         var THIS = this;
@@ -58,11 +53,22 @@ Page({
         //获取用户信息
 
     },
-    onLoad: function () {
+    onLoad: function() {
+      var THIS = this;
+      wx.request({
+        url: getApp().globalData.server + '&a=merch&op=id',
+        data: {
+          uid: 0,
+        },
+        success: function (res) {
+          wx.setNavigationBarTitle({
+            title: res.data.dat.zz.name,
+          })
+        }
+      })
         this.setData({
             versioninfo: getApp().globalData.version,
         })
-        var THIS = this;
         //再次调起用户信息
         //商品接口
         wx.request({
@@ -74,7 +80,7 @@ Page({
             header: {
                 'content-type': 'application/json'
             },
-            success: function (res) {
+            success: function(res) {
                 console.log(res);
                 var videos = [];
                 var mainLogos;
@@ -143,7 +149,7 @@ Page({
             header: {
                 'content-type': 'application/json'
             },
-            success: function (res) {
+            success: function(res) {
                 console.log(res);
                 var videos = [];
                 var mainLogos;
@@ -188,7 +194,7 @@ Page({
                         url = "../filter/index?cate=" + cate
                         navs.push({ url: url, thumb: thumb, name: name, displayorder: displayorder })
                     } else {
-                        (function () {
+                        (function() {
                             var thumb = nav[key].icon;
                             var name = nav[key].navname;
                             var displayorder = nav[key].displayorder;
@@ -205,7 +211,7 @@ Page({
                                         openid: getApp().globalData.openid,
                                         goodsid: id,
                                     },
-                                    success: function (res) {
+                                    success: function(res) {
                                         console.log(this.prototype);
                                         if (res.data.dat) {
                                             var doctype = res.data.dat.goods.type;
@@ -267,7 +273,7 @@ Page({
                 op: "sy",
                 openid: getApp().globalData.openid
             },
-            success: function (res) {
+            success: function(res) {
                 console.log(res);
                 var data = res.data.dat.sy;
                 for (var key in data) {
@@ -282,10 +288,9 @@ Page({
             }
         })
     },
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
         getApp().onLaunch();
         this.onLoad();
         wx.stopPullDownRefresh();
     },
 })
-
