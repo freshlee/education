@@ -13,14 +13,13 @@ App({
                     },
                     fail: function () {
                         wx.request({
-<<<<<<< HEAD
+
                             url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=getopenid',
-=======
-                            url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=login&op=getopenid',
->>>>>>> parent of 31af05f... mianPage titlebar CHANGE
+
+                            url: getApp.globalData.server+'&a=login&op=getopenid',
+
                             data: {
                                 code: res.code,
-                                uniacid: getApp().globalData.acid,
                             },
                             header: {
                                 'content-type': 'application/json'
@@ -32,11 +31,11 @@ App({
                                     success: function (res) {
                                         var info = res.userInfo;
                                         wx.request({
-<<<<<<< HEAD
+
                                             url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=register',
-=======
-                                            url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=login&op=register',
->>>>>>> parent of 31af05f... mianPage titlebar CHANGE
+
+                                            url: getApp.globalData.server+'&a=login&op=register',
+
                                             data: {
                                                 'openid': openid,
                                                 'avatarUrl': info.avatarUrl,
@@ -44,7 +43,6 @@ App({
                                                 'gender': info.gender,
                                                 'province': info.province,
                                                 'city': info.city,
-                                                'uniacid': getApp().globalData.acid,
                                             },
                                         })
                                         wx.setStorage({
@@ -64,25 +62,23 @@ App({
                     }
                 })
                 wx.request({
-<<<<<<< HEAD
+
                     url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=bb',
-=======
-                    url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=videoshop&op=bb',
->>>>>>> parent of 31af05f... mianPage titlebar CHANGE
+
+                    url: getApp.globalData.server+'&a=videoshop&op=bb',
+
                     success: function (res) {
                         THIS.globalData.version = res.data.dat;
                     }
                 })
                 //主机构名字
                 wx.request({
-<<<<<<< HEAD
-                    url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=id',
-=======
-                    url: 'http://192.168.1.213/apivo/index.php?c=eweivideo&a=merch&op=id',
->>>>>>> parent of 31af05f... mianPage titlebar CHANGE
+  url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=id',
+
+                    url: getApp.globalData.server+'&a=merch&op=id',
+
                     data:{
                         uid:0,
-                        uniacid: getApp().globalData.acid,
                     },
                     success: function (res) {
                         THIS.globalData.merchname = res.data.dat.zz.name;
