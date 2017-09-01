@@ -13,11 +13,15 @@ App({
                     },
                     fail: function () {
                         wx.request({
+<<<<<<< HEAD
 
                             url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=getopenid',
 
                             url: getApp.globalData.server+'&a=login&op=getopenid',
 
+=======
+                            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=getopenid',
+>>>>>>> parent of 7d4dc4a... Revert "mianPage titlebar CHANGE"
                             data: {
                                 code: res.code,
                             },
@@ -31,11 +35,15 @@ App({
                                     success: function (res) {
                                         var info = res.userInfo;
                                         wx.request({
+<<<<<<< HEAD
 
                                             url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=register',
 
                                             url: getApp.globalData.server+'&a=login&op=register',
 
+=======
+                                            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=register',
+>>>>>>> parent of 7d4dc4a... Revert "mianPage titlebar CHANGE"
                                             data: {
                                                 'openid': openid,
                                                 'avatarUrl': info.avatarUrl,
@@ -62,21 +70,29 @@ App({
                     }
                 })
                 wx.request({
+<<<<<<< HEAD
 
                     url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=bb',
 
                     url: getApp.globalData.server+'&a=videoshop&op=bb',
 
+=======
+                    url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=bb',
+>>>>>>> parent of 7d4dc4a... Revert "mianPage titlebar CHANGE"
                     success: function (res) {
                         THIS.globalData.version = res.data.dat;
                     }
                 })
                 //主机构名字
                 wx.request({
+<<<<<<< HEAD
   url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=id',
 
                     url: getApp.globalData.server+'&a=merch&op=id',
 
+=======
+                    url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=id',
+>>>>>>> parent of 7d4dc4a... Revert "mianPage titlebar CHANGE"
                     data:{
                         uid:0,
                     },
