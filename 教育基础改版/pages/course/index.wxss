@@ -1,365 +1,422 @@
 /* pages/video/index.wxss */
 @import "../../wxParse/wxParse.wxss";
-.body{
-  position: relative;
-  background: #f4f4f4;
-  margin-bottom:80rpx; 
-}
-.line{
-  color: lightgrey;
-  line-height: 50rpx;
-  }
 
-.teacher{
-  border-top:1rpx solid lightgrey;
-  padding: 30rpx 0 0;
-  margin-top: 15rpx; 
+.body {
+    position: relative;
+    background: #f4f4f4;
+    margin-bottom: 80rpx;
 }
-.teacherprotrait image{
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 50%;
+
+.line {
+    color: lightgrey;
+    line-height: 50rpx;
 }
-.teacher>view{
-  display: inline-block;
-  vertical-align: top;
+
+.teacher {
+    border-top: 1rpx solid lightgrey;
+    padding: 30rpx 0 0;
+    margin-top: 15rpx;
 }
-.teacher .box{
-  margin-left: 20rpx;
-  width:550rpx;
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
+
+.teacherprotrait image {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
 }
-.teacher .boxtop>view{
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 20rpx;
-  height: 28rpx;
-  line-height: 28rpx;
+
+.teacher>view {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.teacher .box {
+    margin-left: 20rpx;
+    width: 550rpx;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.teacher .boxtop>view {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20rpx;
+    height: 28rpx;
+    line-height: 28rpx;
     color: dimgray;
 }
-.teacher .boxtop .name{
-  font-size: 29rpx;
-  color: black;
-  font-weight: bold;
+
+.teacher .boxtop .name {
+    font-size: 29rpx;
+    color: black;
+    font-weight: bold;
 }
-.teacher .boxtop .reputation{
-  margin-left: 150rpx;
-  
+
+.teacher .boxtop .reputation {
+    margin-left: 150rpx;
 }
-.reputation image{
-  width: 25rpx;
-  height: 25rpx;
+
+.reputation image {
+    width: 25rpx;
+    height: 25rpx;
 }
+
 /*.teacher .boxtop .amount{
   float:right;
   margin-top:7rpx; 
 }*/
-.teacher .bottom{
-  color: black;
-  line-height: 50rpx;
-  font-size: 22rpx;
-  text-align: left;
-}
-view{
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
-  
-}
-.contain{
-  width:100%;
-  white-space:nowrap;
+
+.teacher .bottom {
+    color: black;
+    line-height: 50rpx;
+    font-size: 22rpx;
+    text-align: left;
 }
 
-.courseinfo{
-  padding: 15rpx 30rpx 10rpx;
-  background: white;
-  margin-bottom:10rpx; 
-  position: relative;
-  overflow: hidden;
-}
-.courseinfo>view{
-  display: inline-block;
-  vertical-align: top;
-}
-.courseinfo .left{
-  line-height: 60rpx;
-  width: 450rpx;
-}
-.left .coursename{
-  font-size: 35rpx;
-}
-.left .detail{
-  font-size:30rpx;
-  color: dimgray;
-  margin-top: 10rpx;
-}
-.detail image{
-  width: 40rpx;
-  height: 40rpx;
-  margin-left: 10rpx;
+view {
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
-.courseinfo .priceattr{
-  line-height: 60rpx;
-  font-size: 45rpx;
-  color: darkorange;
-  text-align: right;
-  width: 230rpx;
-}
-.courseinfo .concern{
-  margin-top: 10rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  float: right;
-  color: white;
-  background: #0767C8;
-  box-sizing: border-box;
-  border-radius: 5rpx;
-  font-size: 30rpx;
-  width: 150rpx;
-  text-align: center;
+.contain {
+    width: 100%;
+    white-space: nowrap;
 }
 
-.purchase{
-  position:fixed;
-  bottom:0;
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 35rpx;
-  text-align: center;
-  background: #0767C8;
-  width: 100%;
-  color: white;
+.courseinfo {
+    padding: 15rpx 30rpx 10rpx;
+    background: white;
+    margin-bottom: 10rpx;
+    position: relative;
+    overflow: hidden;
 }
 
-.intro{
-  padding: 0 30rpx 0rpx;
-  background: white;
-  margin-bottom: 10rpx;
-}
-.intro>view:first-of-type{
-  text-align: center;
-  padding: 20rpx 0;
-  font-size: 30rpx;
-  color: black;
-  vertical-align: top;
+.courseinfo>view {
+    display: inline-block;
+    vertical-align: top;
 }
 
-.button{
-  position: fixed;
-  bottom: 0;
-  height: 110rpx;
-  line-height: 110rpx;
-  font-size: 38rpx;
-  background: #FFD39B;
-  color: #8B2500;
-  width: 100%;
-  text-align: center;
+.courseinfo .left {
+    line-height: 60rpx;
+    width: 450rpx;
 }
-.content view,.content{
-  color: black;
-  font-size: 25rpx;
-  line-height: 45rpx;
-  text-align: left;
+
+.left .coursename {
+    font-size: 35rpx;
 }
-.content{
-  padding-bottom: 25rpx;
+
+.left .detail {
+    font-size: 30rpx;
+    color: dimgray;
+    margin-top: 10rpx;
 }
-.organise{
-  padding: 0 30rpx 0rpx;
-  background: white;
-  margin-bottom: 10rpx;
-  padding-bottom: 10rpx;
+
+.detail image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 10rpx;
 }
-.organise>view:first-of-type{
-  text-align: center;
-  padding: 20rpx 0;
-  font-size: 30rpx;
-  color: black;
+
+.courseinfo .priceattr {
+    line-height: 60rpx;
+    font-size: 45rpx;
+    color: darkorange;
+    text-align: right;
+    width: 230rpx;
 }
+
+.courseinfo .concern {
+    margin-top: 10rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    float: right;
+    color: white;
+    background: #0767c8;
+    box-sizing: border-box;
+    border-radius: 5rpx;
+    font-size: 30rpx;
+    width: 150rpx;
+    text-align: center;
+}
+
+.purchase {
+    position: fixed;
+    bottom: 0;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 35rpx;
+    text-align: center;
+    background: #0767c8;
+    width: 100%;
+    color: white;
+}
+
+.intro {
+    padding: 0 30rpx 0rpx;
+    background: white;
+    margin-bottom: 10rpx;
+}
+
+.intro>view:first-of-type {
+    text-align: center;
+    padding: 20rpx 0;
+    font-size: 30rpx;
+    color: black;
+    vertical-align: top;
+}
+
+.button {
+    position: fixed;
+    bottom: 0;
+    height: 110rpx;
+    line-height: 110rpx;
+    font-size: 38rpx;
+    background: #ffd39b;
+    color: #8b2500;
+    width: 100%;
+    text-align: center;
+}
+
+.content view, .content {
+    color: black;
+    font-size: 25rpx;
+    line-height: 45rpx;
+    text-align: left;
+}
+
+.content {
+    padding-bottom: 25rpx;
+}
+
+.organise {
+    padding: 0 30rpx 0rpx;
+    background: white;
+    margin-bottom: 10rpx;
+    padding-bottom: 10rpx;
+}
+
+.organise>view:first-of-type {
+    text-align: center;
+    padding: 20rpx 0;
+    font-size: 30rpx;
+    color: black;
+}
+
 /*评论样式区//////////////////////////////////////////*/
 
-.comment{
-  padding: 0rpx 30rpx;
-  background: white;
+.comment {
+    padding: 0rpx 30rpx;
+    background: white;
 }
-.commentheader{
-  border-bottom:1rpx solid lightgray;
+
+.commentheader {
+    border-bottom: 1rpx solid lightgray;
 }
-.commentheader>view{
-  display: inline-block;
-  height: 90rpx;
-  line-height: 90rpx;
-  font-size: 30rpx;
+
+.commentheader>view {
+    display: inline-block;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 30rpx;
 }
-.commentheader .more{
-  float: right;
-  color: dimgrey;
-  font-size: 25rpx;
+
+.commentheader .more {
+    float: right;
+    color: dimgrey;
+    font-size: 25rpx;
 }
-.list{
-  margin: 20rpx 0 0;
+
+.list {
+    margin: 20rpx 0 0;
 }
-.list>view{
-  display: inline-block;
-  vertical-align: top;
+
+.list>view {
+    display: inline-block;
+    vertical-align: top;
 }
-.protrait image{
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-  margin-right: 50rpx;
+
+.protrait image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin-right: 50rpx;
 }
-.list .box{
-  width: 538rpx;
-  border-bottom:1rpx solid lightgrey; 
+
+.list .box {
+    width: 538rpx;
+    border-bottom: 1rpx solid lightgrey;
 }
-.top>view{
-  color:black;
-  display: inline-block;
-  height: 40rpx;
-  line-height: 40rpx;
-  vertical-align: top;
+
+.top>view {
+    color: black;
+    display: inline-block;
+    height: 40rpx;
+    line-height: 40rpx;
+    vertical-align: top;
 }
-.top .name{
-  color: #0767C8;
+
+.top .name {
+    color: #0767c8;
 }
-.top .right{
-  color: dimgrey;
-  float: right;
+
+.top .right {
+    color: dimgrey;
+    float: right;
 }
-.right>view{
+
+.right>view {
     margin-left: 20rpx;
 }
-.top image{
-  width: 30rpx;
-  height: 30rpx;
-  vertical-align: top;
-  transform: translateY(5rpx)
+
+.top image {
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: top;
+    transform: translateY(5rpx);
 }
-.right>view{
-  display: inline-block;
-  vertical-align:top;
+
+.right>view {
+    display: inline-block;
+    vertical-align: top;
 }
-.middle{
-  height: 40rpx;
-  line-height: 40rpx;
-  color: dimgrey;
+
+.middle {
+    height: 40rpx;
+    line-height: 40rpx;
+    color: dimgrey;
 }
-.bottom{
-  padding:15rpx 0;
-  font-size: 28rpx;
+
+.bottom {
+    padding: 15rpx 0;
+    font-size: 28rpx;
 }
 
 /*评论样式区/////////////////////////////////////////*/
 
-.scrollbox image{
-  width: 180rpx;
-  height: 110rpx;
-  margin-right: 20rpx;
+.scrollbox image {
+    width: 180rpx;
+    height: 110rpx;
+    margin-right: 20rpx;
 }
-.protrait{
-  margin-top:10rpx;
-}
-video{
-  width:100%;
-  height:190px;
-  z-index: 99;
-}
-.cover{
-  position: absolute;
-  width:100%;
-  height:190px;
-  background: white;
-  opacity: 0.6;
-  z-index: 999;
-}
-.statuson{
-  position: fixed;
-  width:200px;
-  height: 110px;
-  bottom:80rpx;
-  right: 0;
-}
-.extend{
-  width: 100%;
-  text-align: center;
-  opacity: 0.99;
-  height: 60rpx;
-}
-.extend image{
-  width: 60rpx;
-  height: 40rpx;
-}
-.teacher_arrow{
-  width: 100%;
-  left: 0;
-  text-align: center;
-  opacity: 0.99;
-  height: 40rpx;
-  position: absolute;
-  bottom: 0;
-  background: white;
-}
-.teacher_arrow image{
-  width: 60rpx;
-  height: 40rpx;
-}
-.tacherextended{
-  text-align:left;
-  width: 100%;
-  line-height: 50rpx;
-  overflow: hidden;
-  height: 350rpx;
-  position: relative;
-}
-.extended{
-  text-align:left;
-  width: 100%;
-  line-height: 50rpx;
-  overflow: hidden;
-  height: 200rpx;
-  position: relative;
 
+.protrait {
+    margin-top: 10rpx;
 }
-.teachercompressed{
-  text-align: left;
-  line-height: 50rpx;
+
+video {
+    width: 100%;
+    height: 190px;
+    z-index: 99;
 }
-.compressed{
-  text-align: left;
-  line-height: 50rpx;
-  padding-bottom: 62rpx;
+
+.cover {
+    position: absolute;
+    width: 100%;
+    height: 190px;
+    background: white;
+    opacity: 0.6;
+    z-index: 999;
 }
-.arrowon{
-  transform: rotate(180deg);
+
+.statuson {
+    position: fixed;
+    width: 200px;
+    height: 110px;
+    bottom: 80rpx;
+    right: 0;
 }
-.arrowon>image{
-  top:20rpx;
+
+.extend {
+    width: 100%;
+    text-align: center;
+    opacity: 0.99;
+    height: 60rpx;
 }
-.video image{
+
+.extend image {
+    width: 60rpx;
+    height: 40rpx;
+}
+
+.teacher_arrow {
+    width: 100%;
+    left: 0;
+    text-align: center;
+    opacity: 0.99;
+    height: 40rpx;
+    position: absolute;
+    bottom: 0;
+    background: white;
+}
+
+.teacher_arrow image {
+    width: 60rpx;
+    height: 40rpx;
+}
+
+.tacherextended {
+    text-align: left;
+    width: 100%;
+    line-height: 50rpx;
+    overflow: hidden;
+    height: 350rpx;
+    position: relative;
+}
+
+.extended {
+    text-align: left;
+    width: 100%;
+    line-height: 50rpx;
+    overflow: hidden;
+    height: 200rpx;
+    position: relative;
+}
+
+.teachercompressed {
+    text-align: left;
+    line-height: 50rpx;
+}
+
+.compressed {
+    text-align: left;
+    line-height: 50rpx;
+    padding-bottom: 62rpx;
+}
+
+.arrowon {
+    transform: rotate(180deg);
+}
+
+.arrowon>image {
+    top: 20rpx;
+}
+
+.video image {
     height: 100%;
     widows: 100%;
 }
-.coursebox{
+
+.coursebox {
     display: inline-block;
 }
-.coursebox>view{
-  width: 160rpx;
-  line-height: 45rpx;
-  height: 45rpx;
-  overflow: hidden;
+
+.coursebox>view {
+    width: 160rpx;
+    line-height: 45rpx;
+    height: 45rpx;
+    overflow: hidden;
 }
-#copyright{
+
+#copyright {
     text-align: center;
-    margin:10rpx 0;
+    margin: 10rpx 0;
 }
-#warm{
+
+#warm {
     color: red;
 }
+
 /* 富文本修正补丁 */
 
 .bottom image {
@@ -370,60 +427,124 @@ video{
     width: 100% !important;
 }
 
-.bottom view{
+.bottom view {
     padding: 20rpx 0;
     white-space: pre-wrap;
     word-break: break-all;
     box-sizing: border-box;
     text-indent: 0 !important;
 }
-.content view{
+
+.content view {
     padding: 20rpx 0;
     white-space: pre-wrap;
     word-break: break-all;
     box-sizing: border-box;
     text-indent: 0 !important;
 }
+
 /* 定制内容 */
-.formarea{
-    padding: 10rpx 30rpx 40rpx;
-    margin-bottom:10rpx; 
+
+.formarea {
+    padding-left: 30rpx;
+    margin-bottom: 10rpx;
     background: white;
-}
-.formarea .title{
-    padding: 0 20rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    white-space: normal !important;
     box-sizing: border-box;
-    height: 70rpx;
-    line-height: 70rpx;
-    font-size: 32rpx;
-    text-align: center;
 }
-.checkbox {
-    border: 2rpx solid #adadad;
-    border-radius: 20rpx;   
-    overflow: hidden;
-}
-.checkbox>view{
-    height: 100rpx;
-    line-height: 100rpx;
-    border-left: 15rpx solid #b9b9b9;
-    border-right: 15rpx solid #b9b9b9;
-}
-.checkbox>view:last-of-type{
-}
-.checkbox>view:first-of-type{
-    border-left: 15rpx solid #0767C8;
-    border-right: 15rpx solid #0767C8;
-    border-bottom: 2rpx solid #adadad;
-}
-.checkbox>view input{
-    margin-left: 20rpx;
-    height: 100rpx;
+
+.formarea text {
     font-size: 30rpx;
 }
 
-.checkbox>view {
+.formarea .rightside {
+    display: inline-block;
+    float: right;
+    vertical-align: top;
+    height: 80rpx;
 }
 
+.formarea image {
+    height: 80rpx;
+    width: 80rpx;
+    margin-left: -55rpx;
+}
 
+#cover {
+    position: fixed;
+    bottom: 80rpx;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20rpx;
+    box-sizing: border-box;
+    z-index: 99;
+}
 
+#cover .title {
+    text-align: center;
+    margin-bottom: 20rpx;
+}
+
+#cover .title>view {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#cover .title .pic {
+    width: 30%;
+    height: 120rpx;
+}
+
+#cover .title .pic image {
+    width: 100%;
+    height: 100%;
+}
+
+#cover .title .info {
+    width: 70%;
+    padding:0 20rpx;
+    box-sizing: border-box;
+    line-height: 60rpx;
+}
+
+#cover .title .info .goodsname {
+    font-size: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#cover .title .info>view {
+    text-align: left;
+}
+
+#cover .case {
+    margin: 20rpx 0;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+}
+
+#cover .case .chosen {
+    border: 2rpx solid #0767c8 !important;
+}
+
+#cover .case .list {
+    display: inline-block;
+    padding: 5rpx 10rpx;
+    box-sizing: border-box;
+    white-space: normal;
+    margin: 5rpx 10rpx;
+    font-size: 30rpx;
+    border: 2rpx solid #adadad;
+}
+
+.darkwall {
+    height: 1120rpx;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.6);
+    left: 0;
+    top: 0;
+    width: 100%;
+}

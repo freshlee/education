@@ -39,7 +39,7 @@
 .firstCase{
   text-align: center;
   padding: 30rpx 5% 10rpx;
-  margin:10rpx 0 0; 
+  margin:10rpx 0; 
   background-color: white;
 }
 .firstCase::after{
@@ -122,7 +122,6 @@
   text-align: center;
   padding: 30rpx 5% 10rpx;
   background-color: white;
-  margin-top: 10rpx;
 }
 .advertise{
   clear: both;
@@ -194,12 +193,8 @@
 overflow: hidden;
 }
 .article_title{
-  display: block !important;
   font-weight: bold;
   color: #454545;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 }
 .article_content{
   color: grey;

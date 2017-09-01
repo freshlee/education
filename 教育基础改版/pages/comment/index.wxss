@@ -111,7 +111,6 @@
     box-shadow: 0 0 20rpx #118cf4;
 }
 
-
 .writeboard .input {
     background: #f4f4f4;
     border-radius: 30rpx;

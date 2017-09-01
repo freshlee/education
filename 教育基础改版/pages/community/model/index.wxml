@@ -1,56 +1,37 @@
 <!--index.wxml-->
 <import src="../../../wxParse/wxParse.wxml" />
-<view class="body" bindtap="back" style="padding-bottom:80rpx">
+<view class="body" bindtap="back">
     <view class="header case">
-        <view class="title">{{base.title}}</view>
-        <view class="describe">{{base.desc}}</view>
-        <!-- <view class="info">
-      <view class="browser">
-        <image src="../../../images/browser_logo.jpg"></image>{{board.needfollow}}</view>
-      <view class="amount">
-        <image src="../../../images/message_log.jpg"></image> {{listnum}}</view>
-      <view class="concert" bindtap="concern"> {{isconcern==1?'取消关注':'关注'}} </view>
-    </view> -->
-    </view>
-
-
-    <!--评论板块-->
-    <view class="comment">
-        <view class="head">
-            <view class="left">全部评论</view>
-            <view class="right">{{total}}个评论</view>
-        </view>
-        <view class="list" wx:for="{{list}}" wx:for-item="topitem">
-            <view class="left">
-                <image src="{{topitem.avatar}}"></image>
-            </view>
-            <view class="right">
-                <view class="top">{{topitem.nickname}}</view>
-                <view class="middle">{{topitem.content}}</view>
-                <view class="bottom">
-                    <view> {{topitem.createtime}}</view>
-                    <view>
-                        <view class="contain" catchtap="praise" data-pid="{{topitem.id}}">
-                            <image src="../../../images/praise.png"></image>{{topitem.goodcount}}</view>
-                        <view class="contain" catchtap="tocomment" data-pid="{{topitem.id}}">
-                            <image src="../../../images/reply.png"></image>{{topitem.replylist.length>0?'收起':'回复'}}</view>
-                        <view class="contain" catchtap="deleted" wx:if="{{permission}}" data-index="{{index}}" data-pid="{{topitem.id}}">
-                            <image src="../../../images/del.png"></image>刪除</view>
-                    </view>
-                </view>
-                <view class="reply">
-                    <view class="replylist" wx:for="{{topitem.replylist}}">
-                        <view class="top"> <text style="color:#118cf4;">{{item.nickname}}</text>
-                            <text style="color:#adadad;display:inline-block;margin-left:20rpx">{{item.createtime}}</text>
-                            <text wx:if="{{item.openid==openid}}" bindtap="del" data-id="{{item.id}}" data-pid="{{topitem.id}}"  style="color:#118cf4;display:inline-block;float:right">删除</text>
-                        </view>
-                        <view class="down" style="width:100%">{{item.content}}</view>
-                    </view>
-                </view>
-            </view>
+        <view class="title">{{board.title}}</view>
+        <view class="describe">{{board.desc}}</view>
+        <view class="info">
+            <view class="browser">
+                <image src="../../../images/browser_logo.jpg"></image>{{board.needfollow}}</view>
+            <view class="amount">
+                <image src="../../../images/message_log.jpg"></image> {{listnum}}</view>
+            <view class="concert" bindtap="concern"> {{isconcern==1?'取消关注':'关注'}} </view>
         </view>
     </view>
 
+
+    <view class="case tip" wx:for="{{list}}">
+        <view class="user">
+            <image src="{{item.avatar}}"></image> <text class="username">{{item.nickname}}</text> <text class="time" style="margin-top:15rpx">{{item.createtime}}</text> </view>
+        <view class="content"><template is="wxParse" data="{{wxParseData:content[index].nodes}}"/>
+        </view>
+
+        <!--评论板块-->
+        <view class="panel">
+            <view class="comment {{permission?'':'hide'}}" bindtap="delcomment" data-des="{{item.id}}">
+                <image src="../../../images/del.png"></image> <text style="color:#0767C8" data-index="{{index}}" data-pid="{{item.id}}">删除 </text> </view>
+            <view class="comment" bindtap="tocomment" data-des="{{item.id}}">
+                <image src="../../../images/comment.png"></image> <text>({{item.postcount}}) </text> </view>
+            <view class="collect index" bindtap="agree" data-position="{{index}}" data-index="{{item.id}}">
+                <image src="../../../images/praiseoff.png"></image> <text>{{item.goodcount}}</text> </view>
+        </view>
+
+
+    </view>
 
 
 </view>
@@ -58,14 +39,13 @@
 
 
 <view class="writeboard">
-
-
-  <view class="input"> 
-    <image src="../../../images/write.png"></image>
-        <input placeholder="说点什么吧" focus="{{writestatus}}" name="content" bindfocus="write" fixed="true" auto-height="true" bindconfirm="submit" style="width:550rpx" />
-    <view class="ball" bindtap="handlesubmit">发</view>
-  </view>
-  <!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>  -->
+    <image src="{{item}}" wx:for="{{logo}}" data-index="{{index}}" bindtap="del" />
+    <view class="input">
+        <image src="../../../images/write.png"></image>
+        <input  bindinput="contentinput" placeholder="说点什么吧" name="content" bindfocus="write" fixed="true" auto-height="true" bindconfirm="submit" />
+        <view class="ball" bindtap="handlesubmit"></view>
+    </view>
+    <!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>  -->
 
 </view>
 
@@ -73,8 +53,9 @@
 
 
 
-<!-- 
+
+
 <loading hidden="{{hidden}}"></loading>
-<loading hidden="{{submiting}}">上传中...</loading> -->
+<loading hidden="{{submiting}}">上传中...</loading>
 
 <view id="copyright">{{versioninfo}}</view>

@@ -2,6 +2,8 @@
 var doctype;
 var openid = getApp().globalData.openid;
 var orderid;
+var position;
+var time;
 var merchid;
 Page({
 
@@ -22,8 +24,9 @@ Page({
             data:{
                 a:"pay",
                 op:"pay",
-                openid:getApp().globalData.openid,
-                orderid:THIS.data.orderid,
+                openid: getApp().globalData.openid,
+                orderid: THIS.data.orderid,
+
             },
             success: function(res) {
                 var data = res.data.dat.wechat;
@@ -42,9 +45,10 @@ Page({
                             data:{
                                 a:"pay",
                                 op:"payh",
-                                openid:getApp().globalData.openid,
-                                orderid:THIS.data.orderid,
-                            },
+                                openid: getApp().globalData.openid,
+                                orderid: THIS.data.orderid,
+
+                            }
                         })
                     }
                 })
@@ -53,7 +57,8 @@ Page({
     },
     onLoad: function(options) {
         orderid = options.orderid;
-        merchid = options.merchid;
+        merchid=options.merchid;
+        var optionid = options.optionid;
         var THIS = this;
         this.setData({
             versioninfo: getApp().globalData.version,
@@ -69,14 +74,15 @@ Page({
             //生成订单好并获取信息
             wx.request({
                 url: getApp().globalData.server,
-                data:{
-                    a:"order",
-                    op:"submit",
+                data: {
+                    a: "order",
+                    op: "submit",
                     merchid: merchid,
-                    openid:getApp().globalData.openid,
-                    goodsid:options.goodsid,
+                    optionid: optionid,
+                    openid: getApp().globalData.openid,
+                    goodsid: options.goodsid,
                 },
-                success: function(res) {
+                success: function (res) {
                     console.log(res);
                     THIS.setData({
                         ordernum: res.data.dd,
@@ -84,17 +90,17 @@ Page({
                     })
                     wx.request({
                         url: getApp().globalData.server,
-                        data:{
-                            a:"pay",
-                            op:"params",
-                            orderid:res.data.orderid
+                        data: {
+                            a: "pay",
+                            op: "params",
+                            orderid: res.data.orderid
                         },
-                        success: function(res) {
+                        success: function (res) {
                             THIS.setData({
                                 hidden: true,
                             })
                         },
-                        fail: function() {
+                        fail: function () {
                             THIS.setData({
                                 hidden: true,
                             })
@@ -104,7 +110,7 @@ Page({
                         }
                     })
                 },
-                fail: function() {
+                fail: function () {
                     THIS.setData({
                         hidden: true,
                     })
@@ -116,18 +122,18 @@ Page({
         } else {
             wx.request({
                 url: getApp().globalData.server,
-                data:{
-                    a:"pay",
-                    op:"params",
-                    openid:getApp().globalData.openid,
-                    orderid:THIS.data.orderid,
+                data: {
+                    a: "pay",
+                    op: "params",
+                    openid: getApp().globalData.openid,
+                    orderid: THIS.data.orderid,
                 },
-                success: function(res) {
+                success: function (res) {
                     THIS.setData({
                         hidden: true,
                     })
                 },
-                fail: function() {
+                fail: function () {
                     THIS.setData({
                         hidden: true,
                     })
@@ -142,28 +148,28 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
         if (!this.data.orderid) {
             wx.navigateBack({
                 delta: 2
@@ -174,21 +180,21 @@ Page({
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

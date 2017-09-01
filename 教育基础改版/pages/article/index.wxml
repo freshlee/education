@@ -15,7 +15,7 @@
         </view>
         <view class="panel">
             <view class="purchase" bindtap="concern" bindtap="{{favor==1?'concern':'disconcern'}}">{{favor==1?'关注':'取消关注'}}</view>
-            <view class="try" bindtap="{{permission===1||priceattr=='1'?'toread':'purchase'}}"> {{permission===1||priceattr=='1'?'阅读':'购买'}} </view>
+            <view class="try" bindtap="{{permission==='1'||priceattr=='1'?'toread':'purchase'}}"> {{permission==='1'||priceattr=='1'?'阅读':'购买'}} </view>
         </view>
         <!--<view class="operate">
 <view class="menu"> <view class="classname"> <image src="../../images/demoimage/order_logo.png"></image> </view> 目录</view>

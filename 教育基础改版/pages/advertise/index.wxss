@@ -158,6 +158,7 @@ page{
 .teacher .bottom{
   color: black;
   line-height: 50rpx;
+  height: 150rpx;
   font-size: 22rpx;
   overflow: hidden;
 }

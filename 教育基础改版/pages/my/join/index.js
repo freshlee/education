@@ -24,7 +24,7 @@ Page({
                  data: e.detail.value,
                  success:function(res){
                      wx.showToast({
-                         title: res.data.dat,
+                         title: res.data.dat.toString(),
                          image:"../../../images/message.png",
                          duration:1000,
                      })

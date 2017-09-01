@@ -1,118 +1,133 @@
 /* index.wxss */
 @import "../../../wxParse/wxParse.wxss";
-.case{
-  padding:0 30rpx;
-  border-bottom: 2rpx solid #f4f4f4;
-  background-color:white;
+
+.body {
+    padding-bottom: 80rpx;
 }
-.case .content{
-  padding-left: 80rpx;
-  box-sizing: border-box;
+
+.case {
+    padding: 10rpx 30rpx;
+    border-bottom: 2rpx solid #f4f4f4;
+    background-color: white;
 }
-.header{
-  border-bottom:2rpx solid #f4f4f4;
+
+.case .content {
+    padding-left: 110rpx;
+    box-sizing: border-box;
+    width: 680rpx;
+    word-break: break-all;
 }
-.header>view{
-    padding:20rpx 0;
+
+.case .content view {
+    display: inline-block !important;
 }
-.header .title{
-  font-size:30rpx;
-  border-bottom: 2rpx solid gainsboro;
+
+.case:last-of-type {
+    margin: 0;
+    box-shadow: none;
 }
-.header .describe{
-    font-size: 28rpx;
+
+.header {
+    border-bottom: 2rpx solid #f4f4f4;
 }
-/* 帖子列表 */
-.comment{
-    margin-top: 20rpx;
-    padding: 0 30rpx;
-    background: white;
+
+.header>view {
+    padding: 20rpx 0;
 }
-.comment .head>view{
-   display: inline-block;
-   vertical-align: top;
-   width: 50%;
-   font-size: 28rpx;
-   height: 78rpx;
-   line-height: 78rpx;
-   border-bottom: 3rpx solid #f4f4f4;
+
+.header .info {
+    padding: 0 0 10rpx;
 }
-.comment .head>view:first-of-type{
-    text-align: left;
+
+.title {
+    font-size: 45rpx;
+    border-bottom: 2rpx solid gainsboro;
 }
-.comment .head>view:last-of-type{
-    text-align: right;
-   font-size: 25rpx;
-   color: #adadad;
-}
-.comment .list{
-    padding: 25rpx 0  20rpx;
-    border-bottom:3rpx solid #f4f4f4; 
-}
-.comment .list>view{
-   display: inline-block;
-   vertical-align: top;
-}
-.comment .list .left image{
-    width: 65rpx;
-    height: 65rpx;
-    border-radius: 50%;
-}
-.comment .list .right{
-    width: 600rpx;
-    margin-left: 20rpx;
-}
-.comment .list .right .top{
-    font-size: 27rpx;
-    color: #adadad;
-}
-.comment .list .right .middle{
-    margin-top: 10rpx;
-    font-size: 27rpx;
-    line-height: 45rpx;
-}
-.comment .list .right .bottom{
+
+.header .browser {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20%;
+    margin-right: 20rpx;
+    color: grey;
+    font-size: 30rpx;
     margin-top: 10rpx;
 }
-.comment .list .right .bottom>view{
-   display: inline-block;
-   vertical-align: top;
-   font-size: 25rpx;
-   color: #adadad;
-   width: 50%;
+
+.header .amount {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20%;
+    margin-right: 20rpx;
+    color: grey;
+    font-size: 30rpx;
+    margin-top: 10rpx;
 }
-.comment .list .right .bottom .contain{
+
+.header .concert {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 20%;
+    float: right;
+    text-align: center;
+    padding: 10rpx 15rpx;
+    background: #0767c8;
+    border-radius: 5rpx;
+    color: white;
+}
+
+.tip {
+    padding: 20rpx 30rpx;
+}
+
+.tip .user {
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.tip .user .username {
+    font-size: 30rpx;
+    color: dimgrey;
+    font-weight: bold;
+    height: 80rpx;
+    line-height: 80rpx;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30rpx;
+}
+
+.tip .user text {
+    color: dimgray;
+    font-size: 25rpx;
+    font-weight: normal;
     display: inline-block;
 }
-.comment .list .right .bottom>view:first-child{
-    text-align: left
+
+.user image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
 }
-.comment .list .right .bottom>view:last-child{
-    text-align: right
+
+.tip .interact>view {
+    display: inline-block;
+    color: grey;
+    height: 80rpx;
+    line-height: 80rpx;
 }
-.comment .list .right .bottom image{
-    width: 30rpx;
+
+.info image {
     height: 30rpx;
-    margin-left: 20rpx;
-    margin-right: 10rpx;
+    width: 40rpx;
 }
-.reply{
-    background: #f4f4f4;
+
+.suspend image {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    transform: scale(0.6);
 }
-.reply .replylist{
-    padding: 10rpx 20rpx;
-    border-bottom:2rpx solid #e1e1e1;
-}
-.reply .replylist .top{
-    margin: 0 0 10rpx;
-}
-.reply .replylist:last-child{
-        border-bottom:none;
-}
-.reply .down{
-    font-size: 25rpx;
-    line-height: 40rpx;
-}
+
 .writeboard {
     border-top: 3rpx solid #f4f4f4;
     width: 100%;
@@ -132,14 +147,7 @@
     border-radius: 50%;
     background: #118cf4;
     box-shadow: 0 0 20rpx #118cf4;
-    vertical-align: top;
-    margin-top: 10rpx;
-    color: white;
-    text-align: center;
-    line-height: 50rpx;
 }
-
-
 .writeboard .input {
     background: #f4f4f4;
     border-radius: 30rpx;
@@ -155,13 +163,98 @@
     width: 40rpx;
     height: 40rpx;
 }
-#copyright{
-    text-align: center;
-    margin:10rpx 0;
+
+#addpic {
+    width: 50rpx;
+    height: 50rpx;
 }
+
+.tool image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+/*面板样式*/
+
+.panel {
+    height: 60rpx;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.panel .praise {
+    width: 120rpx;
+    height: 60rpx;
+    border-radius: 5rpx;
+    background: rgb(7, 103, 200);
+}
+
+.panel image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.collect image, .comment image {
+    display: inline-block;
+}
+
+.close {
+    display: none;
+}
+
+.panel>view {
+    margin-left: 20rpx;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 20rpx;
+    height: 60rpx;
+}
+
+.panel::after {
+    content: "";
+    display: block;
+    clear: bothl;
+}
+
+.collect, .comment {
+    float: right;
+}
+
+.collect image, .comment image {
+    height: 40rpx;
+    width: 40rpx;
+    vertical-align: middle;
+}
+
+.collect text, .comment text {
+    vertical-align: middle;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin-left: 20rpx;
+}
+
+.top image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.user .time {
+    float: right;
+    position: relative;
+    top: -20rpx;
+}
+
+.info image {
+    margin-right: 10rpx;
+}
+
+.hide {
+    display: none !important;
+}
+
 #copyright {
     text-align: center;
     margin: 10rpx 0;
-    font-size: 25rpx;
 }
-

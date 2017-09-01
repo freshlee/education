@@ -87,7 +87,7 @@ Page({
             var newcate = mycate == undefined || mycate == 0 ? "" : "&cates=" + mycate;
             var newtype = mytype == undefined || mytype == 0 ? "" : "&type=" + mytype;
             var newpay = mypay == undefined || mypay == 0 ? "" : "&priceattr=" + mypay;
-            var newurl =  getApp().globalData.server + "&a=videoshop&op=rm&page=1" + newcate + newtype + newpay;
+            var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=rm&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
             console.log(newurl);
             this.setData({
                 status: "off"

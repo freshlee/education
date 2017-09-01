@@ -4,7 +4,7 @@
     <view class="video" style="height:190px">
         <view style="z-index:999" wx:if="{{permission===0&&priceattr!='1'}}" class="{{status==1?'statuson':''}} cover">
             <image src="{{goods.thumb}}" style="height: 100%;width: 100%" /> </view>
-        <video controls="controls" bindpause="pause" bindtimeupdate="procedurechange"  data-video="{{goods.keywords}}" src="{{permission===0&&priceattr!='1'?'':goods.keywords}}"  ></video>
+        <video controls="controls" bindpause="pause" bindtimeupdate="procedurechange"  data-video="{{goods.keywords}}" src="{{permission==='0'&&priceattr!='1'?'':goods.keywords}}"  ></video>
     </view>
     <view class="courseinfo {{teacher.length>1?(box[0]==1?'tacherextended':'teachercompressed'):''}}">
         <view class="left">

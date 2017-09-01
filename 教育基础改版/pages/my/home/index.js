@@ -49,11 +49,7 @@ Page({
         wx.login({
             success: function (res) {
                 wx.request({
-<<<<<<< HEAD
-                    url: getApp().globalData.server + '&a=login&op=getopenid',
-=======
                     url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=getopenid',
->>>>>>> parent of ae090bd... 9-1-1
                     data: {
                         code: res.code,
                         uniacid: getApp().globalData.acid,
@@ -79,11 +75,7 @@ Page({
                             success: function (res) {
                                 var info = res.userInfo;
                                 wx.request({
-<<<<<<< HEAD
-                                  url: getApp().globalData.server+ '&a=login&op=register',
-=======
                                     url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=register',
->>>>>>> parent of ae090bd... 9-1-1
                                     data: {
                                         'openid': openid,
                                         'avatarUrl': info.avatarUrl,
