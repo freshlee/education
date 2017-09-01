@@ -33,11 +33,6 @@ Page({
             url: '../filter/index?type=3',
         })
     },
-    moveToMoreArticle: function () {
-      wx.navigateTo({
-        url: '../articlelist/index',
-      })
-    },
     moveToArticle: function(event) {
         var newurl = '../article/index?id=' + event.currentTarget.dataset.id;
         wx.navigateTo({
