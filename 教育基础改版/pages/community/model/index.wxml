@@ -32,7 +32,7 @@
                     <view>
                         <view class="contain" catchtap="praise" data-pid="{{topitem.id}}">
                             <image src="../../../images/praise.png"></image>{{topitem.goodcount}}</view>
-                        <view class="contain" catchtap="tocomment" data-pid="{{topitem.id}}">
+                        <view class="contain" catchtap="{{topitem.replylist.length>0?'hide':'showreply'}}" data-pid="{{topitem.id}}">
                             <image src="../../../images/reply.png"></image>{{topitem.replylist.length>0?'收起':'回复'}}</view>
                         <view class="contain" catchtap="deleted" wx:if="{{permission}}" data-index="{{index}}" data-pid="{{topitem.id}}">
                             <image src="../../../images/del.png"></image>刪除</view>

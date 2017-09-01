@@ -208,13 +208,6 @@ Page({
         }
 
     },
-    tocomment: function (e) {
-      var pid = e.currentTarget.dataset.pid;
-      wx.navigateTo({
-        url: '../../comment/index?pid=' + pid + '&bid=' + bid,
-      })
-
-    },
     submit: function (e) {
         var THIS = this;
         var data = e.detail.value;

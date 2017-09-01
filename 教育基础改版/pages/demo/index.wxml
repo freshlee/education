@@ -83,7 +83,7 @@
     </view>
 
     <view class="forthCase" wx:if="{{articleData.length}}">
-        <view class="caseHead"> <text class="title">文章</text> <text class="more" bindtap="moveToMoreArticle">阅览更多></text></view>
+        <view class="caseHead"> <text class="title">文章</text> <text class="more" bindtap="moveToMore">阅览更多></text></view>
         <view style="clear:both"></view>
 
         <view class="article" wx:for="{{articleData}}" data-id="{{item.id}}" bindtap="moveToArticle">
