@@ -60,7 +60,7 @@ App({
           }
         })
         wx.request({
-                    url: getApp.globalData.server+'&a=videoshop&op=bb',
+          url: getApp.globalData.server + '&a=videoshop&op=bb',
           success: function (res) {
             THIS.globalData.version = res.data.dat;
           }
@@ -68,19 +68,20 @@ App({
         //主机构名字
         wx.request({
 
-                    url: getApp.globalData.server+'&a=merch&op=id',
+          url: getApp.globalData.server + '&a=merch&op=id',
+          data: {
             uid: 0,
             uniacid: getApp().globalData.acid,
-          },
+        },
           success: function (res) {
             THIS.globalData.merchname = res.data.dat.zz.name;
           }
         })
-      }
-    })
+  }
+})
   },
-  globalData: {
-    acid: 2,
+globalData: {
+  acid: 2,
     server: "http://192.168.1.213/apivo/index.php?c=eweivideo&uniacid=" + 2,
   }
 })
