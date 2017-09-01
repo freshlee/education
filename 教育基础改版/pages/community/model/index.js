@@ -71,7 +71,6 @@ Page({
         overcount=0;
         permission = 0;
         page = 1;
-        bid = 12;
         maxpage = 1;
         this.setData({
             list: [],
