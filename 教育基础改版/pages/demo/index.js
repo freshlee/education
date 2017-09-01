@@ -33,6 +33,11 @@ Page({
             url: '../filter/index?type=3',
         })
     },
+    moveToMoreArticle: function () {
+      wx.navigateTo({
+        url: '../articlelist/index',
+      })
+    },
     moveToArticle: function(event) {
         var newurl = '../article/index?id=' + event.currentTarget.dataset.id;
         wx.navigateTo({
@@ -54,21 +59,10 @@ Page({
 
     },
     onLoad: function() {
-      var THIS = this;
-      wx.request({
-        url: getApp().globalData.server + '&a=merch&op=id',
-        data: {
-          uid: 0,
-        },
-        success: function (res) {
-          wx.setNavigationBarTitle({
-            title: res.data.dat.zz.name,
-          })
-        }
-      })
         this.setData({
             versioninfo: getApp().globalData.version,
         })
+        var THIS = this;
         //再次调起用户信息
         //商品接口
         wx.request({
