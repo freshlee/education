@@ -1,6 +1,4 @@
 //app.js
-var fundebug = require('./fundebug.0.0.3.min.js');
-fundebug.apikey = 'c648da35f9c366ce97ca980df26b85e349ff34ee26c73dd5a2e9ca637526bf81';
 
 App({
     onLaunch: function () {
@@ -15,7 +13,11 @@ App({
                     },
                     fail: function () {
                         wx.request({
+
+                            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=getopenid',
+
                             url: getApp.globalData.server+'&a=login&op=getopenid',
+
                             data: {
                                 code: res.code,
                             },
@@ -29,7 +31,11 @@ App({
                                     success: function (res) {
                                         var info = res.userInfo;
                                         wx.request({
+
+                                            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=register',
+
                                             url: getApp.globalData.server+'&a=login&op=register',
+
                                             data: {
                                                 'openid': openid,
                                                 'avatarUrl': info.avatarUrl,
@@ -56,14 +62,21 @@ App({
                     }
                 })
                 wx.request({
+
+                    url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=bb',
+
                     url: getApp.globalData.server+'&a=videoshop&op=bb',
+
                     success: function (res) {
                         THIS.globalData.version = res.data.dat;
                     }
                 })
                 //主机构名字
                 wx.request({
+  url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=id',
+
                     url: getApp.globalData.server+'&a=merch&op=id',
+
                     data:{
                         uid:0,
                     },
@@ -79,7 +92,6 @@ App({
         server:"http://192.168.1.213/apivo/index.php?c=eweivideo&uniacid="+2,
     }
 })
-// api.cnmmsc.org / index.php
 
 
 

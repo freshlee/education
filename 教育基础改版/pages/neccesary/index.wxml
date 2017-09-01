@@ -1,2 +1,67 @@
-<!--pages/neccesary/index.wxml-->
-<text>{{page}}.wxml</text>
+<!--index.wxml-->
+<!-- <view class="case">
+    <view class="list" bindtap="city">
+        asdad
+        <view class="rightside">
+            <image src="../../images/arrow.png"></image>
+        </view>
+    </view>
+</view>
+<view class="case">
+    <view class="list">
+        请输入行驶里程
+        <view class="rightside">
+            <input name="mile" bindinput="mile" placeholder="请填写里程数" style="z-index:0;position:relative" :/>
+            <text>万公里</text>
+        </view>
+    </view>
+</view>
+<view class="area" wx:for="{{3}}">
+    <view class="title">标题标题</view>
+    <textarea maxlength="200" bindinput="check" data-index="{{index}}" />
+    <view class="rest">剩余{{200-(num[index]||0)}}/200</view> -->
+<!-- </view> -->
+<!-- 第三部分 -->
+<!-- <view class="cate">
+    <view class="title"> 选择反馈类型</view>
+    <checkbox-group class="radio-group" bindchange="radioChange" name="type">
+        <label class="radio" wx:for="{{items}}">
+                    <view class="list">
+    <checkbox value="{{item.value}}" checked="{{item.checked}}" data-value="{{item.value}}"/> <text>{{item.value}}</text>
+          </view></label>
+    </checkbox-group>
+</view> -->
+
+<template name="0">
+<view class="case">
+    <view class="list">
+        {{item.tp_name}}
+        <view class="rightside">
+            <input name="{{item.formname}}" bindinput="mile" placeholder="{{item.placeholder}}" style="z-index:0;position:relative" :/>
+        </view>
+    </view>
+</view>
+</template>
+<template name="1">
+<view class="area">
+    <view class="title">{{item.tp_name}}</view>
+    <textarea maxlength="200" bindinput="check" data-index="{{item.formname}}"  name="{{item.formname}}"/>
+    <view class="rest">剩余{{200-(item.rank||0)}}/200</view>
+</view>
+</template>
+<template name="3">
+<view class="cate">
+    <view class="title"> {{item.tp_name}}</view>
+    <checkbox-group class="radio-group" bindchange="radioChange" name="{{item.formname}}">
+        <label class="radio" wx:for="{{item.tp_text}}">
+                    <view class="list">
+    <checkbox value="{{item}}"  data-value="{{item}}"/> <text>{{item}}</text>
+          </view></label>
+    </checkbox-group>
+</view>
+</template>
+<form bindsubmit="submit">
+    <template wx:for="{{fields}}" is="{{item.data_type}}" data="{{item,index}}">
+</template>
+    <button class="go" form-type="submit">提交预约</button>
+</form>
