@@ -49,9 +49,14 @@ Page({
         wx.login({
             success: function (res) {
                 wx.request({
+<<<<<<< HEAD
                     url: getApp().globalData.server + '&a=login&op=getopenid',
+=======
+                    url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=getopenid',
+>>>>>>> parent of ae090bd... 9-1-1
                     data: {
                         code: res.code,
+                        uniacid: getApp().globalData.acid,
                     },
                     header: {
                         'content-type': 'application/json'
@@ -74,7 +79,11 @@ Page({
                             success: function (res) {
                                 var info = res.userInfo;
                                 wx.request({
+<<<<<<< HEAD
                                   url: getApp().globalData.server+ '&a=login&op=register',
+=======
+                                    url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=register',
+>>>>>>> parent of ae090bd... 9-1-1
                                     data: {
                                         'openid': openid,
                                         'avatarUrl': info.avatarUrl,
@@ -82,6 +91,7 @@ Page({
                                         'gender': info.gender,
                                         'province': info.province,
                                         'city': info.city,
+                                        'uniacid': getApp().globalData.acid,
                                     },
                                 })
                                 wx.setStorage({
@@ -198,7 +208,7 @@ Page({
         })
         //获取浏览条数,只显示数目
         wx.request({
-            url: getApp().globalData.server+'&a=merch&op=footstep&openid=' + getApp().globalData.openid,
+            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=footstep&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
             success: function (res) {
                 var record = res.data.dat.list.length;
                 THIS.setData({
@@ -208,7 +218,7 @@ Page({
         })
         //获取发帖数目
         wx.request({
-            url: getApp().globalData.server+'&a=Usersq&op=getreplys&openid=' + getApp().globalData.openid,
+            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=getreplys&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
             success: function (res) {
                 var total = res.data.dat.total;
                 THIS.setData({
@@ -218,7 +228,7 @@ Page({
         })
         //获取收藏条数，只显示数目
         wx.request({
-            url: getApp().globalData.server+'&a=merch&op=gzlist&openid=' + getApp().globalData.openid,
+            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=gzlist&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
             success: function (res) {
                 console.log(res);
                 THIS.setData({

@@ -92,7 +92,7 @@ Page({
                         }
                         wx.request({
                             url: 'zsh',
-                            data:{
+                            data{
                                 a: "merch",
                                 op: "dw",
                                 lat: lat,
