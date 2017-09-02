@@ -63,7 +63,7 @@
   <view class="input"> 
     <image src="../../../images/write.png"></image>
         <input placeholder="说点什么吧" focus="{{writestatus}}" name="content" bindfocus="write" fixed="true" auto-height="true" bindconfirm="submit" style="width:550rpx" />
-    <view class="ball" bindtap="handlesubmit">发</view>
+    <view class="ball" bindtap="handlesubmit"></view>
   </view>
   <!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>  -->
 
