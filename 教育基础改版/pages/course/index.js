@@ -48,6 +48,7 @@ Page({
     itchange: function (e) {
         var firstkey = e.currentTarget.dataset.ind;
         var secondkey = e.currentTarget.dataset.index;
+        var name = e.currentTarget.dataset.name;
         var oldoptions = this.data.resbox;
         console.log(firstkey)
         console.log(secondkey)
@@ -58,8 +59,9 @@ Page({
         this.setData({
             resbox: oldoptions,
         })
-        optionstorage[firstkey] = oldoptions[firstkey].list[key].name;
+        optionstorage[firstkey] = name;
         var newoption = optionstorage.join("+");
+        console.log(newoption)
         var optionbox = this.data.optionbox;
         for (var key in optionbox) {
             if (optionbox[key].title == newoption) {

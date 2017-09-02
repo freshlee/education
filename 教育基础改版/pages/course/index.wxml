@@ -131,7 +131,7 @@
             <view style="color:#0767C8;font-size:35rpx;height:100rpx;line-height:100rpx">{{item.groupname}}</view>
             <radio-group name="option{{ind}}">
                 <label wx:for="{{item.list}}">
-              <view class="list {{item.checked?'chosen':''}}" bindtap="itchange" data-index="{{index}}" data-ind="{{ind}}">
+              <view class="list {{item.checked?'chosen':''}}" bindtap="itchange" data-index="{{index}}" data-ind="{{ind}}" data-name="{{item.name}}">
                <checkbox value="{{item}}"  style="display:none"/>{{item.name}}
              </view>
       </label>

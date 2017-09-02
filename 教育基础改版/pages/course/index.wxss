@@ -476,7 +476,7 @@ video {
     position: fixed;
     bottom: 80rpx;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 1);
     padding: 20rpx;
     box-sizing: border-box;
     z-index: 99;
@@ -541,7 +541,7 @@ video {
 }
 
 .darkwall {
-    height: 1120rpx;
+    height: 900rpx;
     position: fixed;
     background: rgba(0, 0, 0, 0.6);
     left: 0;
