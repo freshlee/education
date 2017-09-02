@@ -22,6 +22,34 @@
 .header .describe{
     font-size: 28rpx;
 }
+.panel {
+    background: white;
+    text-align: center;
+    padding: 20rpx 0;
+}
+
+.panel .praise {
+    display: inline-block;
+    width: 180rpx;
+    height: 50rpx;
+    border: 2rpx solid #e1e1e1;
+    border-radius: 50rpx;
+    line-height: 50rpx;
+    padding: 10rpx 0;
+    text-align: center;
+}
+
+.panel image {
+    height: 50rpx;
+    width: 50rpx;
+}
+
+.panel text {
+    line-height: 50rpx;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 30rpx;
+}
 /* 帖子列表 */
 .comment{
     margin-top: 20rpx;
@@ -126,10 +154,10 @@
     transition-duration: 0.5s;
 }
 .writeboard .ball{
-    width: 50rpx;
+    width: 100rpx;
     height: 50rpx;
     display: inline-block;
-    border-radius: 50%;
+    border-radius: 50rpx;
     background: #118cf4;
     box-shadow: 0 0 20rpx #118cf4;
     vertical-align: top;
@@ -147,7 +175,7 @@
 
 .writeboard .input input {
     display: inline-block;
-    width: 550rpx;
+    width: 500rpx;
 }
 
 .writeboard image {

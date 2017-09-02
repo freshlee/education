@@ -8,7 +8,7 @@
             </view>
             <view class="right">
                 <view class="name">{{item.nickname}}</view>
-                <view class="content">{{item.parent?item.parent.nickname:''}}{{item.content}}</view>
+                <view class="content">{{item.parent?'s@'+item.parent.nickname:''}}{{item.content}}</view>
             </view>
         </view>
         <view class="bottom">
@@ -31,8 +31,8 @@
     <image src="{{item}}" wx:for="{{logo}}" data-index="{{index}}" bindtap="del" />
     <view class="input">
         <image src="../../../images/write.png"></image>
-        <input  bindinput="contentinput" placeholder="说点什么吧" name="content" bindfocus="write" fixed="true" auto-height="true" bindconfirm="submit" />
-        <view class="ball" bindtap="handlesubmit"></view>
+        <input focus="{{focus}}" bindinput="contentinput" placeholder="说点什么吧" name="content" bindfocus="write" fixed="true" auto-height="true" bindconfirm="submit" value="{{clear}}" />
+        <view class="ball" bindtap="handlesubmit">发送</view>
     </view>
     <!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>  -->
 

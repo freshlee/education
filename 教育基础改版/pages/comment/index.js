@@ -188,20 +188,15 @@ Page({
         if (getApp().globalData.openid) {
             var THIS = this;
             var data = e.detail.value;
-            if (data >= 200 || data <= 5) {
-                wx.showToast({
-                    title: '内容在5~200个之间',
-                })
-                return false;
-            }
             this.setData({
                 submiting: false,
                 content: data,
+                clear:'',
             })
             wx.request({
                 url: getApp().globalData.server,
                 data: {
-                    a:" Post",
+                    a:"Post",
                     op:"reply",
                     content: THIS.data.content,
                     openid:getApp().globalData.openid,

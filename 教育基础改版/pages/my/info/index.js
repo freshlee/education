@@ -99,13 +99,28 @@ Page({
                   var data = res.data.dat
                   THIS.setData({
                       hidden: true,
+                      clear:'',
+                      age:'',
+                      time:'',
+                      sex:'1',
+                      address:'',
                   })
                   THIS.renew();
+              },
+              fail:function(){
+                wx.showToast({
+                  image: "../../../images/message.png",
+                  title: '网络问题，信息提交失败',
+                })
+                THIS.setData({
+                  hidden: true,
+                })
               }
           })
       }
       else{
           wx.showToast({
+            image:"../../../images/message.png",
               title: '请填入完整信息',
           })
       }

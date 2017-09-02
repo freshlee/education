@@ -13,7 +13,11 @@
     </view> -->
     </view>
 
-
+<view class="panel" bindtap="concern">
+    <view class="praise" bindtap="agree">
+        <text>{{isconcern==1?'取消关注':'关注'}}</text> 
+    </view>
+</view>
     <!--评论板块-->
     <view class="comment">
         <view class="head">
@@ -60,15 +64,15 @@
 <view class="writeboard">
 
 
-  <view class="input"> 
-    <image src="../../../images/write.png"></image>
-        <input placeholder="说点什么吧" focus="{{writestatus}}" name="content" bindfocus="write" fixed="true" auto-height="true" bindconfirm="submit" style="width:550rpx" />
-    <view class="ball" bindtap="handlesubmit"></view>
-  </view>
-  <!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>  -->
+    <image src="{{item}}" wx:for="{{logo}}" data-index="{{index}}" bindtap="del" />
+    <view class="input">
+        <image src="../../../images/write.png"></image>
+        <input  bindinput="contentinput" placeholder="说点什么吧" name="content" bindfocus="write" fixed="true" auto-height="true" bindconfirm="submit" value="{{clear}}" />
+        <view class="ball" bindtap="handlesubmit">发送</view>
+    </view>
+    <!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>  -->
 
 </view>
-
 
 
 

@@ -14,17 +14,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   //提交注册内容
+  formReset:function(){
+    wx.rese
+  },
   submit:function(e){
      wx.showModal({
          title: '提示',
          content: '确定上传麽?',
          success:function(){
+           wx.showLoading({
+             title: '上传..',
+           })
              wx.request({
                  url: getApp().globalData.server+'&a=shopreg&op=reg&openid=' + getApp().globalData.openid,
                  data: e.detail.value,
                  success:function(res){
+                   wx.hideLoading();
                      wx.showToast({
-                         title: res.data.dat,
+                         title: '上传成功',
                          image:"../../../images/message.png",
                          duration:1000,
                      })

@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<form bindsubmit="submit">
+<form bindreset="submit">
 
 <view class="form">
 <view class="case">
@@ -36,7 +36,7 @@
 </view>
 
 <view class="submit">
-<button class="panel" form-type="submit">确认</button>
+<button class="panel" form-type="reset">确认</button>
 </view>
 
 

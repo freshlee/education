@@ -103,14 +103,18 @@
     transition-duration: 0.5s;
 }
 .writeboard .ball{
-    width: 50rpx;
+    width: 100rpx;
     height: 50rpx;
     display: inline-block;
-    border-radius: 50%;
+    border-radius: 50rpx;
     background: #118cf4;
     box-shadow: 0 0 20rpx #118cf4;
+    vertical-align: top;
+    margin-top: 10rpx;
+    color: white;
+    text-align: center;
+    line-height: 50rpx;
 }
-
 
 .writeboard .input {
     background: #f4f4f4;
@@ -119,7 +123,7 @@
 
 .writeboard .input input {
     display: inline-block;
-    width: 550rpx;
+    width: 500rpx;
 }
 
 .writeboard image {

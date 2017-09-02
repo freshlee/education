@@ -4,6 +4,7 @@ var openid = getApp().globalData.openid;
 var mycate = undefined;
 var mytype = undefined;
 var mypay = undefined;
+var data_url;
 var page;
 var max;
 var rm;
@@ -89,11 +90,26 @@ Page({
       var newpay = mypay == undefined || mypay == 0 ? "" : "&priceattr=" + mypay;
       var newurl = getApp().globalData.server + "&a=videoshop&op=rm&page=1" + newcate + newtype + newpay;
       console.log(newurl);
+      data_url = {};
+      if (mycate) {
+        data_url['cates'] = mycate;
+      }
+      if (mytype) {
+        data_url['type'] = mytype;
+
+      }
+      if (mypay) {
+        data_url['priceattr'] = mypay;
+      }
+      data_url.a = 'videoshop';
+      data_url.op = 'rm';
+      data_url.uniacid = getApp().globalData.acid;
       this.setData({
         status: "off"
       })
       wx.request({
-        url: newurl,
+        url: getApp().globadData.server,
+        data:data_url,
         success: function (res) {
           max = Math.ceil(res.data.dat.total / res.data.dat.pagesize);
           res = res.data.dat.goods;
@@ -168,12 +184,27 @@ Page({
     var newtype = mytype == undefined || mytype == 0 ? "" : "&type=" + mytype;
     var newpay = mypay == undefined || mypay == 0 ? "" : "&priceattr=" + mypay;
     var newurl = getApp().globalData.server+"&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
+    data_url = {};
+    if (mycate) {
+      data_url['cates'] = mycate;
+    }
+    if (mytype) {
+      data_url['type'] = mytype;
+
+    }
+    if (mypay) {
+      data_url['priceattr'] = mypay;
+    }
+    data_url.a = 'videoshop';
+    data_url.op = 'fl';
+    data_url.uniacid = getApp().globalData.acid;
     console.log(newurl);
     this.setData({
       status: "off"
     })
     wx.request({
-      url: newurl,
+      url: getApp().globalData.server,
+      data:data_url,
       success: function (res) {
         max = Math.ceil(res.data.dat.total / res.data.dat.pagesize);
         res = res.data.dat.goods;
@@ -235,6 +266,20 @@ Page({
     var newtype = mytype == undefined ? "" : "&type=" + mytype;
     var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
     var newurl = getApp().globalData.server+"&a=videoshop&op=" + op + "&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
+    data_url={};
+    if(mycate){
+      data_url['cates'] = mycate;
+    }
+    if(mytype){
+      data_url['type'] = mytype;
+      
+    }
+    if(mypay){
+      data_url['priceattr'] = mypay;
+    }
+    data_url.a = 'videoshop';
+    data_url.op = op;
+    data_url.uniacid = getApp().globalData.acid;
     var gettype = options.type;
     var cate = options.cate;
     var pay = options.pay;
@@ -259,7 +304,8 @@ Page({
     })
     //获取商品
     wx.request({
-      url: newurl,
+      url: getApp().globalData.server,
+      data:data_url,
       success: function (res) {
         max = Math.ceil(res.data.dat.total / res.data.dat.pagesize);
         res = res.data.dat.goods;

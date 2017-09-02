@@ -4,7 +4,7 @@
 <view class="box">
 <view class="case">
 <view class="title">名字：</view>
-<view class="content"> <input name="realname" placeholder="请输姓名" value="{{username}}"/> </view>
+<view class="content"> <input name="realname" placeholder="请输姓名" value="{{clear}}"/> </view>
 </view>
 
 <view class="case">
@@ -42,17 +42,17 @@
 
 <view class="case">
 <view class="title">手机：</view>
-<view class="content"> <input placeholder="请输手机" value="{{num}}" name="mobile"/> </view>
+<view class="content"> <input placeholder="请输手机" value="{{clear}}" name="mobile"/> </view>
 </view>
 
 <view class="case">
 <view class="title">邮箱：</view>
-<view class="content"> <input placeholder="请输邮箱" value="{{email}}" name="email"/> </view>
+<view class="content"> <input placeholder="请输邮箱" value="{{clear}}" name="email"/> </view>
 </view>
 
 <view class="case">
 <view class="title">QQ：</view>
-<view class="content"> <input placeholder="请输QQ" value="{{qq}}" name="qq"/> </view>
+<view class="content"> <input placeholder="请输QQ" value="{{clear}}" name="qq"/> </view>
 </view>
 
 <view class="case">

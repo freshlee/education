@@ -11,7 +11,11 @@ Page({
     data: {
 
     },
-
+    concern: function () {
+      this.setData({
+        isconcern: !this.data.isconcern,
+      })
+    },
     stop: function (res) {
         return false;
     },
@@ -63,6 +67,9 @@ Page({
         })
     },
     onLoad: function (options) {
+        wx.showLoading({
+          title: '加载中',
+        })
         var THIS=this;
         this.setData({
             versioninfo: getApp().globalData.version,
@@ -109,6 +116,25 @@ Page({
         })
         //评论数据
         this.more();
+        //关注状态
+        wx.request({
+          url: getApp().globalData.server,
+          data: {
+            a: "Board",
+            op: "sfgz",
+            openid: getApp().globalData.openid,
+            mid: 25769,
+            bid: bid,
+          },
+          success: function (res) {
+            THIS.setData({
+              concern: res.data.dat,
+              isconcern: res.data.dat,
+            })
+            wx.hideLoading();
+            console.log(THIS.data.isconcern)
+          }
+        })
     },
     back: function () {
         this.setData({
@@ -216,17 +242,14 @@ Page({
     },
     submit: function (e) {
         var THIS = this;
+        this.setData({
+          clear:'',
+        })
         var data = e.detail.value;
         if (getApp().globalData.openid) {
             wx.showLoading({
                 title: '提交中',
             })
-            if (data >= 200 || data <= 5) {
-                wx.showToast({
-                    title: '内容在5~200个之间',
-                })
-                return false;
-            }
             if (THIS.data.replystatus == 1) {
                 var pid = THIS.data.pidchosen;
                 wx.request({
@@ -295,6 +318,16 @@ Page({
                 content: '未登录不能使用社区功能',
             })
         }
+    },
+    contentinput: function (e) {
+      this.setData({
+        contentinput: e.detail.value,
+      })
+    },
+    handlesubmit: function (e) {
+      var value = this.data.contentinput || '';
+      var content = { detail: { value: value } }
+      this.submit(content);
     },
     more: function () {
         var THIS = this;
@@ -391,7 +424,23 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
+      var THIS = this;
+      var old = this.data.concern;
+      var latest = this.data.isconcern;
+      if (old != latest) {
+        wx.request({
+          url: getApp().globalData.server,
+          data: {
+            a: "Board",
+            op: "follow",
+            openid: getApp().globalData.openid,
+            bid: bid,
+          },
+          success: function () {
 
+          }
+        })
+      }
     },
 
     /**
