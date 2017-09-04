@@ -3,23 +3,23 @@
 
 <view class="form">
 <view class="case">
-<view class="title">姓名</view>
-<view class="input"> <input placeholder="请输入姓名" name="realname"/></view>
+<view class="title">真实姓名</view>
+<view class="input"> <input placeholder="请输入真实姓名" name="realname"/></view>
 </view>
 
 <view class="case">
-<view class="title">机构名</view>
-<view class="input"> <input placeholder="请输入申请机构名称" name="merchname" /></view>
+<view class="title">显示姓名</view>
+<view class="input"> <input placeholder="建议使用真实姓名，如果有特殊情况不方便显示真实姓名可以使用化名！" name="merchname" /></view>
 </view>
 
 <view class="case">
 <view class="title">手机</view>
-<view class="input" > <input placeholder="请输入手机" name="mobile"/> </view>
+<view class="input" > <input placeholder="请输入你的手机号码" name="mobile"/> </view>
 </view>
 
 <view class="case">
-<view class="title">主营业务</view>
-<view class="input"> <input placeholder="请输入主营业务" name="salecate"/></view>
+<view class="title">教学阶段</view>
+<view class="input"> <input placeholder="请输入你教学的阶段，比如小学、初中、高中" name="salecate"/></view>
 </view>
 
 

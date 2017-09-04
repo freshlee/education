@@ -27,7 +27,7 @@
 
 
     <view class="firstCase" wx:if="{{video.length}}">
-        <view class="caseHead"> <text class="title">精选付费课程</text>
+        <view class="caseHead"> <text class="title">精选课程</text>
             <navigator url="../filter/index?type=1"><text class="more"> 更多好课></text></navigator>
         </view>
         <navigator url="{{video[0].url}}">
@@ -47,7 +47,7 @@
     </view>
 
     <view class="secondCase" wx:if="{{mainorganise}}">
-        <view class="caseHead"> <text class="title">品牌机构</text>
+        <view class="caseHead"> <text class="title">名师推荐</text>
             <navigator url="../organise/index"><text class="more"> 更多机构></text></navigator>
         </view>
         <!--主要机构-->
@@ -67,7 +67,7 @@
     </view>
 
     <view class="thirdCase" wx:if="{{courseData.length}}">
-        <view class="caseHead"> <text class="title">品牌课程</text>
+        <view class="caseHead"> <text class="title">名师课程</text>
             <navigator url="../filter/index?type=2"><text class="more"> 更多课程></text></navigator>
         </view>
         <view style="clear:both"></view>
@@ -83,7 +83,7 @@
     </view>
 
     <view class="forthCase" wx:if="{{articleData.length}}">
-        <view class="caseHead"> <text class="title">文章</text> <text class="more" bindtap="moveToMore">阅览更多></text></view>
+        <view class="caseHead"> <text class="title">阅读与范文</text> <text class="more" bindtap="moveToMore">阅览更多></text></view>
         <view style="clear:both"></view>
 
         <view class="article" wx:for="{{articleData}}" data-id="{{item.id}}" bindtap="moveToArticle">

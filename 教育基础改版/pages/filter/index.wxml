@@ -36,7 +36,7 @@
 <view class="typename" >收费</view>
 <view class="{{pays==1?'typeon':'type'}}" bindtap="chosepay"  data-pay="1" data-trans="免费">免费</view>
 <view class="{{pays==2?'typeon':'type'}}" bindtap="chosepay"  data-pay="2" data-trans="VIP">VIP</view>
-<view class="{{pays==3?'typeon':'type'}}" bindtap="chosepay"  data-pay="3" data-trans="收费限时">收费限时</view>
+<view class="{{pays==3?'typeon':'type'}}" bindtap="chosepay"  data-pay="3" data-trans="收费限时">付费内容</view>
 <view class="{{pays==0?'typeon':'type'}}" bindtap="chosepay"  data-pay="0" data-trans="全部">全部</view>
 </view>  
 <!--筛选类型-->

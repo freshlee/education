@@ -11,9 +11,9 @@
 
 
 <view class="nav {{teacher.length?'':'hidden'}}">
-    <view class="base {{myindex==0?'bechosen':''}}" bindtap="base">简介</view>
+    <view class="base {{myindex==0?'bechosen':''}}" bindtap="base">老师简介</view>
     <view class="address {{myindex==1?'bechosen':''}}" bindtap="address">课程</view>
-    <view class="address {{myindex==2?'bechosen':''}}" bindtap="teacher" wx:if="{{teacher.length}}">讲师</view>
+    <view class="address {{myindex==2?'bechosen':''}}" bindtap="teacher" wx:if="{{teacher.length}}">教学理念</view>
 </view>
 <swiper current="{{index}}" style="height:670rpx" bindchange="onchange">
     <block>

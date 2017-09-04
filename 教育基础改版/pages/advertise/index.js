@@ -52,7 +52,7 @@ Page({
     },
     call: function() {
         wx.makePhoneCall({
-            phoneNumber: tel,
+          phoneNumber: 4009006658,
         })
     },
     getloacation: function() {
