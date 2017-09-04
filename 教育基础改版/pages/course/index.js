@@ -1,5 +1,6 @@
 // pages/video/index.js
 
+
 var WxParse = require('../../wxParse/wxParse.js');
 var org;
 var lengths;
@@ -10,8 +11,11 @@ var concernstatus;
 var originstatus;
 var box;
 var ralativecourse = [];
+var optionstorage;
+var optionid;
+
 Page({
-    onShareAppMessage: function(res) {
+    onShareAppMessage: function (res) {
         if (res.from === 'button') {
             // 来自页面内转发按钮
             console.log(res.target)
@@ -19,29 +23,45 @@ Page({
         return {
             title: getApp().globalData.merchname,
             path: '/pages/course/index?id=' + myid,
-            success: function(res) {
+            success: function (res) {
                 // 转发成功
             },
-            fail: function(res) {
+            fail: function (res) {
                 // 转发失败
             }
         }
     },
+    stop:function(){
+        return false;
+    },
+    close:function(){
+        this.setData({
+            paystatus:false,
+        })
+    },
+    paystatuschange:function(){
+        this.setData({
+            paystatus:true
+        })
+    },
     //选择地点
-    chosepos: function() {
+    chosepos: function (e) {
         var THIS = this;
-        wx.chooseLocation({
-            success: function(res) {
-                THIS.setData({
-                    position: res.address,
-                })
-            },
+        console.log(THIS.data.locationData[e.detail.value]);
+        this.setData({
+            position: THIS.data.locationData[e.detail.value],
         })
     },
     //选择时间
-    chosedate: function(e) {
+    chosedate: function (e) {
+        var formbox = this.data.formbox[e.detail.value].list;
+        var newbox = [];
+        for (var key in formbox) {
+            newbox.push(formbox[key].prov + "-" + formbox[key].citys);
+        }
         this.setData({
-            date: e.detail.value,
+            date: this.data.dateData[e.detail.value],
+            locationData: newbox,
         })
     },
 
@@ -55,28 +75,51 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    purchase: function() {
-        var openid = getApp().globalData.openid;
-        if (openid) {
-            wx.request({
-                url: '',
-            })
-            wx.navigateTo({
-                url: '../checkout/index?id=' + myid
-            })
-        } else {
-            wx.showModal({
-                title: '未登录',
-                content: '未登录不能购买',
-            })
+    purchase: function (e) {
+        var formdata = e.detail.value;
+        console.log(formdata);
+        this.setData({
+            paystatus: true
+        })
+        console.log(formdata.length);
+        var mylength=0;
+        for(var key in formdata){
+            mylength++;
         }
+        if (mylength) {
+            for (var key in formdata) {
+                console.log(22222);
+                if (!formdata[key] && !optionid) {
+                    wx.showModal({
+                        title: '提示',
+                        content: '请填入完整信息',
+                    })
+                    return false;
+                }
+            }
+            var openid = getApp().globalData.openid;
+            if (openid) {
+                wx.navigateTo({
+                    url: '../checkout/index?id=' + myid + "&optionid=" + optionid,
+                })
+            } else {
+                wx.showModal({
+                    title: '未登录',
+                    content: '未登录不能购买',
+                })
+            }
+        }
+        else {
+            return false;
+        }
+
     },
-    jumptoorganise: function() {
+    jumptoorganise: function () {
         wx.navigateTo({
             url: '../advertise/index?merchid=' + this.data.merchid,
         })
     },
-    jumptocourse: function(e) {
+    jumptocourse: function (e) {
         var id = e.currentTarget.dataset.id;
         var doctype = e.currentTarget.dataset.doctype;
         var typename;
@@ -92,25 +135,25 @@ Page({
             url: '../' + typename + "/index?id=" + id,
         })
     },
-    concern: function() {
+    concern: function () {
         concernstatus = 0;
         this.setData({
             favor: 0,
         })
         console.log(this.data.favor);
     },
-    disconcern: function() {
+    disconcern: function () {
         concernstatus = 1;
         this.setData({
             favor: 1,
         })
     },
-    more: function() {
+    more: function () {
         wx.navigateTo({
             url: '../goodscomment/list/index?id=' + myid,
         })
     },
-    move: function(event) {
+    move: function (event) {
         if (event.detail.scrollTop >= 190) {
             this.setData({
                 status: 1,
@@ -122,7 +165,7 @@ Page({
 
         }
     },
-    expension: function(event) {
+    expension: function (event) {
         var casename = event.currentTarget.dataset.case;
         box[casename] = box[casename] == 1 ? 0 : 1;
         this.setData({
@@ -130,7 +173,7 @@ Page({
         })
         console.log(this.data.box);
     },
-    detail: function() {
+    detail: function () {
         nowpos = 0;
         this.setData({
             myindex: 0,
@@ -138,7 +181,7 @@ Page({
         })
         console.log(this.data.toView);
     },
-    comment: function() {
+    comment: function () {
         nowpos = lengths;
         this.setData({
             myindex: 1,
@@ -146,7 +189,7 @@ Page({
         })
         console.log(this.data.toView);
     },
-    interact: function() {
+    interact: function () {
         nowpos = lengths * 2;
         this.setData({
             myindex: 2,
@@ -178,7 +221,7 @@ Page({
             header: {
                 'content-type': 'application/json'
             },
-            success: function(res) {
+            success: function (res) {
                 console.log(res.data);
                 var data = res.data.dat;
                 wx.setNavigationBarTitle({
@@ -195,6 +238,54 @@ Page({
                     merchid: merchid,
                     priceattr: priceattr,
                 })
+                // 整理选项信息
+                var optionbox = res.data.dat.gg;
+                THIS.setData({
+                    optionbox: optionbox,
+                })
+                var optionsnum = optionbox[0].title.split("+").length;
+                console.log(optionbox[0].title)
+                console.log(optionsnum);
+                var resbox = [];
+                while (optionsnum) {
+                    optionsnum--;
+                    resbox.push({ list: [], groupname: '' });
+                }
+                for (var key in optionbox) {
+                    var cell = optionbox[key].title.split("+");
+                    for (var index in cell) {
+                        if (resbox[index].list.length > 0) {
+                            var test = 0;
+                            for (var i in resbox[index].list) {
+                                test = cell[index] == resbox[index].list[i].name || test;
+                            }
+
+                            if (test) {
+                            }
+                            else {
+                                resbox[index].list.push({ name: cell[index], checked: 0, groupname: '' });
+
+                            }
+                        }
+                        else {
+                            resbox[index].list.push({ name: cell[index], checked: 0, groupname: '' });
+                        }
+                    }
+                }
+                optionstorage = new Array(resbox.length);
+                var fakeoption = res.data.dat.goods.option;
+                console.log(resbox);
+                var subkey = resbox.length-1;
+                for (var key in fakeoption) {
+                    console.log(key);
+                    resbox[subkey].groupname = fakeoption[key].title;
+                    subkey--;
+                }
+                THIS.setData({
+                    resbox: resbox,
+                })
+                console.log(resbox);
+
                 //获取机构信息
                 wx.request({
                     url: getApp().globalData.server,
@@ -218,7 +309,7 @@ Page({
                     }
                 })
             },
-            fail: function() {
+            fail: function () {
                 THIS.setData({
                     hidden: true,
                 })
@@ -227,6 +318,26 @@ Page({
                 })
             }
         })
+        //获取评论接口
+        wx.request({
+            url: getApp().globalData.server,
+            data: {
+                a: "comment",
+                op: "list",
+                openid: getApp().globalData.openid,
+                goodsid: myid,
+            },
+            success: function (res) {
+                var data = res.data.dat
+                var average = Math.round(data.level_avg)
+                THIS.setData({
+                    commentnum: data.order_count,
+                    commentlist: data.order,
+                    reputation: average,
+                })
+            }
+        })
+
         //获取评论接口
         wx.request({
             url: getApp().globalData.server,
