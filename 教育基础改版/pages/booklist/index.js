@@ -87,7 +87,8 @@ Page({
                         data:{
                             a:"pay",
                             op:"params",
-                            orderid:res.data.orderid
+                            orderid:res.data.orderid,
+                            openid: getApp().globalData.openid,
                         },
                         success: function(res) {
                             THIS.setData({
