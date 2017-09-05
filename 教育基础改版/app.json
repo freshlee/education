@@ -1,6 +1,6 @@
 {
     "pages": [
-        "pages/demo/index",
+        "pages/index/index",
         "pages/neccesary/index",
         "pages/articlelist/index",
         "pages/course/index",
@@ -46,7 +46,7 @@
         "backgroundColor": "#F5F5F5",
         "list": [
             {
-                "pagePath": "pages/demo/index",
+                "pagePath": "pages/index/index",
                 "iconPath": "images/home.png",
                 "selectedIconPath": "images/chosehome.png",
                 "text": "首页"

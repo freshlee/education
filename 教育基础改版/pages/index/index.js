@@ -8,7 +8,7 @@ Page({
         }
         return {
             title: getApp().globalData.merchname,
-            path: '/pages/demo/index',
+            path: '/pages/index/index',
             success: function(res) {
                 // 转发成功
             },

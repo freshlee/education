@@ -36,6 +36,7 @@ Page({
                     success: function() {
                         wx.showToast({
                             title: '您已经支付成功',
+                            duration:2000,
                         })
                         wx.request({
                             url: getApp().globalData.server,
@@ -46,6 +47,12 @@ Page({
                                 orderid:THIS.data.orderid,
                             },
                         })
+                    },
+                    fail:function(res){
+                      wx.showToast({
+                        title: res.data.dat,
+                        duration: 2000,
+                      })
                     }
                 })
             }

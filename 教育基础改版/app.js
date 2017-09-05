@@ -73,8 +73,8 @@ App({
         })
     },
     globalData: {
-        acid: 2,
-        server:"http://192.168.1.213/apivo/index.php?c=eweivideo&uniacid="+2,
+        acid: 897,
+        server:"https://api.cnmmsc.org/index.php?c=eweivideo&uniacid="+897,
     }
 })
 // api.cnmmsc.org / index.php
