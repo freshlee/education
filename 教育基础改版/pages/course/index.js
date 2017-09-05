@@ -110,27 +110,33 @@ Page({
         this.setData({
             paystatus: true
         })
-        console.log(formdata.length);
         var mylength=0;
         for(var key in formdata){
             mylength++;
         }
         if (mylength) {
             for (var key in formdata) {
-                console.log(22222);
                 if (!formdata[key] && !optionid) {
                     wx.showModal({
-                        title: '提示',
-                        content: '请填入完整信息',
-                    })
+                      title: '提示',
+                      content: '请填入完整信息',
+                    })  
                     return false;
                 }
             }
             var openid = getApp().globalData.openid;
             if (openid) {
+              if (this.data.storage>0){
                 wx.navigateTo({
-                    url: '../checkout/index?id=' + myid + "&optionid=" + optionid,
+                  url: '../checkout/index?id=' + myid + "&optionid=" + optionid,
                 })
+              }
+              else{
+                wx.showModal({
+                  title: '提示',
+                  content: '库存为0！',
+                })        
+              }
             } else {
                 wx.showModal({
                     title: '未登录',
@@ -418,9 +424,9 @@ Page({
                             var data = res.data.dat.shop;
                             var ralativecourse = THIS.data.ralativecourse;
                             var afterfilter = [];
-                            for (var key in data) {
-                                if (data[key].type == 1) {
-                                    afterfilter.push(data[key]);
+                            for (var subkey in data) {
+                                if (data[subkey].type == 1) {
+                                    afterfilter.push(data[subkey]);
                                 }
                             }
                             teacher[key].courselist = data;

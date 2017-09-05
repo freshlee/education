@@ -49,7 +49,7 @@ Page({
             status: this.data.status == "on" ? "off" : "on",
         })
         wx.request({
-            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=likegoods&uniacid=' + getApp().globalData.acid,
+            url: getApp().globalData.server+'&a=merch&op=likegoods&uniacid=' + getApp().globalData.acid,
             data: {
                 title: title,
             },
@@ -87,7 +87,7 @@ Page({
             var newcate = mycate == undefined || mycate == 0 ? "" : "&cates=" + mycate;
             var newtype = mytype == undefined || mytype == 0 ? "" : "&type=" + mytype;
             var newpay = mypay == undefined || mypay == 0 ? "" : "&priceattr=" + mypay;
-            var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=rm&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
+            var newurl = getApp().globalData.server+"&a=videoshop&op=rm&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
             console.log(newurl);
             this.setData({
                 status: "off"
@@ -167,7 +167,7 @@ Page({
         var newcate = mycate == undefined || mycate == 0 ? "" : "&cates=" + mycate;
         var newtype = mytype == undefined || mytype == 0 ? "" : "&type=" + mytype;
         var newpay = mypay == undefined || mypay == 0 ? "" : "&priceattr=" + mypay;
-        var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
+        var newurl = getApp().globalData.server+"&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
         console.log(newurl);
         this.setData({
             status: "off"
@@ -234,7 +234,7 @@ Page({
         var newcate = mycate == undefined ? "" : "&cates=" + mycate;
         var newtype = mytype == undefined ? "" : "&type=" + mytype;
         var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
-        var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op="+op+"&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
+        var newurl = getApp().globalData.server+"&a=videoshop&op="+op+"&uniacid=" + getApp().globalData.acid + "&page=1" + newcate + newtype + newpay;
         var gettype = options.type;
         var cate = options.cate;
         var pay = options.pay;
@@ -243,7 +243,7 @@ Page({
         console.log(newurl);
         //获取分类
         wx.request({
-            url: "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=category&uniacid=" + getApp().globalData.acid,
+            url: getApp().globalData.server+"&a=videoshop&op=category&uniacid=" + getApp().globalData.acid,
             success: function (res) {
                 console.log(res);
                 var data = res.data.dat;
@@ -323,10 +323,10 @@ Page({
             var newtype = mytype == undefined || mytype == 0 ? "" : "&type=" + mytype;
             var newpay = mypay == undefined || mypay == 0 ? "" : "&priceattr=" + mypay;
             if(rm==1){
-                var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=rm&uniacid="+getApp().globalData.acid+"&page=" + page + newcate + newtype + newpay;
+                var newurl = getApp().globalData.server+"&a=videoshop&op=rm&uniacid="+getApp().globalData.acid+"&page=" + page + newcate + newtype + newpay;
             }
             else{
-                var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid +"&page=" + page + newcate + newtype + newpay;
+                var newurl = getApp().globalData.server+"&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid +"&page=" + page + newcate + newtype + newpay;
             }
         
             wx.request({
