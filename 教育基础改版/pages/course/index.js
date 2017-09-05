@@ -1,4 +1,3 @@
-// pages/video/index.js
 
 
 var WxParse = require('../../wxParse/wxParse.js');
@@ -44,6 +43,34 @@ Page({
             paystatus:true
         })
     },
+    itchange: function (e) {
+        var firstkey = e.currentTarget.dataset.ind;
+        var secondkey = e.currentTarget.dataset.index;
+        var name = e.currentTarget.dataset.name;
+        var oldoptions = this.data.resbox;
+        console.log(firstkey)
+        console.log(secondkey)
+        for (var key in oldoptions[firstkey].list) {
+            oldoptions[firstkey].list[key].checked = false;
+        }
+        oldoptions[firstkey].list[secondkey].checked = true;
+        this.setData({
+            resbox: oldoptions,
+        })
+        optionstorage[firstkey] = name;
+        var newoption = optionstorage.join("+");
+        console.log(newoption)
+        var optionbox = this.data.optionbox;
+        for (var key in optionbox) {
+            if (optionbox[key].title == newoption) {
+                this.setData({
+                    storage: optionbox[key].stock,
+                    marketprice: optionbox[key].marketprice,
+                })
+                optionid = optionbox[key].id;
+            }
+        }
+    },
     //选择地点
     chosepos: function (e) {
         var THIS = this;
@@ -81,27 +108,33 @@ Page({
         this.setData({
             paystatus: true
         })
-        console.log(formdata.length);
         var mylength=0;
         for(var key in formdata){
             mylength++;
         }
         if (mylength) {
             for (var key in formdata) {
-                console.log(22222);
                 if (!formdata[key] && !optionid) {
                     wx.showModal({
-                        title: '提示',
-                        content: '请填入完整信息',
-                    })
+                      title: '提示',
+                      content: '请填入完整信息',
+                    })  
                     return false;
                 }
             }
             var openid = getApp().globalData.openid;
             if (openid) {
+              if (this.data.storage>0){
                 wx.navigateTo({
-                    url: '../checkout/index?id=' + myid + "&optionid=" + optionid,
+                  url: '../checkout/index?id=' + myid + "&optionid=" + optionid,
                 })
+              }
+              else{
+                wx.showModal({
+                  title: '提示',
+                  content: '库存为0！',
+                })        
+              }
             } else {
                 wx.showModal({
                     title: '未登录',
@@ -389,9 +422,9 @@ Page({
                             var data = res.data.dat.shop;
                             var ralativecourse = THIS.data.ralativecourse;
                             var afterfilter = [];
-                            for (var key in data) {
-                                if (data[key].type == 1) {
-                                    afterfilter.push(data[key]);
+                            for (var subkey in data) {
+                                if (data[subkey].type == 1) {
+                                    afterfilter.push(data[subkey]);
                                 }
                             }
                             teacher[key].courselist = data;

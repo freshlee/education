@@ -13,7 +13,7 @@ App({
                     },
                     fail: function () {
                         wx.request({
-                            url: getApp.globalData.server+'&a=login&op=getopenid',
+                            url: getApp().globalData.server+'&a=login&op=getopenid',
                             data: {
                                 code: res.code,
                             },
@@ -27,7 +27,7 @@ App({
                                     success: function (res) {
                                         var info = res.userInfo;
                                         wx.request({
-                                            url: getApp.globalData.server+'&a=login&op=register',
+                                            url: getApp().globalData.server+'&a=login&op=register',
                                             data: {
                                                 'openid': openid,
                                                 'avatarUrl': info.avatarUrl,
@@ -35,6 +35,7 @@ App({
                                                 'gender': info.gender,
                                                 'province': info.province,
                                                 'city': info.city,
+                                                'uniacid': getApp().globalData.acid,
                                             },
                                         })
                                         wx.setStorage({
@@ -54,14 +55,14 @@ App({
                     }
                 })
                 wx.request({
-                    url: getApp.globalData.server+'&a=videoshop&op=bb',
+                    url: getApp().globalData.server+'&a=videoshop&op=bb',
                     success: function (res) {
                         THIS.globalData.version = res.data.dat;
                     }
                 })
                 //主机构名字
                 wx.request({
-                    url: getApp.globalData.server+'&a=merch&op=id',
+                    url: getApp().globalData.server+'&a=merch&op=id',
                     data:{
                         uid:0,
                     },
@@ -73,11 +74,10 @@ App({
         })
     },
     globalData: {
-        acid: 897,
-        server:"https://api.cnmmsc.org/index.php?c=eweivideo&uniacid="+897,
+        acid: 4301,
+        server:"https://api.cnmmsc.org/index.php?c=eweivideo&uniacid="+4301,
     }
 })
-// api.cnmmsc.org / index.php
 
 
 

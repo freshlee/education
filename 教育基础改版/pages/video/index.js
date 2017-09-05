@@ -266,9 +266,6 @@ Page({
                 var data = res.data.dat;
                 var teacher = data.teacher;
                 for (var key in teacher) {
-                  THIS.setData({
-                    teacher:res.data.dat.teacher
-                  })
                     var coursecount;
                     var newcontent = teacher[key].content;
                     WxParse.wxParse('content[' + key + ']', 'html', newcontent, THIS, 5);
@@ -283,15 +280,16 @@ Page({
                         success: function (res) {
                             var data = res.data.dat.shop;
                             var afterfilter = [];
-                            for (var key in data) {
-                                if (data[key].type == 1) {
-                                    afterfilter.push(data[key]);
+                            for (var subkey in data) {
+                                if (data[subkey].type == 1) {
+                                    afterfilter.push(data[subkey]);
                                 }
                             }
                             var ralativecourse = THIS.data.ralativecourse;
                             teacher[key].courselist = data;
                             console.log(THIS.data.ralativecourse);
                             THIS.setData({
+                                teacher: teacher,
                                 ralativecourse: ralativecourse.concat(afterfilter)
                             })
                         }
