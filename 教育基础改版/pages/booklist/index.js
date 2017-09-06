@@ -38,6 +38,9 @@ Page({
                             title: '您已经支付成功',
                             duration:2000,
                         })
+                        wx.navigateBack({
+                          delta: 2
+                        })
                         wx.request({
                             url: getApp().globalData.server,
                             data:{

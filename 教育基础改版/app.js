@@ -74,8 +74,8 @@ App({
         })
     },
     globalData: {
-        acid: 4301,
-        server:"https://api.cnmmsc.org/index.php?c=eweivideo&uniacid="+4301,
+        acid: 3383,
+        server:"https://api.cnmmsc.org/index.php?c=eweivideo&uniacid="+3383,
     }
 })
 

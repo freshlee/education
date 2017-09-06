@@ -103,49 +103,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     purchase: function (e) {
-        var formdata = e.detail.value;
-        console.log(formdata);
-        this.setData({
-            paystatus: true
-        })
-        var mylength=0;
-        for(var key in formdata){
-            mylength++;
-        }
-        if (mylength) {
-            for (var key in formdata) {
-                if (!formdata[key] && !optionid) {
-                    wx.showModal({
-                      title: '提示',
-                      content: '请填入完整信息',
-                    })  
-                    return false;
-                }
-            }
             var openid = getApp().globalData.openid;
             if (openid) {
-              if (this.data.storage>0){
                 wx.navigateTo({
                   url: '../checkout/index?id=' + myid + "&optionid=" + optionid,
                 })
-              }
-              else{
-                wx.showModal({
-                  title: '提示',
-                  content: '库存为0！',
-                })        
-              }
             } else {
                 wx.showModal({
                     title: '未登录',
                     content: '未登录不能购买',
                 })
             }
-        }
-        else {
-            return false;
-        }
-
     },
     jumptoorganise: function () {
         wx.navigateTo({
