@@ -102,3 +102,39 @@
 </view>
 
 <view id="copyright">{{versioninfo}}</view>
+
+<!-- 搜索框 -->
+<view class="toolbar">
+    <!-- <view class="city" bindtap="city" style='opacity:0'> <text>{{cityname}}</text>
+        <image src="../../images/arrow.png"></image>
+    </view> -->
+    <view class="search" bindtap="search" bindtap="search">
+        <image src="../../images/search.png"></image>搜索</view>
+</view>
+<!-- 搜索页面 -->
+<view class="searchpage {{searchstatus?'searchon':'searchoff'}}" style="height:{{myheight}}px">
+    <form bindsubmit="dosearch">
+        <view class="box">
+            <view class="back" bindtap="search">
+                <image src="../../images/arrow.png"></image>
+            </view>
+            <view class="input">
+                <image src="../../image/search.png"></image> <input name="tilte" /> </view>
+            <label for="submit"><text>搜索</text></label>
+            <button form-type="submit" id="submit" style="display:none"></button>
+        </view>
+    </form>
+    <view class="recommend" style="padding:0 30rpx;margin-top:0">
+       <scroll-view style='height:1024rpx;' scroll-y>
+        <view class="li" wx:for="{{searchlist}}" data-type="{{item.type}}" bindtap="jumptodetail" data-id="{{item.id}}">
+            <view class="rec_pic">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view class="rec_name">
+                <view class="carname">{{item.title}}</view>
+                <view class="info"></view>
+            </view>
+        </view>
+       </scroll-view>
+    </view>
+</view>

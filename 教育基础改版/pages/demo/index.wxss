@@ -230,6 +230,211 @@ navigator image{
     text-align: center;
     margin:10rpx 0;
 }
+/* 工具栏 */
+
+.toolbar {
+    position: absolute;
+    top: 20rpx;
+    left: 0;
+    padding: 0 30rpx;
+}
+
+.toolbar>view {
+    display: inline-block;
+    background: white;
+    vertical-align: top;
+}
+
+.toolbar .city {
+    width: 125rpx;
+    height: 54rpx;
+    border-radius: 5rpx;
+    line-height: 54rpx;
+    text-align: left;
+    font-size: 25rpx;
+    vertical-align: middle;
+    color: grey;
+}
+
+.toolbar .city text {
+    text-indent: 20rpx;
+    vertical-align: middle;
+    display: inline-block;
+    height: 54rpx;
+    width: 75rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.city image {
+    height: 40rpx;
+    width: 40rpx;
+    vertical-align: middle;
+}
+
+.toolbar .search {
+    
+    height: 54rpx;
+    width: 640rpx;
+    margin-left: 30rpx;
+    border-radius: 5rpx;
+    text-align: center;
+    line-height: 54rpx;
+    font-size: 25rpx;
+    color: gainsboro;
+    text-indent: -15rpx;
+}
+
+.search image {
+    height: 30rpx;
+    width: 30rpx;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+
+/* 搜索分页 */
+
+.searchpage {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    transition-property: left;
+    transition-duration: 0.5s;
+}
+
+.box {
+    background: #f4f4f4;
+    padding: 10rpx;
+}
+
+.box>view {
+    display: inline-block;
+    height: 60rpx;
+    line-height: 60rpx;
+    vertical-align: top;
+}
+
+.box .input {
+    background: white;
+}
+
+.input input {
+    height: 60rpx;
+    display: inline-block;
+    vertical-align: top;
+    width: 500rpx;
+}
+
+.input image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    position: relative;
+    top: -3rpx;
+    margin-left: 20rpx;
+}
+
+.back image {
+    height: 50rpx;
+    width: 50rpx;
+    transform: rotate(90deg) translateX(5rpx);
+}
+
+.box text {
+    height: 60rpx;
+    line-height: 60rpx;
+    padding-left: 25rpx;
+    color: green;
+}
+
+/*状态切换*/
+
+.searchon {
+    left: 0;
+}
+
+.searchoff {
+    left: 750rpx;
+}
+
+.cityon {
+    left: 0;
+}
+
+.cityoff {
+    left: 750rpx;
+}
+/* 好车推荐 */
+
+.recommend {
+    padding: 31rpx;
+    background: white;
+    margin-top: 18rpx;
+}
+
+.recommend .li {
+    border-bottom: 4rpx solid #f4f4f4;
+    padding: 30rpx 0;
+}
+
+.recommend .title {
+    font-weight: bold;
+}
+
+.recommend .rec_pic {
+    display: inline-block;
+}
+
+.recommend .rec_pic image {
+    width: 254rpx;
+    height: 177rpx;
+}
+
+.recommend .rec_name {
+    margin-left: 30rpx;
+    display: inline-block;
+    vertical-align: top;
+    width: 400rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    height: 177rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.recommend .rec_name .carname {
+    line-height: 40rpx;
+    height: 80rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.recommend .rec_name .info {
+    color: dimgray;
+    font-size: 25rpx;
+    font-weight: normal;
+    margin-top: 10rpx;
+}
+
+.recommend .rec_name .price {
+    position: absolute;
+    bottom: 0;
+    color: #fa800a;
+}
+
+.recommend .rec_name .price text {
+    color: dimgray;
+    font-size: 25rpx;
+    font-weight: normal;
+}
+
+.recommend .rec_name .price text text {
+    text-decoration: line-through;
+}
+
 
 
 

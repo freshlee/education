@@ -102,7 +102,7 @@
 </scroll-view>
 
 
-<view class="purchase" wx:if="{{permission===0&&priceattr!='1'}}" bindtap="purchase">立即报名</view>
+<view class="purchase" wx:if="{{permission===0&&priceattr!='1'}}" bindtap="purchase">我要试听</view>
 
 <loading hidden="{{hidden}}">加载中...</loading>
 

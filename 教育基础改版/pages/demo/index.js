@@ -17,8 +17,51 @@ Page({
             }
         }
     },
+    jumptodetail: function (event) {
+      var id = event.currentTarget.dataset.id;
+      var jumptype = event.currentTarget.dataset.type;
+      var typename;
+      if (jumptype == 1) { typename = "video" }
+      else if (jumptype == 2) { typename = "course" }
+      else { typename = "article" }
+      var newurl = "../" + typename + "/index?&id=" + id;
+      console.log(newurl);
+      wx.navigateTo({
+        url: newurl,
+      })
+    },
+    dosearch: function (e) {
+      this.setData({
+        hidden: false,
+      })
+      var THIS = this;
+      var title = e.detail.value;
+      for (var key in title) {
+        title = title[key];
+      }
+      console.log(title)
+      wx.request({
+        url: getApp().globalData.server,
+        data: {
+          a: "merch",
+          op: "likegoods",
+          title: title,
+        },
+        success: function (res) {
+          THIS.setData({
+            searchlist: res.data.dat.goods,
+            hidden: true,
+          })
+        }
+      })
+    },
     data: {
-
+      searchstatus: 0,
+    },
+    search: function () {
+      this.setData({
+        searchstatus: !this.data.searchstatus,
+      })
     },
     getLocalTime: function(nS) {
         var timestamp = nS;
@@ -55,6 +98,13 @@ Page({
     },
     onLoad: function() {
       var THIS = this;
+      wx.getSystemInfo({
+        success: function (res) {
+          THIS.setData({
+            myheight: res.screenHeight,
+          })
+        },
+      })
       wx.request({
         url: getApp().globalData.server + '&a=merch&op=id',
         data: {
